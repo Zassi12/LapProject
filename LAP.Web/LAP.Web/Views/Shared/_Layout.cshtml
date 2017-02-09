@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
+    <title>@ViewBag.Title - Meine ASP.NET-Anwendung</title>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!--start: Header -->
+    <header>
+
+        <!--start: Container -->
+        <div class="container">
+
+            <!--start: Row -->
+            <div class="row">
+
+                <!--start: Logo -->
+                <div class="logo span3">
+
+                    <a class="brand" href="#"><img src="img/logo.png"></a>
+
+                </div>
+                <!--end: Logo -->
+                <!--start: Navigation -->
+                <div class="span9">
+
+                    <div class="navbar navbar-inverse">
+                        <div class="navbar-inner">
+                            <div class="container">
+                                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </a>
+                                <div class="nav-collapse collapse">
+                                    <ul class="nav">
+                                        @*class="active"*@
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="pricing.html">Pricing</a></li>
+                                        <li><a href="*">Login</a></li>
+                                        <!--Dropdown-->
+                                        @*<li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li class="divider"></li>
+                                                <li class="nav-header">Nav header</li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </li>*@
+                                        <!--Dropdown ende-->
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--end: Navigation -->
+
+            </div>
+            <!--end: Row -->
+
+        </div>
+        <!--end: Container-->
+
+    </header>
+    <!--end: Header-->     
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        
+            <div id="footer-menu" class="hidden-tablet hidden-phone">
+                <!-- start: Container -->
+                <div class="container">
+
+                    <!-- start: Row -->
+                    <div class="row">
+                        <!-- start: Footer Menu Logo -->
+                        <div class="span2">
+                            <div id="footer-menu-logo">
+                                <a href="#"><img src="img/logo-footer-menu.png" alt="logo" /></a>
+                            </div>
+                        </div>
+                        <!-- end: Footer Menu Logo -->
+                        <!-- start: Footer Menu Links-->
+                        <div class="span9">
+
+                            <div id="footer-menu-links">
+                                <ul id="footer-nav">
+                                    <li><a href="index.html">Start</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="pricing.html">Pricing</a></li>
+
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- end: Footer Menu Links-->
+                        <!-- start: Footer Menu Back To Top -->
+                        <div class="span1">
+
+                            <div id="footer-menu-back-to-top">
+                                <a href="#"></a>
+                            </div>
+
+                        </div>
+                        <!-- end: Footer Menu Back To Top -->
+
+                    </div>
+                    <!-- end: Row -->
+
+                </div>
+                <!-- end: Container  -->
+            </div>
+            <!-- end: Footer Menu -->  
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
