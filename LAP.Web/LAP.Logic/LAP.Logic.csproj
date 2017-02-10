@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>1847316d-74f5-4018-93d9-ccb8dad498d6</ProjectGuid>
+    <ProjectGuid>{1847316D-74F5-4018-93D9-CCB8DAD498D6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LAP.Logic</RootNamespace>
@@ -30,24 +30,111 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Benutzer.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BenutzerVerwaltung.cs" />
+    <Compile Include="bill.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="billdetail.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="booking.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bookingreversal.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Buchung.cs" />
+    <Compile Include="BuchungsVerwaltung.cs" />
+    <Compile Include="company.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="contact.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="facility.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="furnishing.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITIN20LAP.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITIN20LAP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITIN20LAP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITIN20LAP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalRollen.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="room.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="roomfurnishing.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ITIN20LAP.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ITIN20LAP.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="ITIN20LAP.edmx.diagram">
+      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ITIN20LAP.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
+      <LastGenOutput>ITIN20LAP.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ITIN20LAP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
+      <LastGenOutput>ITIN20LAP.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -57,5 +144,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
- </Project>
+</Project>
