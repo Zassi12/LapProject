@@ -12,9 +12,9 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Benutzer
+    public partial class portaluser
     {
-        public Benutzer()
+        public portaluser()
         {
             this.bills = new HashSet<bill>();
             this.bookingreversals = new HashSet<bookingreversal>();

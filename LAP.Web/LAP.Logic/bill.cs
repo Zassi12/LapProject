@@ -24,6 +24,6 @@ namespace LAP.Logic
         public int portaluser_id { get; set; }
     
         public virtual ICollection<billdetail> billdetails { get; set; }
-        public virtual Benutzer portaluser { get; set; }
+        public virtual portaluser portaluser { get; set; }
     }
 }

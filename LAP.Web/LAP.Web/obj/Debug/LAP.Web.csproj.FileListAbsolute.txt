@@ -118,3 +118,8 @@ C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\de\System.Web.WebP
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\obj\Debug\LAP.Web.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\obj\Debug\LAP.Web.dll
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\obj\Debug\LAP.Web.pdb
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\LAP.Logic.dll
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\EntityFramework.dll
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\LAP.Logic.pdb
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\EntityFramework.xml
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\de\EntityFramework.resources.dll

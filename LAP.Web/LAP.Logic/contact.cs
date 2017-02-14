@@ -19,6 +19,6 @@ namespace LAP.Logic
         public int company_id { get; set; }
     
         public virtual company company { get; set; }
-        public virtual Benutzer portaluser { get; set; }
+        public virtual portaluser portaluser { get; set; }
     }
 }

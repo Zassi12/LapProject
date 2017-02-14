@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="ITIN20LAPModel.facility" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.furnishing" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.PortalRollen" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.Benutzer" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.portaluser" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.roomfurnishing" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.room" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Log" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />

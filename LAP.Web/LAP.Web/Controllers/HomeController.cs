@@ -27,5 +27,19 @@ namespace LAP.Web.Controllers
 
             return View();
         }
+
+        public ActionResult Agb()
+        {
+            ViewBag.Message = "Your Agb page.";
+
+            return View();
+        }
+
+        public ActionResult Impressum()
+        {
+            ViewBag.Message = "Your Impressum page.";
+
+            return View();
+        }
     }
 }

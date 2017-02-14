@@ -16,12 +16,12 @@ namespace LAP.Logic
     {
         public PortalRollen()
         {
-            this.portalusers = new HashSet<Benutzer>();
+            this.portalusers = new HashSet<portaluser>();
         }
     
         public int id { get; set; }
         public string description { get; set; }
     
-        public virtual ICollection<Benutzer> portalusers { get; set; }
+        public virtual ICollection<portaluser> portalusers { get; set; }
     }
 }

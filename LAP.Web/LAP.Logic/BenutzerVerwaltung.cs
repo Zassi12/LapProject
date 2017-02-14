@@ -27,9 +27,9 @@ namespace LAP.Logic
         /// Liefert alle Kunden aus der DB
         /// </summary>
         /// <returns>Liste aller Kunden</returns>
-        public static List<Benutzer> AlleBenutzer()
+        public static List<portaluser> AlleBenutzer()
         {
-            List<Benutzer> benutzerListe = new List<Benutzer>();
+            var benutzerListe = new List<portaluser>();
             var context = new ITIN20LAPEntities();
             benutzerListe = context.portalusers.ToList();
             return benutzerListe;
@@ -40,18 +40,18 @@ namespace LAP.Logic
         /// </summary>
         /// <param name="email">die Email des gesuchten Benutzers</param>
         /// <returns>den Benutzer oder NULL kein benutzer gefunden wird oder bei Fehler</returns>
-        public static Benutzer BenutzerSuchen(string email)
+        public static portaluser BenutzerSuchen(string email)
         {
             Debug.WriteLine("BenutzerVerwaltung - BenutzerSuche(email)");
             Debug.Indent();
-            Benutzer gesuchterBenutzer = null;
+            portaluser gesuchterBenutzer = null;
             using (var context = new ITIN20LAPEntities())
             {
                 try
                 {
-                    gesuchterBenutzer = context.AlleBenutzer.Where(x => x.Email == email).FirstOrDefault();
-                    int id = gesuchterBenutzer.ID;
-                    gesuchterBenutzer = context.AlleBenutzer.Find(id);
+                    gesuchterBenutzer = context.portalusers.Where(x => x.email == email).FirstOrDefault();
+                    int id = gesuchterBenutzer.id;
+                    gesuchterBenutzer = context.portalusers.Find(id);
                 }
                 catch (Exception ex)
                 {
@@ -64,30 +64,24 @@ namespace LAP.Logic
             return gesuchterBenutzer;
         }
 
-        /// <summary>
-        /// Speichert das übergebene Objekt in die Datenbank
-        /// </summary>
-        /// <param name="benutzer">das Datenbankobjekt Benutzer</param>
-        /// <returns>die Anzahl der betroffenen Zeilen</returns>
-        public static int Aktualisieren(Benutzer benutzer)
+        ///// <summary>
+        ///// Speichert das übergebene Objekt in die Datenbank
+        ///// </summary>
+        ///// <param name="benutzer">das Datenbankobjekt Benutzer</param>
+        ///// <returns>die Anzahl der betroffenen Zeilen</returns>
+        public static int Aktualisieren(portaluser benutzer)
         {
             Debug.WriteLine("BenutzerVerwaltung - Aktualisieren(id)");
             Debug.Indent();
             int zeilen = 0;
-            Benutzer gesuchterBenutzer = null;
+            portaluser gesuchterBenutzer = null;
             using (var context = new ITIN20LAPEntities())
             {
                 try
                 {
-                    gesuchterBenutzer = context.AlleBenutzer.Where(x => x.ID == benutzer.ID).FirstOrDefault();
-                    gesuchterBenutzer.Nachname = benutzer.Nachname;
-                    gesuchterBenutzer.ID = benutzer.ID;
-                    gesuchterBenutzer.Geburtsdatum = benutzer.Geburtsdatum;
-                    gesuchterBenutzer.Vorname = benutzer.Vorname;
-                    gesuchterBenutzer.Land = benutzer.Land;
-                    gesuchterBenutzer.Passwort = benutzer.Passwort;
-                    gesuchterBenutzer.Telefon = benutzer.Telefon;
-                    gesuchterBenutzer.Titel = benutzer.Titel;
+                    gesuchterBenutzer = context.portalusers.Where(x => x.id == benutzer.id).FirstOrDefault();
+                    gesuchterBenutzer.id = benutzer.id;
+                    gesuchterBenutzer.password = benutzer.password;
                     zeilen = context.SaveChanges();
                     Debug.WriteLineIf(zeilen == 1, "Benutzer erfolgreich geändert!");
                 }
@@ -102,31 +96,26 @@ namespace LAP.Logic
             return zeilen;
 
         }
-
-
-        public partial class Benutzer
+        /// <summary>
+        /// Fügt einen user der datenbank hinzu
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static int Hinzufügen(portaluser user)
         {
-            public Benutzer()
+            using (var context = new ITIN20LAPEntities())
             {
-                this.AlleBuchungen = new HashSet<Buchung>();
+                try
+                {
+                    
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+                return 1;
             }
-
-            public int ID { get; set; }
-            public string Email { get; set; }
-            public byte[] Passwort { get; set; }
-            public string Vorname { get; set; }
-            public string Nachname { get; set; }
-            public bool Geschlecht { get; set; }
-            public string Telefon { get; set; }
-            public string Titel { get; set; }
-            public System.DateTime Geburtsdatum { get; set; }
-            public bool Ist_Mitarbeiter { get; set; }
-            public System.DateTime ErstelltAm { get; set; }
-
-            public virtual Adresse Adresse { get; set; }
-            public virtual Land Land { get; set; }
-            public virtual ICollection<Buchung> AlleBuchungen { get; set; }
         }
-
     }
 }

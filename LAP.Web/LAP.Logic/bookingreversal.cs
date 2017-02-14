@@ -20,6 +20,6 @@ namespace LAP.Logic
         public string reason { get; set; }
     
         public virtual booking booking { get; set; }
-        public virtual Benutzer portaluser { get; set; }
+        public virtual portaluser portaluser { get; set; }
     }
 }

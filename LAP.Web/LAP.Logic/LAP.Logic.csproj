@@ -48,9 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Benutzer.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
     <Compile Include="BenutzerVerwaltung.cs" />
     <Compile Include="bill.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
@@ -97,6 +94,9 @@
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="PortalRollen.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="portaluser.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="room.cs">

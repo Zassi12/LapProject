@@ -88,8 +88,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Benutzers">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.Benutzer">
+    <EntitySetMapping Name="portalusers">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.portaluser">
         <MappingFragment StoreEntitySet="portalusers">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="role_id" ColumnName="role_id" />

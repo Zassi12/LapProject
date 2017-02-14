@@ -34,7 +34,7 @@ namespace LAP.Logic
         public DbSet<facility> facilities { get; set; }
         public DbSet<furnishing> furnishings { get; set; }
         public DbSet<PortalRollen> PortalRollens { get; set; }
-        public DbSet<Benutzer> Benutzers { get; set; }
+        public DbSet<portaluser> portalusers { get; set; }
         public DbSet<roomfurnishing> roomfurnishings { get; set; }
         public DbSet<room> rooms { get; set; }
         public DbSet<Log> Logs { get; set; }

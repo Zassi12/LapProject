@@ -20,9 +20,9 @@ namespace LAP.Logic
 
             using (context)
             {
-                foreach (Benutzer b in context.AlleBenutzer)
+                foreach (portaluser b in context.portalusers)
                 {
-                    if (b.Email == email && pw.SequenceEqual(b.Passwort))
+                    if (b.email == email && pw.SequenceEqual(b.password))
                     {
                         return true;
                     }
@@ -49,9 +49,9 @@ namespace LAP.Logic
 
             using (context)
             {
-                foreach (Benutzer b in context.AlleBenutzer)
+                foreach (portaluser b in context.portalusers)
                 {
-                    if (b.Passwort == pw)
+                    if (b.password == pw)
                     {
                         return true;
                     }
@@ -67,27 +67,28 @@ namespace LAP.Logic
         /// </summary>
         /// <param name="passwort">Passwort in Klartext</param>
         /// <returns>ByteArray</returns>
-        public static byte[] PasswortZuByteArray(string passwort)
-        {
-            //reisebueroEntities context = new reisebueroEntities();
+        //public static byte[] PasswortZuByteArray(string passwort)
+        //{
+        //    //reisebueroEntities context = new reisebueroEntities();
 
-            SHA512 hash = SHA512.Create();
+        //    SHA512 hash = SHA512.Create();
+        //    //var context = ITIN20LAPEntities()
 
-            byte[] pw = hash.ComputeHash(Encoding.UTF8.GetBytes(passwort));
+        //    byte[] pw = hash.ComputeHash(Encoding.UTF8.GetBytes(passwort));
 
-            //using (context)
-            //{
-            //    foreach (Benutzer b in context.AlleBenutzer)
-            //    {
-            //        if (pw.SequenceEqual(b.Passwort))
-            //        {
-            //            return pw;
-            //        }
-            //    }
+        //    using (context)
+        //    {
+        //        foreach (portaluser b in context.AlleBenutzer)
+        //        {
+        //            if (pw.SequenceEqual(b.password))
+        //            {
+        //                return pw;
+        //            }
+        //        }
 
-            //}
-            return pw;
-        }
+        //    }
+        //    return pw;
+        //}
 
 
         /// <summary>
@@ -110,15 +111,15 @@ namespace LAP.Logic
                 {
                     //Gibt es einen Benutzer, bei der die Email Adresse dem Parameter entspricht
                     // UND das Feld Ist_Mitarbeiter TRUE ist
-                    istMitarbeiter = context.AlleBenutzer.Any(x => x.Email == email && x.Ist_Mitarbeiter);
+                    istMitarbeiter = context.portalusers.Any(x => x.email == email);
 
-                    //foreach (var item in context.AlleBenutzer)
-                    //{
-                    //    if (item.Email == email && item.Ist_Mitarbeiter)
-                    //    {
-                    //        istMitarbeiter = true;
-                    //    }
-                    //}
+                    foreach (var item in context.portalusers)
+                    {
+                        if (item.email == email)
+                        {
+                            istMitarbeiter = true;
+                        }
+                    }
                 }
             }
             catch (Exception ex)

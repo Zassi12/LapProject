@@ -27,7 +27,7 @@ namespace LAP.Logic
     
         public virtual ICollection<billdetail> billdetails { get; set; }
         public virtual ICollection<bookingreversal> bookingreversals { get; set; }
-        public virtual Benutzer portaluser { get; set; }
+        public virtual portaluser portaluser { get; set; }
         public virtual room room { get; set; }
     }
 }
