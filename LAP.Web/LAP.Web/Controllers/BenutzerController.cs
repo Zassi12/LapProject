@@ -55,5 +55,22 @@ namespace LAP.Web.Controllers
 
             return RedirectToAction("Laden", "Reisen");
         }
+
+        /// <summary>
+        /// logout-Seite durch HttpGet erreichbar
+        /// </summary>
+        /// <returns>Die Login-Ansicht</returns>
+        //[ChildActionOnly]
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            return View();
+        }
+
+        //[HttpPost]
+        //public ActionResult Logout()
+        //{
+        //    return View();
+        //}
     }
 }

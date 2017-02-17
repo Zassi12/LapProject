@@ -61,11 +61,11 @@
     <Compile Include="bookingreversal.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="Buchung.cs" />
     <Compile Include="BuchungsVerwaltung.cs" />
     <Compile Include="company.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
+    <Compile Include="CompanyVerwaltung.cs" />
     <Compile Include="contact.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>

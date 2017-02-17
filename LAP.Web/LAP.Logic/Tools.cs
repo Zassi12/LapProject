@@ -8,8 +8,17 @@ using System.Threading.Tasks;
 
 namespace LAP.Logic
 {
+    /// <summary>
+    /// A class meant for general tools to help in all situations.
+    /// </summary>
     public class Tools
     {
+        /// <summary>
+        /// Reurns if password is the same "true" if password different "False"
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="passwort"></param>
+        /// <returns>bool</returns>
         public static bool PasswortUndEmailVergleich(string email, string passwort)
         {
             var context = new ITIN20LAPEntities();
