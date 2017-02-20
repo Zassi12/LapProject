@@ -4,14 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ITIN20LAPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ITIN20LAPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="billdetails">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="bill_id" Type="int" Nullable="false" />
           <Property Name="booking_id" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="bill_id" Type="int" />
         </EntityType>
         <EntityType Name="bills">
           <Key>
@@ -80,12 +81,12 @@
 Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel definiert. Der Schlüssel wurde abgeleitet, und die Definition wurde als schreibgeschützte Tabelle/Sicht erstellt.-->
         <EntityType Name="Log">
           <Key>
-            <PropertyRef Name="Id" />
             <PropertyRef Name="Date" />
             <PropertyRef Name="Thread" />
             <PropertyRef Name="Level" />
             <PropertyRef Name="Logger" />
             <PropertyRef Name="Message" />
+            <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
@@ -112,6 +113,7 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
           <Property Name="password" Type="varbinary" MaxLength="1000" Nullable="false" />
           <Property Name="firstname" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ist_Mitarbeiter" Type="bit" />
         </EntityType>
         <EntityType Name="roomfurnishings">
           <Key>
@@ -126,11 +128,11 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="facilities_id" Type="int" Nullable="false" />
+          <Property Name="facility_id" Type="int" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="fk_billdetails_bills">
-          <End Role="bills" Type="Self.bills" Multiplicity="1" />
+          <End Role="bills" Type="Self.bills" Multiplicity="0..1" />
           <End Role="billdetails" Type="Self.billdetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="bills">
@@ -273,18 +275,6 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_rooms_facilities">
-          <End Role="facilities" Type="Self.facilities" Multiplicity="1" />
-          <End Role="rooms" Type="Self.rooms" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="facilities">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="rooms">
-              <PropertyRef Name="facilities_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ITIN20LAPModelStoreContainer">
           <EntitySet Name="billdetails" EntityType="Self.billdetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bills" EntityType="Self.bills" Schema="dbo" store:Type="Tables" />
@@ -357,13 +347,8 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
             <End Role="rooms" EntitySet="rooms" />
             <End Role="roomfurnishings" EntitySet="roomfurnishings" />
           </AssociationSet>
-          <AssociationSet Name="FK_rooms_facilities" Association="Self.FK_rooms_facilities">
-            <End Role="facilities" EntitySet="facilities" />
-            <End Role="rooms" EntitySet="rooms" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ITIN20LAPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -372,10 +357,11 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="bill_id" Type="Int32" Nullable="false" />
+          <Property Name="bill_id" Type="Int32" />
           <Property Name="booking_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="bill" Relationship="Self.fk_billdetails_bills" FromRole="billdetails" ToRole="bills" />
           <NavigationProperty Name="booking" Relationship="Self.fk_billdetails_bookings" FromRole="billdetails" ToRole="bookings" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="bill">
           <Key>
@@ -476,6 +462,7 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <NavigationProperty Name="bookings" Relationship="Self.fk_bookings_portalusers" FromRole="portalusers" ToRole="bookings" />
           <NavigationProperty Name="contacts" Relationship="Self.fk_contacts_portalusers" FromRole="portalusers" ToRole="contacts" />
           <NavigationProperty Name="portalrole" Relationship="Self.fk_portalusers_portalroles" FromRole="portalusers" ToRole="portalroles" />
+          <Property Name="Ist_Mitarbeiter" Type="Boolean" />
         </EntityType>
         <EntityType Name="roomfurnishing">
           <Key>
@@ -497,15 +484,16 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <NavigationProperty Name="bookings" Relationship="Self.fk_bookings_rooms" FromRole="rooms" ToRole="bookings" />
           <NavigationProperty Name="facility" Relationship="Self.FK_rooms_facilities" FromRole="rooms" ToRole="facilities" />
           <NavigationProperty Name="roomfurnishings" Relationship="Self.fk_roomfurnishings_rooms" FromRole="rooms" ToRole="roomfurnishings" />
+          <Property Name="facility_id" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Log">
           <Key>
-            <PropertyRef Name="Id" />
             <PropertyRef Name="Date" />
             <PropertyRef Name="Thread" />
             <PropertyRef Name="Level" />
             <PropertyRef Name="Logger" />
             <PropertyRef Name="Message" />
+            <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
@@ -747,6 +735,7 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <EntitySetMapping Name="billdetails">
             <EntityTypeMapping TypeName="ITIN20LAPModel.billdetail">
               <MappingFragment StoreEntitySet="billdetails">
+                <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="bill_id" ColumnName="bill_id" />
                 <ScalarProperty Name="booking_id" ColumnName="booking_id" />
@@ -834,6 +823,7 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <EntitySetMapping Name="portalusers">
             <EntityTypeMapping TypeName="ITIN20LAPModel.portaluser">
               <MappingFragment StoreEntitySet="portalusers">
+                <ScalarProperty Name="Ist_Mitarbeiter" ColumnName="Ist_Mitarbeiter" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="role_id" ColumnName="role_id" />
                 <ScalarProperty Name="email" ColumnName="email" />
@@ -855,8 +845,8 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <EntitySetMapping Name="rooms">
             <EntityTypeMapping TypeName="ITIN20LAPModel.room">
               <MappingFragment StoreEntitySet="rooms">
+                <ScalarProperty Name="facility_id" ColumnName="facility_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="facilities_id" ColumnName="facilities_id" />
                 <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>
             </EntityTypeMapping>

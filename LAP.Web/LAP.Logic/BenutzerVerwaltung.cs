@@ -112,7 +112,7 @@ namespace LAP.Logic
                 catch (Exception ex)
                 {
 
-                    throw;
+                    throw ex;
                 }
                 return 1;
             }

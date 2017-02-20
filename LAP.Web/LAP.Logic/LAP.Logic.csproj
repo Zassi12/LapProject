@@ -49,32 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BenutzerVerwaltung.cs" />
-    <Compile Include="bill.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="billdetail.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="booking.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bookingreversal.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
     <Compile Include="BuchungsVerwaltung.cs" />
-    <Compile Include="company.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
     <Compile Include="CompanyVerwaltung.cs" />
-    <Compile Include="contact.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="facility.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="furnishing.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
     <Compile Include="ITIN20LAP.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,21 +65,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ITIN20LAP.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Log.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PortalRollen.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="portaluser.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="room.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="roomfurnishing.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="Tools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

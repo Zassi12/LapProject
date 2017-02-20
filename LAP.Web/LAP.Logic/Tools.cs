@@ -122,12 +122,17 @@ namespace LAP.Logic
                     // UND das Feld Ist_Mitarbeiter TRUE ist
                     istMitarbeiter = context.portalusers.Any(x => x.email == email);
 
-                    foreach (var item in context.portalusers)
+                    //List<portaluser> mitarbeiter = new List<portaluser>() { new portaluser { email = "dzallinger@gmx.at" } };
+                    foreach (var i in context.portalusers)
                     {
-                        if (item.email == email)
-                        {
-                            istMitarbeiter = true;
-                        }
+                        //foreach (var x in mitarbeiter)
+                        //{
+                            if (i.email == email)
+                            {
+                                istMitarbeiter = true;
+                            }
+                        //}
+
                     }
                 }
             }

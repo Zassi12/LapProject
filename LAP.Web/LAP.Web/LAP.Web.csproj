@@ -435,7 +435,6 @@
     <Content Include="Views\Benutzer\Login.cshtml" />
     <Content Include="Views\Home\AGB.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Benutzer\Logout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
