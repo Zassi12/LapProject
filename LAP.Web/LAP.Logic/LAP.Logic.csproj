@@ -34,6 +34,10 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -49,53 +53,92 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BenutzerVerwaltung.cs" />
+    <Compile Include="bill.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    </Compile>
+    <Compile Include="billdetail.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    </Compile>
+    <Compile Include="booking.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bookingreversal.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    </Compile>
     <Compile Include="BuchungsVerwaltung.cs" />
+    <Compile Include="company.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    </Compile>
     <Compile Include="CompanyVerwaltung.cs" />
-    <Compile Include="ITIN20LAP.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ITIN20LAP.Context.tt</DependentUpon>
+    <Compile Include="contact.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
     </Compile>
-    <Compile Include="ITIN20LAP.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    <Compile Include="facility.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
     </Compile>
-    <Compile Include="ITIN20LAP.Designer.cs">
+    <Compile Include="furnishing.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITIN20Lap.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
+      <DependentUpon>ITIN20Lap.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITIN20Lap.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITIN20Lap.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITIN20Lap.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    </Compile>
+    <Compile Include="portalrole.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    </Compile>
+    <Compile Include="portaluser.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleAdministration.cs" />
+    <Compile Include="room.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    </Compile>
+    <Compile Include="roomfurnishing.cs">
+      <DependentUpon>ITIN20Lap.tt</DependentUpon>
     </Compile>
     <Compile Include="Tools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="ITIN20LAP.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ITIN20LAP.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="UserAdministration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="ITIN20LAP.edmx.diagram">
-      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
+    <EntityDeploy Include="ITIN20Lap.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ITIN20Lap.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ITIN20Lap.edmx.diagram">
+      <DependentUpon>ITIN20Lap.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ITIN20LAP.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
-      <LastGenOutput>ITIN20LAP.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ITIN20LAP.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
-      <LastGenOutput>ITIN20LAP.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="ITIN20Lap.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ITIN20Lap.edmx</DependentUpon>
+      <LastGenOutput>ITIN20Lap.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ITIN20Lap.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ITIN20Lap.edmx</DependentUpon>
+      <LastGenOutput>ITIN20Lap.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

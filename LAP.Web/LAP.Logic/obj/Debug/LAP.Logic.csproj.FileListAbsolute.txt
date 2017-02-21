@@ -3,3 +3,14 @@ C:\Users\zalldani\Documents\Visual Studio 2015\Projects\LAP.Web\LAP.Logic\bin\De
 C:\Users\zalldani\Documents\Visual Studio 2015\Projects\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Documents\Visual Studio 2015\Projects\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.dll
 C:\Users\zalldani\Documents\Visual Studio 2015\Projects\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.pdb
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.csprojResolveAssemblyReference.cache
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.dll.config
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.dll
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.pdb
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\bin\Debug\EntityFramework.dll
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\bin\Debug\EntityFramework.xml
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\bin\Debug\de\EntityFramework.resources.dll
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.dll
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.pdb
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\bin\Debug\log4net.dll
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\bin\Debug\log4net.xml

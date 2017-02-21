@@ -31,7 +31,7 @@ namespace LAP.Logic
         {
             var benutzerListe = new List<portaluser>();
             var context = new ITIN20LAPEntities();
-            benutzerListe = context.portalusers.ToList();
+            benutzerListe = context.Allportalusers.ToList();
             return benutzerListe;
         }
 
@@ -49,9 +49,9 @@ namespace LAP.Logic
             {
                 try
                 {
-                    gesuchterBenutzer = context.portalusers.Where(x => x.email == email).FirstOrDefault();
+                    gesuchterBenutzer = context.Allportalusers.Where(x => x.email == email).FirstOrDefault();
                     int id = gesuchterBenutzer.id;
-                    gesuchterBenutzer = context.portalusers.Find(id);
+                    gesuchterBenutzer = context.Allportalusers.Find(id);
                 }
                 catch (Exception ex)
                 {
@@ -79,7 +79,7 @@ namespace LAP.Logic
             {
                 try
                 {
-                    gesuchterBenutzer = context.portalusers.Where(x => x.id == benutzer.id).FirstOrDefault();
+                    gesuchterBenutzer = context.Allportalusers.Where(x => x.id == benutzer.id).FirstOrDefault();
                     gesuchterBenutzer.id = benutzer.id;
                     gesuchterBenutzer.password = benutzer.password;
                     zeilen = context.SaveChanges();
