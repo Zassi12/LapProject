@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
+using LAP.Logic;
 
 namespace LAP.Auth
 {

@@ -17,11 +17,11 @@ namespace LAP.Logic
         /// <param name="benutzerName">Die vergebene Email-Adresse</param>
         /// <param name="passwort">Das vergebene Passwort</param>
         /// <returns>true oder false</returns>
-        public static bool Anmelden(string benutzerName, string passwort)
-        {
-            Debug.WriteLine("BenutzerVerwaltung - Anmelden");
-            return Tools.PasswortUndEmailVergleich(benutzerName, passwort);
-        }
+        //public static bool Anmelden(string benutzerName, string passwort)
+        //{
+        //    Debug.WriteLine("BenutzerVerwaltung - Anmelden");
+        //    return Tools.PasswortUndEmailVergleich(benutzerName, passwort);
+        //}
 
         /// <summary>
         /// Liefert alle Kunden aus der DB

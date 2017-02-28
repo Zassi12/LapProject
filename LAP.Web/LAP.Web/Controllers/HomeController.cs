@@ -41,5 +41,13 @@ namespace LAP.Web.Controllers
 
             return View();
         }
+
+
+        public ActionResult Verwaltung()
+        {
+            ViewBag.Message = "Your Verwaltung page.";
+
+            return View();
+        }
     }
 }

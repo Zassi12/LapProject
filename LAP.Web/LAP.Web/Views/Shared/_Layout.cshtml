@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/css/bootstrap.css" rel="stylesheet">
@@ -44,23 +44,39 @@
                                 <div class="nav-collapse collapse">
                                     <ul class="nav">
                                         @*class="active"*@
-                                        <li><a href="~/Home/Index">Home</a></li>
-                                        <li><a href="~/Home/About">About</a></li>
-                                        <li><a href="~/Home/Contact">Contact</a></li>
-                                        <li><a href="~/Benutzer/Login">Login</a></li>
+                                        <li><a class = "btn buttonAction" href="~/Home/Index">Home</a></li>
+                                        <li><a class = "btn buttonAction" href="~/Home/About">About</a></li>
+                                        <li><a class = "btn buttonAction" href="~/Home/Contact">Contact</a></li>
+
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+
+                                            <li>
+                                                @Html.ActionLink("Abmelden", "Logout", "Benutzer", null, new { @class = "btn buttonAction" })
+                                            </li>
+                                            @*<li>
+                                                @Html.ActionLink("Ihr Profil", "Aktualisieren", "Benutzer", null, new { @class = "btn buttonAction" })
+                                            </li>*@
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                @Html.ActionLink("Anmelden", "Login", "Benutzer", null, new { @class = "btn buttonAction" })
+                                            </li>
+                                        }
                                         <!--Dropdown-->
                                         @*<li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">Action</a></li>
-                                                <li><a href="#">Another action</a></li>
-                                                <li><a href="#">Something else here</a></li>
-                                                <li class="divider"></li>
-                                                <li class="nav-header">Nav header</li>
-                                                <li><a href="#">Separated link</a></li>
-                                                <li><a href="#">One more separated link</a></li>
-                                            </ul>
-                                        </li>*@
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Action</a></li>
+                                                    <li><a href="#">Another action</a></li>
+                                                    <li><a href="#">Something else here</a></li>
+                                                    <li class="divider"></li>
+                                                    <li class="nav-header">Nav header</li>
+                                                    <li><a href="#">Separated link</a></li>
+                                                    <li><a href="#">One more separated link</a></li>
+                                                </ul>
+                                            </li>*@
                                         <!--Dropdown ende-->
 
                                     </ul>
@@ -79,53 +95,53 @@
         <!--end: Container-->
 
     </header>
-    <!--end: Header-->     
+    <!--end: Header-->
     <div class="container body-content">
         @RenderBody()
         <hr />
-        
-            <div id="footer-menu" class="hidden-tablet hidden-phone">
-                <!-- start: Container -->
-                <div class="container">
 
-                    <!-- start: Row -->
-                    <div class="row">
-                        <!-- start: Footer Menu Logo -->
-                        <div class="span2">
-                            <div id="footer-menu-logo">
-                                <a href="#"><img src="~/img/logo-footer-menu.png" alt="logo" /></a>
-                            </div>
+        <div id="footer-menu" class="hidden-tablet hidden-phone">
+            <!-- start: Container -->
+            <div class="container">
+
+                <!-- start: Row -->
+                <div class="row">
+                    <!-- start: Footer Menu Logo -->
+                    <div class="span2">
+                        <div id="footer-menu-logo">
+                            <a href="#"><img src="~/img/logo-footer-menu.png" alt="logo" /></a>
                         </div>
-                        <!-- end: Footer Menu Logo -->
-                        <!-- start: Footer Menu Links-->
-                        <div class="span9">
+                    </div>
+                    <!-- end: Footer Menu Logo -->
+                    <!-- start: Footer Menu Links-->
+                    <div class="span9">
 
-                            <div id="footer-menu-links">
-                                <ul id="footer-nav">
-                                    <li><a href="~/Home/Impressum">Impressum</a></li>
-                                    <li><a href="~/Home/AGB">AGB</a></li>
-                                    <li><a href="~/Home/Contact">Contact</a></li>
-                                </ul>
-                            </div>
+                        <div id="footer-menu-links">
+                            <ul id="footer-nav">
+                                <li><a href="~/Home/Impressum">Impressum</a></li>
+                                <li><a href="~/Home/AGB">AGB</a></li>
+                                <li><a href="~/Home/Contact">Contact</a></li>
+                            </ul>
                         </div>
-                        <!-- end: Footer Menu Links-->
-                        <!-- start: Footer Menu Back To Top -->
-                        <div class="span1">
+                    </div>
+                    <!-- end: Footer Menu Links-->
+                    <!-- start: Footer Menu Back To Top -->
+                    <div class="span1">
 
-                            <div id="footer-menu-back-to-top">
-                                <a href="#"></a>
-                            </div>
-
+                        <div id="footer-menu-back-to-top">
+                            <a href="#"></a>
                         </div>
-                        <!-- end: Footer Menu Back To Top -->
 
                     </div>
-                    <!-- end: Row -->
+                    <!-- end: Footer Menu Back To Top -->
 
                 </div>
-                <!-- end: Container  -->
+                <!-- end: Row -->
+
             </div>
-            <!-- end: Footer Menu -->  
+            <!-- end: Container  -->
+        </div>
+        <!-- end: Footer Menu -->
     </div>
 
     @Scripts.Render("~/bundles/jquery")

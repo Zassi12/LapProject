@@ -172,6 +172,90 @@ namespace LAP.Logic
             return user;
         }
 
+        public static bool DeactivateUser(string username)
+        {
+            //log.Info("DeactivateUser(username)");
+            //bool success = false;
+
+            //if (string.IsNullOrEmpty(username))
+            //{
+            //    throw new ArgumentNullException(nameof(username));
+            //}
+            //else
+            //{
+            //    using (var context = new ITIN20LAPEntities())
+            //    {
+            //        try
+            //        {
+            //            portaluser curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+
+            //            if (curUser != null)
+            //            {
+            //                curUser.Active = false;
+            //                context.SaveChanges();
+            //                success = true;
+            //                log.Info("User has been deactivated!");
+            //            }
+            //            else
+            //            {
+            //                log.Info("Unknown username");
+            //            }
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            log.Error("Exception in DeactivateUser", ex);
+            //            if (ex.InnerException != null)
+            //                log.Error("Exception in DeactivateUser (inner)", ex.InnerException);
+            //            throw;
+            //        }
+            //    }
+            //}
+            //return success;
+            return true;
+        }
+
+        public static bool ActivateUser(string username)
+        {
+            //log.Info("ActivateUser(username)");
+            //bool success = false;
+
+            //if (string.IsNullOrEmpty(username))
+            //{
+            //    throw new ArgumentNullException(nameof(username));
+            //}
+            //else
+            //{
+            //    using (var context = new ITIN20LAPEntities())
+            //    {
+            //        try
+            //        {
+            //            portaluser curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+
+            //            if (curUser != null)
+            //            {
+            //                curUser.Active = true;
+            //                context.SaveChanges();
+            //                success = true;
+            //                log.Info("User has been deactivated!");
+            //            }
+            //            else
+            //            {
+            //                log.Info("Unknown username");
+            //            }
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            log.Error("Exception in DeactivateUser", ex);
+            //            if (ex.InnerException != null)
+            //                log.Error("Exception in DeactivateUser (inner)", ex.InnerException);
+            //            throw;
+            //        }
+            //    }
+            //}
+            //return success;
+            return true;
+        }
+
         public static LogonResult Logon(string username, string password)
         {
             log.Info("Logon(username, password)");

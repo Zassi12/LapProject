@@ -58,7 +58,6 @@ C:\Users\zalldani\Documents\Visual Studio 2015\Projects\LAP.Web\LAP.Web\bin\de\S
 C:\Users\zalldani\Documents\Visual Studio 2015\Projects\LAP.Web\LAP.Web\obj\Debug\LAP.Web.dll
 C:\Users\zalldani\Documents\Visual Studio 2015\Projects\LAP.Web\LAP.Web\obj\Debug\LAP.Web.pdb
 C:\Users\zalldani\Documents\Visual Studio 2015\Projects\LAP.Web\LAP.Web\obj\Debug\LAP.Web.csprojResolveAssemblyReference.cache
-C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\obj\Debug\LAP.Web.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\ApplicationInsights.config
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\roslyn\csc.exe
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -77,6 +76,7 @@ C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\LAP.Web.dll
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\LAP.Web.pdb
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\Antlr3.Runtime.dll
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\LAP.Logic.dll
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\log4net.dll
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -97,6 +97,7 @@ C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\System.Web.WebPage
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\WebGrease.dll
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\EntityFramework.dll
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\LAP.Logic.pdb
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\log4net.xml
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\Microsoft.AI.Web.xml
@@ -121,7 +122,8 @@ C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\de\System.Web.WebP
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\de\System.Web.WebPages.Deployment.resources.dll
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\de\System.Web.WebPages.Razor.resources.dll
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\de\EntityFramework.resources.dll
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\obj\Debug\LAP.Web.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\obj\Debug\LAP.Web.dll
 C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\obj\Debug\LAP.Web.pdb
-C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\log4net.dll
-C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\log4net.xml
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\LAP.Auth.dll
+C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Web\bin\LAP.Auth.pdb

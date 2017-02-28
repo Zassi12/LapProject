@@ -32,7 +32,7 @@ namespace LAP.Web.Controllers
         public ActionResult Login(LoginModel lm)
         {
 
-            if (BenutzerVerwaltung.Anmelden(lm.Email, lm.Passwort))
+            if (Tools.BistDuMitarbeiter(lm.Email/*, lm.Passwort*/))
             {
                 if (lm.AngemeldetBleiben)
                 {
@@ -64,7 +64,8 @@ namespace LAP.Web.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
-            return View();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index","Home");
         }
 
         //[HttpPost]
