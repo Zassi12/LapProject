@@ -10,7 +10,11 @@ namespace LAP.Logic
     public class RoleAdministration
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
+        /// <summary>
+        /// Sucht Benutzer anhand der Rollen Namen
+        /// </summary>
+        /// <param name="roleName"></param>
+        /// <returns>list of portalusers</returns>
         public static List<portaluser> GetRoleUsers(string roleName)
         {
             log.Info("GetRoleUsers(rolenName)");
@@ -45,7 +49,10 @@ namespace LAP.Logic
                 return roleUsers;
             }
         }
-
+        /// <summary>
+        /// Sucht alle Rollen aus der Datenbank
+        /// </summary>
+        /// <returns>list of portalroles</returns>
         public static List<portalrole> GetRoles()
         {
             log.Info("GetRoles()");
@@ -68,7 +75,11 @@ namespace LAP.Logic
 
             return rollen;
         }
-
+        /// <summary>
+        /// Sucht User anhand deren BenutzerName(Email)
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>portalrole object</returns>
         public static portalrole GetUserRole(string email)
         {
             log.Info("GetUserRoles(username)");

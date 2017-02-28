@@ -32,8 +32,8 @@ namespace LAP.Web.Controllers
         public ActionResult Login(LoginModel lm)
         {
 
-            if (Tools.BistDuMitarbeiter(lm.Email/*, lm.Passwort*/))
-            {
+            //if (LAP.Logic.BenutzerVerwaltung.Logon(lm.Email, lm.Passwort) == LogonResult.LogonDataValid)
+            //{
                 if (lm.AngemeldetBleiben)
                 {
                     FormsAuthentication.SetAuthCookie(lm.Email, true);
@@ -47,13 +47,13 @@ namespace LAP.Web.Controllers
                     return RedirectToAction("Verwaltung", "Home");
                 }
                 //wenn der User nicht von Reisen/laden kommt leite ihn dahin weiter woher er kam
-                if (!Request.UrlReferrer.AbsoluteUri.Contains("Reisen/Laden"))
+                if (!Request.UrlReferrer.AbsoluteUri.Contains("Home/Verwaltung"))
                 {
                     return Redirect(Request.UrlReferrer.AbsoluteUri);
                 }
-            }
+            //}
 
-            return RedirectToAction("Laden", "Reisen");
+            return RedirectToAction("Login", "Benutzer");
         }
 
         /// <summary>
@@ -68,10 +68,5 @@ namespace LAP.Web.Controllers
             return RedirectToAction("Index","Home");
         }
 
-        //[HttpPost]
-        //public ActionResult Logout()
-        //{
-        //    return View();
-        //}
     }
 }

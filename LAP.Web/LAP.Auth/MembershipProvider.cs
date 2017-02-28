@@ -130,7 +130,7 @@ namespace LAP.Auth
 
         public override bool ValidateUser(string username, string password)
         {
-            return UserAdministration.Logon(username, password) == LogonResult.LogonDataValid;
+            return BenutzerVerwaltung.Logon(username, password) == LogonResult.LogonDataValid;
         }
 
         #region NotImplementedMember

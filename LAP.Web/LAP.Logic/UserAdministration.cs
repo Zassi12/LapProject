@@ -256,61 +256,6 @@ namespace LAP.Logic
             return true;
         }
 
-        public static LogonResult Logon(string username, string password)
-        {
-            log.Info("Logon(username, password)");
-            LogonResult result = LogonResult.LogonDataInvalid;
-
-            if (string.IsNullOrEmpty(username))
-            {
-                log.Error("Username is empty!");
-                throw new ArgumentNullException(nameof(username));
-            }
-            else if (string.IsNullOrEmpty(password))
-            {
-                log.Error("Password is empty!");
-                throw new ArgumentNullException(nameof(password));
-            }
-            else
-            {
-                using (var context = new ITIN20LAPEntities())
-                {
-                    try
-                    {
-                        portaluser user = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
-
-                        if (user != null)
-                        {
-                            if (user.password.SequenceEqual(Tools.GetSHA2(password)))
-                            {
-                                log.Info("Logon data valid");
-                                result = LogonResult.LogonDataValid;
-                            }
-
-                            else
-                            {
-                                log.Info("Logon data invalid");
-                                result = LogonResult.LogonDataInvalid;
-                            }
-
-                            int anzahlZeilen = context.SaveChanges();
-                        }
-                        else
-                        {
-                            result = LogonResult.UnkownUser;
-                            log.Info("Unknown username");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        log.Error("Exception in Logon", ex);
-                        if (ex.InnerException != null)
-                            log.Error("Exception in Logon (inner)", ex.InnerException);
-                        throw;
-                    }
-                }
-            }
-            return result;
-        }
+       
     }
 }

@@ -5,11 +5,13 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
 
 namespace LAP.Logic
 {
     public class BenutzerVerwaltung
     {
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
         /// Überprüft ob Anmeldedaten ok sind
@@ -33,35 +35,6 @@ namespace LAP.Logic
             var context = new ITIN20LAPEntities();
             benutzerListe = context.Allportalusers.ToList();
             return benutzerListe;
-        }
-
-        /// <summary>
-        /// Sucht den Benutzer anhand seiner Email aus der DB 
-        /// </summary>
-        /// <param name="email">die Email des gesuchten Benutzers</param>
-        /// <returns>den Benutzer oder NULL kein benutzer gefunden wird oder bei Fehler</returns>
-        public static portaluser BenutzerSuchen(string email)
-        {
-            Debug.WriteLine("BenutzerVerwaltung - BenutzerSuche(email)");
-            Debug.Indent();
-            portaluser gesuchterBenutzer = null;
-            using (var context = new ITIN20LAPEntities())
-            {
-                try
-                {
-                    gesuchterBenutzer = context.Allportalusers.Where(x => x.email == email).FirstOrDefault();
-                    int id = gesuchterBenutzer.id;
-                    gesuchterBenutzer = context.Allportalusers.Find(id);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("Fehler beim Suchen des Benutzers");
-                    Debug.WriteLine(ex.Message);
-                    Debugger.Break();
-                }
-            }
-            Debug.Unindent();
-            return gesuchterBenutzer;
         }
 
         ///// <summary>
@@ -116,6 +89,63 @@ namespace LAP.Logic
                 }
                 return 1;
             }
+        }
+
+        public static LogonResult Logon(string username, string password)
+        {
+            log.Info("Logon(username, password)");
+            LogonResult result = LogonResult.LogonDataInvalid;
+
+            if (string.IsNullOrEmpty(username))
+            {
+                log.Error("Username is empty!");
+                throw new ArgumentNullException(nameof(username));
+            }
+            else if (string.IsNullOrEmpty(password))
+            {
+                log.Error("Password is empty!");
+                throw new ArgumentNullException(nameof(password));
+            }
+            else
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    try
+                    {
+                        portaluser user = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+
+                        if (user != null)
+                        {
+                            if (user.password.SequenceEqual(Tools.GetSHA2(password)))
+                            {
+                                log.Info("Logon data valid");
+                                result = LogonResult.LogonDataValid;
+                            }
+
+                            else
+                            {
+                                log.Info("Logon data invalid");
+                                result = LogonResult.LogonDataInvalid;
+                            }
+
+                            int anzahlZeilen = context.SaveChanges();
+                        }
+                        else
+                        {
+                            result = LogonResult.UnkownUser;
+                            log.Info("Unknown username");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error("Exception in Logon", ex);
+                        if (ex.InnerException != null)
+                            log.Error("Exception in Logon (inner)", ex.InnerException);
+                        throw;
+                    }
+                }
+            }
+            return result;
         }
     }
 }
