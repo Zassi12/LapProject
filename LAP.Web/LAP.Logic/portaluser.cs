@@ -28,7 +28,8 @@ namespace LAP.Logic
         public byte[] password { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
-        public Nullable<bool> Ist_Mitarbeiter { get; set; }
+        public bool Ist_Mitarbeiter { get; set; }
+        public bool active { get; set; }
     
         public virtual ICollection<bill> bills { get; set; }
         public virtual ICollection<bookingreversal> bookingreversals { get; set; }

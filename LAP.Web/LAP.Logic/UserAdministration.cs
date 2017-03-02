@@ -174,43 +174,43 @@ namespace LAP.Logic
 
         public static bool DeactivateUser(string username)
         {
-            //log.Info("DeactivateUser(username)");
-            //bool success = false;
+            log.Info("DeactivateUser(username)");
+            bool success = false;
 
-            //if (string.IsNullOrEmpty(username))
-            //{
-            //    throw new ArgumentNullException(nameof(username));
-            //}
-            //else
-            //{
-            //    using (var context = new ITIN20LAPEntities())
-            //    {
-            //        try
-            //        {
-            //            portaluser curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new ArgumentNullException(nameof(username));
+            }
+            else
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    try
+                    {
+                        portaluser curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
 
-            //            if (curUser != null)
-            //            {
-            //                curUser.Active = false;
-            //                context.SaveChanges();
-            //                success = true;
-            //                log.Info("User has been deactivated!");
-            //            }
-            //            else
-            //            {
-            //                log.Info("Unknown username");
-            //            }
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            log.Error("Exception in DeactivateUser", ex);
-            //            if (ex.InnerException != null)
-            //                log.Error("Exception in DeactivateUser (inner)", ex.InnerException);
-            //            throw;
-            //        }
-            //    }
-            //}
-            //return success;
+                        if (curUser != null)
+                        {
+                            curUser.active = false;
+                            context.SaveChanges();
+                            success = true;
+                            log.Info("User has been deactivated!");
+                        }
+                        else
+                        {
+                            log.Info("Unknown username");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error("Exception in DeactivateUser", ex);
+                        if (ex.InnerException != null)
+                            log.Error("Exception in DeactivateUser (inner)", ex.InnerException);
+                        throw;
+                    }
+                }
+            }
+            return success;
             return true;
         }
 
@@ -255,7 +255,62 @@ namespace LAP.Logic
             //return success;
             return true;
         }
+        public static LogonResult Logon(string username, string password)
+        {
+            log.Info("Logon(username, password)");
+            LogonResult result = LogonResult.LogonDataInvalid;
 
-       
+            if (string.IsNullOrEmpty(username))
+            {
+                log.Error("Username is empty!");
+                throw new ArgumentNullException(nameof(username));
+            }
+            else if (string.IsNullOrEmpty(password))
+            {
+                log.Error("Password is empty!");
+                throw new ArgumentNullException(nameof(password));
+            }
+            else
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    try
+                    {
+                        portaluser user = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+
+                        if (user != null)
+                        {
+                            if (user.password.SequenceEqual(Tools.GetSHA2(password)))
+                            {
+                                log.Info("Logon data valid");
+                                result = LogonResult.LogonDataValid;
+                            }
+
+                            else
+                            {
+                                log.Info("Logon data invalid");
+                                result = LogonResult.LogonDataInvalid;
+                            }
+
+                            int anzahlZeilen = context.SaveChanges();
+                        }
+                        else
+                        {
+                            result = LogonResult.UnkownUser;
+                            log.Info("Unknown username");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error("Exception in Logon", ex);
+                        if (ex.InnerException != null)
+                            log.Error("Exception in Logon (inner)", ex.InnerException);
+                        throw;
+                    }
+                }
+            }
+            return result;
+        }
+
     }
 }

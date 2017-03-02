@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using LAP.Web.Models;
 using LAP.Logic;
+using LAP.Auth;
 using System.Diagnostics;
 using System.Web.Security;
 
@@ -31,9 +32,9 @@ namespace LAP.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel lm)
         {
-
-            //if (LAP.Logic.BenutzerVerwaltung.Logon(lm.Email, lm.Passwort) == LogonResult.LogonDataValid)
-            //{
+            var logval = UserAdministration.Logon(lm.Email, lm.Passwort);
+            if ( logval == LogonResult.LogonDataValid)
+            {
                 if (lm.AngemeldetBleiben)
                 {
                     FormsAuthentication.SetAuthCookie(lm.Email, true);
@@ -44,14 +45,14 @@ namespace LAP.Web.Controllers
                 }
                 if (Tools.BistDuMitarbeiter(lm.Email))
                 {
-                    return RedirectToAction("Verwaltung", "Home");
+                    return RedirectToAction("Verwaltung", "Benutzer");
                 }
                 //wenn der User nicht von Reisen/laden kommt leite ihn dahin weiter woher er kam
-                if (!Request.UrlReferrer.AbsoluteUri.Contains("Home/Verwaltung"))
+                if (!Request.UrlReferrer.AbsoluteUri.Contains("Benutzer/Verwaltung"))
                 {
                     return Redirect(Request.UrlReferrer.AbsoluteUri);
                 }
-            //}
+        }
 
             return RedirectToAction("Login", "Benutzer");
         }
@@ -67,6 +68,13 @@ namespace LAP.Web.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index","Home");
         }
+
+        [HttpGet]
+        public ActionResult Verwaltung()
+        {
+            return View();
+        }
+
 
     }
 }

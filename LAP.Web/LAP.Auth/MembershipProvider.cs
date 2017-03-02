@@ -109,7 +109,7 @@ namespace LAP.Auth
         {
             get
             {
-                return REQUIRES_QUESTION_AND_ANSWER;
+                return REQUIRES_QUESTION_AND_ANSWER ;
             }
         }
 
@@ -130,7 +130,7 @@ namespace LAP.Auth
 
         public override bool ValidateUser(string username, string password)
         {
-            return BenutzerVerwaltung.Logon(username, password) == LogonResult.LogonDataValid;
+            return UserAdministration.Logon(username, password) == LogonResult.LogonDataValid;
         }
 
         #region NotImplementedMember

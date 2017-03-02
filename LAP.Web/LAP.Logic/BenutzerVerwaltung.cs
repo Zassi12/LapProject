@@ -11,6 +11,29 @@ namespace LAP.Logic
 {
     public class BenutzerVerwaltung
     {
+        public enum LogonResult
+        {
+            LogonDataValid,
+            LogonDataInvalid,
+            UserInactive,
+            UnkownUser,
+        }
+
+        public enum PasswordChangeResult
+        {
+            Success,
+            UserInactive,
+            UsernameInvalid,
+            PasswortInvalid
+        }
+
+        public enum ProfileChangeResult
+        {
+            Success,
+            UserInactive,
+            UsernameInvalid
+        }
+
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
