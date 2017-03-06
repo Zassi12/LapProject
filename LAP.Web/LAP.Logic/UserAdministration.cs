@@ -34,6 +34,14 @@ namespace LAP.Logic
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+
+        /// <summary>
+        /// Returns succsess or not
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="oldPassword"></param>
+        /// <param name="newPassword"></param>
+        /// <returns>Passwordchangeresult success</returns>
         public static PasswordChangeResult ChangePassword(string username, string oldPassword, string newPassword)
         {
             PasswordChangeResult result = PasswordChangeResult.UsernameInvalid;
@@ -143,6 +151,18 @@ namespace LAP.Logic
             return result;
         }
 
+        /// <summary>
+        /// Liefert alle Kunden aus der DB
+        /// </summary>
+        /// <returns>Liste aller Kunden</returns>
+        public static List<portaluser> AlleBenutzer()
+        {
+            var benutzerListe = new List<portaluser>();
+            var context = new ITIN20LAPEntities();
+            benutzerListe = context.Allportalusers.ToList();
+            return benutzerListe;
+        }
+
         public static portaluser GetUser(string username)
         {
             log.Info("GetUser(username)");
@@ -211,49 +231,47 @@ namespace LAP.Logic
                 }
             }
             return success;
-            return true;
         }
 
         public static bool ActivateUser(string username)
         {
-            //log.Info("ActivateUser(username)");
-            //bool success = false;
+            log.Info("ActivateUser(username)");
+            bool success = false;
 
-            //if (string.IsNullOrEmpty(username))
-            //{
-            //    throw new ArgumentNullException(nameof(username));
-            //}
-            //else
-            //{
-            //    using (var context = new ITIN20LAPEntities())
-            //    {
-            //        try
-            //        {
-            //            portaluser curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new ArgumentNullException(nameof(username));
+            }
+            else
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    try
+                    {
+                        portaluser curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
 
-            //            if (curUser != null)
-            //            {
-            //                curUser.Active = true;
-            //                context.SaveChanges();
-            //                success = true;
-            //                log.Info("User has been deactivated!");
-            //            }
-            //            else
-            //            {
-            //                log.Info("Unknown username");
-            //            }
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            log.Error("Exception in DeactivateUser", ex);
-            //            if (ex.InnerException != null)
-            //                log.Error("Exception in DeactivateUser (inner)", ex.InnerException);
-            //            throw;
-            //        }
-            //    }
-            //}
-            //return success;
-            return true;
+                        if (curUser != null)
+                        {
+                            curUser.active = true;
+                            context.SaveChanges();
+                            success = true;
+                            log.Info("User has been deactivated!");
+                        }
+                        else
+                        {
+                            log.Info("Unknown username");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error("Exception in DeactivateUser", ex);
+                        if (ex.InnerException != null)
+                            log.Error("Exception in DeactivateUser (inner)", ex.InnerException);
+                        throw;
+                    }
+                }
+            }
+            return success;
         }
         public static LogonResult Logon(string username, string password)
         {

@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BenutzerVerwaltung.cs" />
     <Compile Include="bill.cs">
       <DependentUpon>ITIN20Lap.tt</DependentUpon>
     </Compile>
