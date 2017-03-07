@@ -232,7 +232,6 @@ namespace LAP.Logic
             }
             return success;
         }
-
         public static bool ActivateUser(string username)
         {
             log.Info("ActivateUser(username)");
@@ -273,10 +272,18 @@ namespace LAP.Logic
             }
             return success;
         }
+
+        /// <summary>
+        /// Logon result as verification 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static LogonResult Logon(string username, string password)
         {
             log.Info("Logon(username, password)");
             LogonResult result = LogonResult.LogonDataInvalid;
+            
 
             if (string.IsNullOrEmpty(username))
             {

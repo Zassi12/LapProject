@@ -75,6 +75,11 @@ namespace LAP.Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Verwaltung(ProfileDataModel pfdm)
+        {
+            return View();
+        }
 
     }
 }

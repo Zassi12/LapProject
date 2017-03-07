@@ -35,52 +35,5 @@ namespace LAP.Logic
 
             return hash;
         }
-
-        /// <summary>
-        /// Prüft ob ein Benutzer ein Mitarbeiter ist, wenn ja gibt die Methode true, ansonsten false zurück
-        /// </summary>
-        /// <param name="email">Die Email-Adresse des zu prüfenden Benutzers</param>
-        /// <returns>true oder false</returns>
-        public static bool BistDuMitarbeiter(string email)
-        {
-            //Debug.WriteLine("Tools - Bist du Mitarbeiter");
-            //Debug.Indent();
-
-            //bool istMitarbeiter = false;
-
-            //try
-            //{
-            //    using (var context = new ITIN20LAPEntities())
-            //    {
-            //        //Gibt es einen Benutzer, bei der die Email Adresse dem Parameter entspricht
-            //        // UND das Feld Ist_Mitarbeiter TRUE ist
-            //        istMitarbeiter = context.Allportalusers.Any(x => x.email == email);
-
-            //        //List<portaluser> mitarbeiter = new List<portaluser>() { new portaluser { email = "dzallinger@gmx.at" } };
-            //        foreach (var i in context.Allportalusers)
-            //        {
-            //            //foreach (var x in mitarbeiter)
-            //            //{
-            //                if (i.email == email)
-            //                {
-            //                    istMitarbeiter = true;
-            //                }
-            //            //}
-
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Debug.WriteLine("Fehler beim Prüfen ob ein Benutzer ein Mitarbeiter ist");
-            //    Debug.WriteLine(ex.Message);
-            //    Debugger.Break();
-            //}
-
-            //Debug.Unindent();
-            //return istMitarbeiter;
-            return true;
-        }
-
     }
 }
