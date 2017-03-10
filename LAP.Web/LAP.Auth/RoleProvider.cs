@@ -26,7 +26,7 @@ namespace LAP.Auth
 
         public override string[] FindUsersInRole(string roleName, string usernameToMatch)
         {
-            List<portaluser> roleUsers = RoleAdministration.GetRoleUsers(roleName);
+            List<portaluser> roleUsers = RolenVerwatlung.GetRoleUsers(roleName);
             if (roleUsers != null)
             {
                 return roleUsers.Where(x => x.email.Contains(usernameToMatch)).Select(x => x.email).ToArray();
@@ -39,7 +39,7 @@ namespace LAP.Auth
 
         public override string[] GetAllRoles()
         {
-            List<portalrole> allRoles = RoleAdministration.GetRoles();
+            List<portalrole> allRoles = RolenVerwatlung.GetRoles();
 
             if (allRoles != null)
             {
@@ -53,7 +53,7 @@ namespace LAP.Auth
 
         public override string[] GetRolesForUser(string username)
         {
-            portalrole userRoles = RoleAdministration.GetUserRole(username);
+            portalrole userRoles = RolenVerwatlung.GetUserRole(username);
 
             if (userRoles != null)
             {
@@ -68,7 +68,7 @@ namespace LAP.Auth
         public override string[] GetUsersInRole(string roleName)
         {
 
-            List<portaluser> roleUsers = RoleAdministration.GetRoleUsers(roleName);
+            List<portaluser> roleUsers = RolenVerwatlung.GetRoleUsers(roleName);
             if (roleUsers != null)
             {
                 return roleUsers.Select(x => x.email).ToArray();

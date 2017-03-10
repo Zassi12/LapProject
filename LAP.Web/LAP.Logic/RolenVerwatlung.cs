@@ -7,7 +7,7 @@ using log4net;
 
 namespace LAP.Logic
 {
-    public class RoleAdministration
+    public class RolenVerwatlung
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>

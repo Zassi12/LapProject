@@ -149,16 +149,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_GlobalResources\DisplayNames.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DisplayNames.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\ValidationMessages.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ValidationMessages.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -171,7 +161,7 @@
     <Compile Include="Models\Companie.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProfileDataModel.cs" />
-    <Compile Include="Models\VerwaltungModel.cs" />
+    <Compile Include="Models\FirmenModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -451,6 +441,7 @@
     <Content Include="Views\Benutzer\Login.cshtml" />
     <Content Include="Views\Home\AGB.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Benutzer\Verwaltung.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -474,18 +465,6 @@
       <Project>{1847316d-74f5-4018-93d9-ccb8dad498d6}</Project>
       <Name>LAP.Logic</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\ValidationMessages.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>ValidationMessages.Designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\DisplayNames.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>DisplayNames.Designer.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

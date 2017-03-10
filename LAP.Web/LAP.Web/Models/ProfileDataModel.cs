@@ -1,4 +1,4 @@
-﻿using Resources;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,9 +11,8 @@ namespace LAP.Web.Models
     public class ProfileDataModel
     {
 
-        [Display(ResourceType = typeof(DisplayNames), Name = nameof(DisplayNames.Username))]
-        [StringLength(20,
-    ErrorMessageResourceType = typeof(ValidationMessages))]
+        //[Display(ResourceType = typeof(DisplayNames), Name = nameof(DisplayNames.Username))]
+        [StringLength(20)]
         [Editable(false)]
         public string Benutzername { get; set; }
 

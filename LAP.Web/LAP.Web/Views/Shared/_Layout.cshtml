@@ -44,9 +44,9 @@
                                 <div class="nav-collapse collapse">
                                     <ul class="nav">
                                         @*class="active"*@
-                                        <li><a class = "btn buttonAction" href="~/Home/Index">Home</a></li>
-                                        <li><a class = "btn buttonAction" href="~/Home/About">About</a></li>
-                                        <li><a class = "btn buttonAction" href="~/Home/Contact">Contact</a></li>
+                                        <li><a class = "btn buttonAction" href="@Url.Action("Index", "Home")">Home</a></li>
+                                        <li><a class = "btn buttonAction" href="@Url.Action("About", "Home")">About</a></li>
+                                        <li><a class = "btn buttonAction" href="@Url.Action("Contact", "Home")">Contact</a></li>
 
                                         @if (User.Identity.IsAuthenticated)
                                         {

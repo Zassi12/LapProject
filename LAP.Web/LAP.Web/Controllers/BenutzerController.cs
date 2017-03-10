@@ -13,11 +13,7 @@ namespace LAP.Web.Controllers
 {
     public class BenutzerController : Controller
     {
-        /// <summary>
-        /// Login-Seite durch HttpGet erreichbar
-        /// </summary>
-        /// <returns>Die Login-Ansicht</returns>
-        //[ChildActionOnly]
+
         [HttpGet]
         public ActionResult Login()
         {
@@ -32,7 +28,7 @@ namespace LAP.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel lm)
         {
-            var logval = UserAdministration.Logon(lm.Email, lm.Passwort);
+            var logval = BenutzerVerwaltung.Logon(lm.Email, lm.Passwort);
             if ( logval == LogonResult.LogonDataValid)
             {
                 if (lm.AngemeldetBleiben)
@@ -43,11 +39,11 @@ namespace LAP.Web.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(lm.Email, false);
                 }
-                if (Tools.BistDuMitarbeiter(lm.Email))
+                if (Tools.IstMitarbeiter(lm.Email))
                 {
                     return RedirectToAction("Verwaltung", "Benutzer");
                 }
-                //wenn der User nicht von Reisen/laden kommt leite ihn dahin weiter woher er kam
+                //wenn der User nicht von Benutzer/Verwaltung kommt leite ihn dahin weiter woher er kam
                 if (!Request.UrlReferrer.AbsoluteUri.Contains("Benutzer/Verwaltung"))
                 {
                     return Redirect(Request.UrlReferrer.AbsoluteUri);
@@ -57,11 +53,7 @@ namespace LAP.Web.Controllers
             return RedirectToAction("Login", "Benutzer");
         }
 
-        /// <summary>
-        /// logout-Seite durch HttpGet erreichbar
-        /// </summary>
-        /// <returns>Die Login-Ansicht</returns>
-        //[ChildActionOnly]
+
         [HttpGet]
         public ActionResult Logout()
         {
@@ -72,6 +64,8 @@ namespace LAP.Web.Controllers
         [HttpGet]
         public ActionResult Verwaltung()
         {
+            ProfileDataModel pfdm = new ProfileDataModel();
+
             return View();
         }
 

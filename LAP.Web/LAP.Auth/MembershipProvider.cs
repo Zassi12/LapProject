@@ -115,22 +115,22 @@ namespace LAP.Auth
 
         public override bool ChangePassword(string username, string oldPassword, string newPassword)
         {
-            return UserAdministration.ChangePassword(username, oldPassword, newPassword) == PasswordChangeResult.Success;
+            return BenutzerVerwaltung.ChangePassword(username, oldPassword, newPassword) == PasswordChangeResult.Success;
         }
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData)
         {
-            return UserAdministration.DeactivateUser(username);
+            return BenutzerVerwaltung.DeactivateUser(username);
         }
 
         public override bool UnlockUser(string userName)
         {
-            return UserAdministration.ActivateUser(userName);
+            return BenutzerVerwaltung.ActivateUser(userName);
         }
 
         public override bool ValidateUser(string username, string password)
         {
-            return UserAdministration.Logon(username, password) == LogonResult.LogonDataValid;
+            return BenutzerVerwaltung.Logon(username, password) == LogonResult.LogonDataValid;
         }
 
         #region NotImplementedMember

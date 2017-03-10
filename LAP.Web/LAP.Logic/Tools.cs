@@ -20,20 +20,71 @@ namespace LAP.Logic
         {
             log.Info("GetSHA2(plainText)");
             byte[] hash = null;
-
-            if (string.IsNullOrEmpty(plainText))
+            try
             {
-                log.Error("Empty plainText");
-                throw new ArgumentNullException(nameof(plainText));
+                if (string.IsNullOrEmpty(plainText))
+                {
+                    log.Error("Empty plainText");
+                    throw new ArgumentNullException(nameof(plainText));
+                }
+                else
+                {
+                    SHA512 algo = SHA512.Create();
+                    byte[] plainTextBuffer = Encoding.UTF8.GetBytes(plainText);
+                    hash = algo.ComputeHash(plainTextBuffer);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                SHA256 algo = SHA256.Create();
-                byte[] plainTextBuffer = Encoding.UTF8.GetBytes(plainText);
-                hash = algo.ComputeHash(plainTextBuffer);
+                log.Error("Exception in GetSHA2", ex);
+                if (ex.InnerException != null)
+                    log.Error("Exception in GetSHA2 (inner)", ex.InnerException);
+                throw;
             }
 
             return hash;
         }
+        /// <summary>
+        /// Prüft ob user mitarbeitr ist oder nicht
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public static bool IstMitarbeiter(string email)
+        {
+            bool mitarbeiter = false;
+            ITIN20LAPEntities context = new ITIN20LAPEntities();
+            List<portaluser> user;
+            try
+            {
+           
+            using (context)
+            {
+                    user = context.Allportalusers.ToList();
+            }
+
+            foreach (var m in user)
+            {
+                if (m.Ist_Mitarbeiter)
+                {
+                    mitarbeiter = true;
+                    break;
+                }
+            }
+
+            }
+            catch (Exception ex)
+            {
+                log.Error("Exception in istMitarbeiter", ex);
+                if (ex.InnerException != null)
+                    log.Error("Exception in istMitarbeiter (inner)", ex.InnerException);
+                throw;
+            }
+
+            return mitarbeiter;
+
+
+        }
+
+
     }
 }

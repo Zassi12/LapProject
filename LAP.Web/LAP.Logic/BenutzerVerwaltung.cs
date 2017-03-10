@@ -30,7 +30,7 @@ namespace LAP.Logic
         UsernameInvalid
     }
 
-    public class UserAdministration
+    public class BenutzerVerwaltung
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 

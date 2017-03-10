@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LAP.Logic
 {
-    class CompanyVerwaltung
+    class FirmenVerwaltung
     {
 
         /// <summary>
@@ -21,23 +21,18 @@ namespace LAP.Logic
             CompanyListe = context.companies.ToList();
             return CompanyListe;
         }
-        static List<CompanyData> GetCompanyUser()
-        {
-            var Companyuserlist = new List<CompanyData>();
+        //static List<CompanyData> GetCompanyUser()
+        //{
+        //    var cuserl = new List<company>();
+        //    foreach (var cuser in cuserl)
+        //    {
+        //        cuser.
+        //    }
 
 
+        //    return cuserl;
+        //}
 
-            return Companyuserlist;
-        }
-
-
-
-        class CompanyData
-        {
-            public company Company { get; set; }
-
-            public List<portaluser> Users { get; set; }
-        }
         
     }
 }

@@ -9,7 +9,7 @@ namespace LAP.Web.Models
     /// <summary>
     /// Class for showing gathering all the data for the partial views
     /// </summary>
-    public class VerwaltungModel
+    public class FirmenModel
     {
         public company Companys { get; set; }
         public List<portaluser> Users { get; set; }
