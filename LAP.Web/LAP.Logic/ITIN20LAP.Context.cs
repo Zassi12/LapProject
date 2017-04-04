@@ -27,9 +27,9 @@ namespace LAP.Logic
     
         public DbSet<billdetail> billdetails { get; set; }
         public DbSet<bill> bills { get; set; }
-        public DbSet<bookingreversal> bookingreversals { get; set; }
+        public DbSet<bookingreversal> AllBookingreversals { get; set; }
         public DbSet<booking> bookings { get; set; }
-        public DbSet<company> companies { get; set; }
+        public DbSet<company> AllCompanies { get; set; }
         public DbSet<contact> contacts { get; set; }
         public DbSet<facility> facilities { get; set; }
         public DbSet<furnishing> furnishings { get; set; }

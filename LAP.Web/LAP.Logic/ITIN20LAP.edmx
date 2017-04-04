@@ -667,9 +667,9 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
         <EntityContainer Name="ITIN20LAPEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="billdetails" EntityType="Self.billdetail" />
           <EntitySet Name="bills" EntityType="Self.bill" />
-          <EntitySet Name="bookingreversals" EntityType="Self.bookingreversal" />
+          <EntitySet Name="AllBookingreversals" EntityType="Self.bookingreversal" />
           <EntitySet Name="bookings" EntityType="Self.booking" />
-          <EntitySet Name="companies" EntityType="Self.company" />
+          <EntitySet Name="AllCompanies" EntityType="Self.company" />
           <EntitySet Name="contacts" EntityType="Self.contact" />
           <EntitySet Name="facilities" EntityType="Self.facility" />
           <EntitySet Name="furnishings" EntityType="Self.furnishing" />
@@ -692,11 +692,11 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           </AssociationSet>
           <AssociationSet Name="fk_bookingreversals_bookings" Association="Self.fk_bookingreversals_bookings">
             <End Role="bookings" EntitySet="bookings" />
-            <End Role="bookingreversals" EntitySet="bookingreversals" />
+            <End Role="bookingreversals" EntitySet="AllBookingreversals" />
           </AssociationSet>
           <AssociationSet Name="fk_bookingreversals_portalusers" Association="Self.fk_bookingreversals_portalusers">
             <End Role="portalusers" EntitySet="Allportalusers" />
-            <End Role="bookingreversals" EntitySet="bookingreversals" />
+            <End Role="bookingreversals" EntitySet="AllBookingreversals" />
           </AssociationSet>
           <AssociationSet Name="fk_bookings_portalusers" Association="Self.fk_bookings_portalusers">
             <End Role="portalusers" EntitySet="Allportalusers" />
@@ -707,7 +707,7 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
             <End Role="bookings" EntitySet="bookings" />
           </AssociationSet>
           <AssociationSet Name="fk_contacts_companies" Association="Self.fk_contacts_companies">
-            <End Role="companies" EntitySet="companies" />
+            <End Role="companies" EntitySet="AllCompanies" />
             <End Role="contacts" EntitySet="contacts" />
           </AssociationSet>
           <AssociationSet Name="fk_contacts_portalusers" Association="Self.fk_contacts_portalusers">
@@ -768,7 +768,7 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="bookingreversals">
+          <EntitySetMapping Name="AllBookingreversals">
             <EntityTypeMapping TypeName="ITIN20LAPModel.bookingreversal">
               <MappingFragment StoreEntitySet="bookingreversals">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -788,7 +788,7 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="companies">
+          <EntitySetMapping Name="AllCompanies">
             <EntityTypeMapping TypeName="ITIN20LAPModel.company">
               <MappingFragment StoreEntitySet="companies">
                 <ScalarProperty Name="id" ColumnName="id" />

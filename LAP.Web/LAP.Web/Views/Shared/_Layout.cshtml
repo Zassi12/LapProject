@@ -44,9 +44,7 @@
                                 <div class="nav-collapse collapse">
                                     <ul class="nav">
                                         @*class="active"*@
-                                        <li><a class = "btn buttonAction" href="@Url.Action("Index", "Home")">Home</a></li>
-                                        <li><a class = "btn buttonAction" href="@Url.Action("About", "Home")">About</a></li>
-                                        <li><a class = "btn buttonAction" href="@Url.Action("Contact", "Home")">Contact</a></li>
+
 
                                         @if (User.Identity.IsAuthenticated)
                                         {
@@ -55,13 +53,37 @@
                                                 @Html.ActionLink("Abmelden", "Logout", "Benutzer", null, new { @class = "btn buttonAction" })
                                             </li>
                                             @*<li>
-                                                @Html.ActionLink("Ihr Profil", "Aktualisieren", "Benutzer", null, new { @class = "btn buttonAction" })
-                                            </li>*@
+                                                    @Html.ActionLink("Ihr Profil", "Aktualisieren", "Benutzer", null, new { @class = "btn buttonAction" })
+                                                </li>*@
+                                        var controller = new LAP.Web.Controllers.BenutzerController();
+
+                                        if (controller.istMitarbeiter)
+                                        {
+                                            <li><a class="btn buttonAction" href="@Url.Action("Index", "Mitarbeiter")">Home</a></li>
+                                            <li><a class="btn buttonAction" href="@Url.Action("Stornierungen", "Mitarbeiter")">Home</a></li>
+                                            }
+                                            else
+                                            {
+                                                <li><a class="btn buttonAction" href="@Url.Action("Index", "Mitarbeiter")">Home</a></li>
+                                                <li><a class="btn buttonAction" href="@Url.Action("Stornierungen", "Mitarbeiter")">Stornierungen</a></li>
+                          
+                                                }
+
                                         }
                                         else
                                         {
                                             <li>
-                                                @Html.ActionLink("Anmelden", "Login", "Benutzer", null, new { @class = "btn buttonAction" })
+                                                <a class="btn buttonAction" href="@Url.Action("Login", "Benutzer")">Anmelden</a>
+                                                @*@Html.ActionLink("Anmelden", "Login", "Benutzer", null, new { @class = "btn buttonAction" })*@
+                                            </li>
+                                            <li>
+                                                <a class="btn buttonAction" href="@Url.Action("Index", "Home")">Home</a>
+                                            </li>
+                                            <li>
+                                                <a class="btn buttonAction" href="@Url.Action("About", "Home")">About</a>
+                                            </li>
+                                            <li>
+                                                <a class="btn buttonAction" href="@Url.Action("Contact", "Home")">Contact</a>
                                             </li>
                                         }
                                         <!--Dropdown-->

@@ -1,4 +1,4 @@
-﻿// Die T4-Codegenerierung ist für Modell 'C:\Users\zalldani\Source\Repos\LapProject\LAP.Web\LAP.Logic\ITIN20Lap.edmx' aktiviert. 
+﻿// Die T4-Codegenerierung ist für Modell 'C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\ITIN20Lap.edmx' aktiviert. 
 // Um die Generierung von Legacycode zu aktivieren, ändern Sie den Wert der Designer-Eigenschaft 'Code Generation Strategy'
 // in 'Legacy ObjectContext'. Diese Eigenschaft wird im Eigenschaftenfenster angezeigt, wenn das Modell
 // im Designer geöffnet ist.

@@ -64,6 +64,7 @@
     <Compile Include="bookingreversal.cs">
       <DependentUpon>ITIN20Lap.tt</DependentUpon>
     </Compile>
+    <Compile Include="BuchungsVerwaltung.cs" />
     <Compile Include="company.cs">
       <DependentUpon>ITIN20Lap.tt</DependentUpon>
     </Compile>
@@ -102,7 +103,7 @@
       <DependentUpon>ITIN20Lap.tt</DependentUpon>
     </Compile>
     <Compile Include="ProfilVerwaltung.cs" />
-    <Compile Include="RolenVerwatlung.cs" />
+    <Compile Include="RolenVerwaltung.cs" />
     <Compile Include="room.cs">
       <DependentUpon>ITIN20Lap.tt</DependentUpon>
     </Compile>

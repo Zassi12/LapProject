@@ -20,7 +20,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="bookingreversals">
+    <EntitySetMapping Name="AllBookingreversals">
       <EntityTypeMapping TypeName="ITIN20LAPModel.bookingreversal">
         <MappingFragment StoreEntitySet="bookingreversals">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -40,7 +40,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="companies">
+    <EntitySetMapping Name="AllCompanies">
       <EntityTypeMapping TypeName="ITIN20LAPModel.company">
         <MappingFragment StoreEntitySet="companies">
           <ScalarProperty Name="id" ColumnName="id" />

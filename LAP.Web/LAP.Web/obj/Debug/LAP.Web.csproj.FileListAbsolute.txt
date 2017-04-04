@@ -127,9 +127,6 @@ C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Web\bin\de\EntityFramewo
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Web\obj\Debug\LAP.Web.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Web\obj\Debug\LAP.Web.dll
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Web\obj\Debug\LAP.Web.pdb
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.csprojResolveAssemblyReference.cache
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.dll
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.pdb
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\ApplicationInsights.config
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\roslyn\csc.exe
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -147,6 +144,8 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\LAP.Web.dll.config
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\LAP.Web.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\LAP.Web.pdb
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\Antlr3.Runtime.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\EntityFramework.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\EntityFramework.SqlServer.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\LAP.Auth.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\LAP.Logic.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\log4net.dll
@@ -168,9 +167,10 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\System.Web.WebPages.Deplo
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\System.Web.WebPages.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\System.Web.WebPages.Razor.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\WebGrease.dll
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\EntityFramework.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\LAP.Auth.pdb
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\LAP.Logic.pdb
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\EntityFramework.xml
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\EntityFramework.SqlServer.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\log4net.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
@@ -187,7 +187,6 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\System.Web.WebPages.Deplo
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\System.Web.WebPages.Razor.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\Antlr3.Runtime.pdb
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\Newtonsoft.Json.xml
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\EntityFramework.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.Helpers.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.Mvc.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.Optimization.resources.dll
@@ -195,4 +194,6 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.Razor.resou
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.WebPages.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.WebPages.Deployment.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.WebPages.Razor.resources.dll
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\EntityFramework.resources.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.csprojResolveAssemblyReference.cache
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.pdb

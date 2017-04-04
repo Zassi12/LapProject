@@ -1,0 +1,67 @@
+﻿@model IEnumerable<LAP.Web.Models.StornoModel>
+
+@{
+    ViewBag.Title = "Stornierungen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Stornierungen</h2>
+
+<div>
+    <h4>StornoModel</h4>
+    <hr />
+    @foreach (var item in Model)
+    {
+        <table>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Building)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(Model => item.Building)
+                </td>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Firma)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(Model => item.Firma)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Reason)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => item.Reason)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Room)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => item.Room)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Date)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => item.Date)
+                </td>
+            </tr>
+
+        </table>
+    }
+
+</div>
+<p>
+    <a class="btn buttonAction" href="@Url.Action("Index", "Mitarbeiter")">Index</a>
+</p>

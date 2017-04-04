@@ -1,0 +1,42 @@
+﻿@model IEnumerable<LAP.Web.Models.FirmenModel>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Firmen verwalten</h1>
+    </div>
+</div>
+<div class="row">
+    <table>
+        <tr>
+            <td>Firmenname</td>
+            <td>Adresse</td>
+            <td>Nr.</td>
+            <td>Stadt</td>
+            <td>PLZ</td>
+        </tr>
+
+        @foreach (var company in Model)
+        {
+            <tr>
+                <td>@company.Companyname</td>
+
+                <td>@company.Street</td>
+
+                <td>@company.Number</td>
+
+                <td>@company.City</td>
+
+                <td>@company.Zip</td>
+
+                <td><a href="@Url.Action("Detail", "Company", new { id = company.ID })">Bearbeiten</a></td>
+                <td><a href="@Url.Action("Chart", "Mitarbeiter", new { id = company.ID })">Umsatz</a></td>
+
+            </tr>
+
+        }
+    </table>
+
+</div>
+

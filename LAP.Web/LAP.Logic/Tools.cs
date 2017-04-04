@@ -45,7 +45,7 @@ namespace LAP.Logic
             return hash;
         }
         /// <summary>
-        /// Prüft ob user mitarbeitr ist oder nicht
+        /// Prüft ob user mitarbeiter ist oder nicht
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>

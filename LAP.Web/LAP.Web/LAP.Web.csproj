@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -155,13 +163,15 @@
     <Compile Include="Controllers\BenutzerController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MitarbeiterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Companie.cs" />
+    <Compile Include="Models\ChartModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProfileDataModel.cs" />
     <Compile Include="Models\FirmenModel.cs" />
+    <Compile Include="Models\StornoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -441,7 +451,17 @@
     <Content Include="Views\Benutzer\Login.cshtml" />
     <Content Include="Views\Home\AGB.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Benutzer\Verwaltung.cshtml" />
+    <Content Include="Views\Mitarbeiter\Index.cshtml" />
+    <Content Include="Views\Mitarbeiter\CreateEmployee.cshtml" />
+    <Content Include="Views\Mitarbeiter\Detail.cshtml" />
+    <Content Include="Views\Mitarbeiter\Employee.cshtml" />
+    <Content Include="Views\Mitarbeiter\_Detail.cshtml" />
+    <Content Include="Views\Mitarbeiter\_EmployeeData.cshtml" />
+    <Content Include="Views\Mitarbeiter\_EmployeePassword.cshtml" />
+    <Content Include="Views\Mitarbeiter\_Employees.cshtml" />
+    <Content Include="Views\Mitarbeiter\Stornierungen.cshtml" />
+    <Content Include="Views\Mitarbeiter\Chart.cshtml" />
+    <Content Include="Views\Benutzer\ProfilAnsicht.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,15 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using LAP.Logic;
+using System.ComponentModel.DataAnnotations;
 
 namespace LAP.Web.Models
 {
-    /// <summary>
-    /// Class for showing gathering all the data for the partial views
-    /// </summary>
+
     public class FirmenModel
     {
-        public company Companys { get; set; }
-        public List<portaluser> Users { get; set; }
+        [Required]
+        public int ID { get; set; }
+
+        [Required]
+        [StringLength(20)]
+        public string Companyname { get; set; }
+
+       
+        [StringLength(20)]
+        public string Street { get; set; }
+
+      
+        [StringLength(10)]
+        public string Number { get; set; }
+
+       
+        [StringLength(50)]
+        public string City { get; set; }
+
+       
+        [StringLength(10)]
+        public string Zip { get; set; }
     }
 }

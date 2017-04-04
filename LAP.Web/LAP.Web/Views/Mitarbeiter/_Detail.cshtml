@@ -1,0 +1,63 @@
+﻿@model LAP.Web.Models.FirmenModel
+@{
+    ViewBag.Title = "innovation4austria - Firma verwalten";
+}
+
+@using (Html.BeginForm("SaveDetail", "Company", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    @Html.HiddenFor(x => x.ID)
+    <div class="row">
+        <h3 class="col-xs-12">Firmen Daten</h3>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            @Html.LabelFor(x => x.Name)
+        </div>
+        <div class="col-xs-9">
+            @Html.TextBoxFor(x => x.Name, new { placeholder = "Firmenname", @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            @Html.LabelFor(x => x.Strasse)
+        </div>
+        <div class="col-xs-9">
+            @Html.TextBoxFor(x => x.Strasse, new { placeholder = "Adresse", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Strasse)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            @Html.LabelFor(x => x.Hausnummer)
+        </div>
+        <div class="col-xs-9">
+            @Html.TextBoxFor(x => x.Hausnummer, new { placeholder = "Nummer", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Hausnummer)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            @Html.LabelFor(x => x.Plz)
+        </div>
+        <div class="col-xs-9">
+            @Html.TextBoxFor(x => x.Plz, new { placeholder = "PLZ", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Plz)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            @Html.LabelFor(x => x.Stadt)
+        </div>
+        <div class="col-xs-9">
+            @Html.TextBoxFor(x => x.Stadt, new { placeholder = "Ort", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Stadt)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Speichern</button>
+        </div>
+    </div>
+}

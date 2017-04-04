@@ -8,11 +8,14 @@ using LAP.Logic;
 using LAP.Auth;
 using System.Diagnostics;
 using System.Web.Security;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace LAP.Web.Controllers
 {
     public class BenutzerController : Controller
     {
+        public bool istMitarbeiter;
 
         [HttpGet]
         public ActionResult Login()
@@ -39,16 +42,23 @@ namespace LAP.Web.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(lm.Email, false);
                 }
+
+                ////wenn der User nicht von Benutzer/Verwaltung kommt leite ihn dahin weiter woher er kam
+                //if (!Request.UrlReferrer.AbsoluteUri.Contains("Benutzer/ProfilAnsicht"))
+                //{
+                //    return Redirect(Request.UrlReferrer.AbsoluteUri);
+                //}
                 if (Tools.IstMitarbeiter(lm.Email))
                 {
-                    return RedirectToAction("Verwaltung", "Benutzer");
+                    istMitarbeiter = true;
+                    return RedirectToAction("Index", "Mitarbeiter");
                 }
-                //wenn der User nicht von Benutzer/Verwaltung kommt leite ihn dahin weiter woher er kam
-                if (!Request.UrlReferrer.AbsoluteUri.Contains("Benutzer/Verwaltung"))
+                else
                 {
-                    return Redirect(Request.UrlReferrer.AbsoluteUri);
+                    istMitarbeiter = false;
+                    return RedirectToAction("ProfilAnsicht", "Benutzer");
                 }
-        }
+            }
 
             return RedirectToAction("Login", "Benutzer");
         }
@@ -62,18 +72,16 @@ namespace LAP.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Verwaltung()
+        public ActionResult ProfilAnsicht(ProfileDataModel pfdm)
         {
-            ProfileDataModel pfdm = new ProfileDataModel();
+            ProfilVerwaltung pv = new ProfilVerwaltung();
 
-            return View();
+            var puser = pv.GetProfileData(User.Identity.Name);
+            pfdm.Benutzername = puser.email;
+            pfdm.Nachname = puser.lastname;
+            pfdm.Vorname = puser.firstname;
+            pfdm.Passwort = Encoding.Default.GetString(puser.password);
+            return View(pfdm);
         }
-
-        [HttpPost]
-        public ActionResult Verwaltung(ProfileDataModel pfdm)
-        {
-            return View();
-        }
-
     }
 }
