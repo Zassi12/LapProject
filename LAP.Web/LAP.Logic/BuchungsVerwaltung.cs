@@ -23,7 +23,7 @@ namespace LAP.Logic
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    allBookingreversals = context.AllBookingreversals.ToList();
+                    allBookingreversals = context.AllBookingreversals.Include("portaluser").Include("booking").ToList();
                 }
             }
             catch (Exception ex)

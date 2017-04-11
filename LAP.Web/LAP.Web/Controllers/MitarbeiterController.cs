@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using LAP.Logic;
 using log4net;
+using LAP.Web.Models;
 
 namespace LAP.Web.Controllers
 {
@@ -36,23 +37,21 @@ namespace LAP.Web.Controllers
                     City = company.city
                 });
             }
-
-            
             return View(model);
         }
 
         [HttpGet]
         public ActionResult Stornierungen()
         {
-            var bookingreversals = LAP.Logic.BuchungsVerwaltung.GetBookingReversals();
+            var bookingreversals = BuchungsVerwaltung.GetBookingReversals();
             var model = new List<Models.StornoModel>();
             foreach (var b in bookingreversals)
             {
                 model.Add(new Models.StornoModel{
-
-
-                    Reason = b.reason
-
+                    Reason = b.reason,
+                    Benutzername = b.portaluser.email,
+                    Date=b.booking.date,
+    
 
                 });
                 }
@@ -66,11 +65,16 @@ namespace LAP.Web.Controllers
         public ActionResult Chart(int id)
         {
 
-            var company = FirmenVerwaltung.GetCompany(id);
-            var model = new Models.ChartModel();
+            var kompanie = FirmenVerwaltung.GetCompanies();
+            
+            var model = new ChartModel();
 
-                model.Firma = company.companyname;
-                model.Ausgaben = FirmenVerwaltung.GetCompanySales();
+            foreach (var i in kompanie)
+            {
+                model.Firma.Add(i.companyname);
+                model.Ausgaben.Add(FirmenVerwaltung.GetCompanySales().ToString());
+            }
+                
             
             return View(model);
         }

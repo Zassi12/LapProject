@@ -13,8 +13,8 @@
         .AddTitle("Umsatz")
         .AddSeries(
             name: "Firma",
-            xValue: new[] { Model.Firma},
-            yValues: new[] { Model.Ausgaben })
+            xValue: new[] { Model.Firma[1], Model.Firma[2], Model.Firma[3] },
+            yValues: new[] { Model.Ausgaben[1], Model.Ausgaben[2], Model.Ausgaben[3] })
         .Write();
 }
 

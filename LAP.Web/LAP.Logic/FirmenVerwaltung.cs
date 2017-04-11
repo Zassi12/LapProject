@@ -24,7 +24,7 @@ namespace LAP.Logic
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    allCompanies = context.AllCompanies.ToList();
+                    allCompanies = context.AllCompanies.Include("contacts").ToList();
                 }
             }
             catch (Exception ex)

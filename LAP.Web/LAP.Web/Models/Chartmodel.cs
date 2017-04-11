@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using LAP.Logic;
 
 namespace LAP.Web.Models
 {
     public class ChartModel
     {
-        public string Firma { get; set; }
-        public int Ausgaben { get; set; }
+
+        public List<string> Firma { get; set; }
+        public List<string> Ausgaben { get; set; }
     }
 }

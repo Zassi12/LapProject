@@ -7,16 +7,16 @@
       <Diagram DiagramId="bf07ada4118843b582c07f08a4b5a3da" Name="Diagram1">
         <EntityTypeShape EntityType="ITIN20LAPModel.billdetail" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.bill" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.bookingreversal" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.booking" Width="1.5" PointX="7.375" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.company" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.contact" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.bookingreversal" Width="1.5" PointX="7.125" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.booking" Width="1.5" PointX="7.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.company" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.contact" Width="1.5" PointX="3.125" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.facility" Width="1.5" PointX="11.625" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.furnishing" Width="1.5" PointX="11.5" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.portalrole" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.portaluser" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.roomfurnishing" Width="1.5" PointX="11.5" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.room" Width="1.5" PointX="9.125" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.room" Width="1.5" PointX="9.5" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Log" Width="1.5" PointX="9" PointY="2.875" IsExpanded="true" />
         <AssociationConnector Association="ITIN20LAPModel.fk_billdetails_bills" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_billdetails_bookings" ManuallyRouted="false" />
@@ -24,13 +24,13 @@
         <AssociationConnector Association="ITIN20LAPModel.fk_bookingreversals_bookings" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_bookingreversals_portalusers" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_bookings_portalusers" ManuallyRouted="true" >
-          <ConnectorPoint PointX="4.5" PointY="5.59375" />
-          <ConnectorPoint PointX="7.5872427083333331" PointY="5.59375" />
-          <ConnectorPoint PointX="7.5872427083333331" PointY="8.63657384375" />
-          <ConnectorPoint PointX="7.7643222916666668" PointY="8.63657384375" />
-          <ConnectorPoint PointX="7.9309889583333328" PointY="8.63657384375" />
-          <ConnectorPoint PointX="8.574221875" PointY="8.63657384375" />
-          <ConnectorPoint PointX="8.574221875" PointY="8.75" />
+          <ConnectorPoint PointX="4.5" PointY="5.4731896679687564" />
+          <ConnectorPoint PointX="4.65160921875" PointY="5.4731896679687564" />
+          <ConnectorPoint PointX="4.65160921875" PointY="5.5669396679687582" />
+          <ConnectorPoint PointX="7.854166666666667" PointY="5.5669396679687573" />
+          <ConnectorPoint PointX="8.0208333333333339" PointY="5.5669396679687582" />
+          <ConnectorPoint PointX="8.71875" PointY="5.5669396679687582" />
+          <ConnectorPoint PointX="8.71875" PointY="8.375" />
         </AssociationConnector>
         <AssociationConnector Association="ITIN20LAPModel.fk_bookings_rooms" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_contacts_companies" ManuallyRouted="false" />

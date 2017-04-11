@@ -8,6 +8,7 @@ namespace LAP.Web.Models
 {
     public class StornoModel
     {
+
         public portaluser User { get; set; }
         public string Firma { get; set; }
         public string Benutzername { get; set; }
@@ -15,6 +16,5 @@ namespace LAP.Web.Models
         public string Room { get; set; }
         public DateTime Date { get; set; }
         public string Reason { get; set; }
-
     }
 }

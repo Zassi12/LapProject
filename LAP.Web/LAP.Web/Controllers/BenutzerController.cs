@@ -32,7 +32,7 @@ namespace LAP.Web.Controllers
         public ActionResult Login(LoginModel lm)
         {
             var logval = BenutzerVerwaltung.Logon(lm.Email, lm.Passwort);
-            if ( logval == LogonResult.LogonDataValid)
+            if (logval == LogonResult.LogonDataValid)
             {
                 if (lm.AngemeldetBleiben)
                 {
@@ -68,7 +68,7 @@ namespace LAP.Web.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
