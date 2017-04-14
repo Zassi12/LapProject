@@ -44,15 +44,13 @@ namespace LAP.Web.Controllers
         public ActionResult Stornierungen()
         {
             var bookingreversals = BuchungsVerwaltung.GetBookingReversals();
-            var model = new List<Models.StornoModel>();
+            var model = new List<StornoModel>();
             foreach (var b in bookingreversals)
             {
-                model.Add(new Models.StornoModel{
+                model.Add(new StornoModel{
                     Reason = b.reason,
                     Benutzername = b.portaluser.email,
-                    Date=b.booking.date,
-    
-
+                    Date=b.booking.date
                 });
                 }
 
