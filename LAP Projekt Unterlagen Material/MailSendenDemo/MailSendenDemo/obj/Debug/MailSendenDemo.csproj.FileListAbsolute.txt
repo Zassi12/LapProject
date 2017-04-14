@@ -1,0 +1,12 @@
+d:\temp\MailSendenDemo\MailSendenDemo\bin\Debug\MailSendenDemo.exe.config
+d:\temp\MailSendenDemo\MailSendenDemo\bin\Debug\MailSendenDemo.exe
+d:\temp\MailSendenDemo\MailSendenDemo\bin\Debug\MailSendenDemo.pdb
+d:\temp\MailSendenDemo\MailSendenDemo\obj\Debug\MailSendenDemo.csprojResolveAssemblyReference.cache
+d:\temp\MailSendenDemo\MailSendenDemo\obj\Debug\MailSendenDemo.exe
+d:\temp\MailSendenDemo\MailSendenDemo\obj\Debug\MailSendenDemo.pdb
+K:\Informatik\IT-IN20\PR\MailSendenDemo\MailSendenDemo\bin\Debug\MailSendenDemo.exe.config
+K:\Informatik\IT-IN20\PR\MailSendenDemo\MailSendenDemo\obj\Debug\MailSendenDemo.exe
+K:\Informatik\IT-IN20\PR\MailSendenDemo\MailSendenDemo\obj\Debug\MailSendenDemo.pdb
+K:\Informatik\IT-IN20\PR\MailSendenDemo\MailSendenDemo\bin\Debug\MailSendenDemo.exe
+K:\Informatik\IT-IN20\PR\MailSendenDemo\MailSendenDemo\bin\Debug\MailSendenDemo.pdb
+K:\Informatik\IT-IN20\PR\MailSendenDemo\MailSendenDemo\obj\Debug\MailSendenDemo.csprojResolveAssemblyReference.cache
