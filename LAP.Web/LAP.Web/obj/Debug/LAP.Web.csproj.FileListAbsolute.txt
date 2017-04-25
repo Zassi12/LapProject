@@ -197,3 +197,8 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.WebPages.Ra
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.pdb
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\AutoMapper.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\AutoMapper.xml
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\Chart.Mvc.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\Chart.Mvc.pdb
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\Chart.Mvc.xml

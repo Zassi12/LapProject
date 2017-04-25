@@ -13,17 +13,17 @@ namespace LAP.Logic
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 
-        public static List<bookingreversal> GetBookingReversals()
+        public static List<bookingreversals> GetBookingReversals()
         {
 
 
-            List<bookingreversal> allBookingreversals = null;
+            List<bookingreversals> allBookingreversals = null;
 
             try
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    allBookingreversals = context.AllBookingreversals.Include("portaluser").Include("booking").ToList();
+                    allBookingreversals = context.Allbookingreversals.Include("portalusers").Include("bookings").ToList();
                 }
             }
             catch (Exception ex)
@@ -42,23 +42,23 @@ namespace LAP.Logic
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static List<bookingreversal> GetBookingReversals(DateTime date)
+        public static List<bookingreversals> GetBookingReversals(DateTime date)
         {
 
 
-            List<bookingreversal> bookingreversalsbydate = null;
+            List<bookingreversals> bookingreversalsbydate = null;
 
             try
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    context.bookings.Where(t =>
+                    context.Allbookings.Where(t =>
                     t.date >= t.date.AddMonths(-1)
                     ).ToList();
-                    
 
-                    
-                    bookingreversalsbydate = context.AllBookingreversals.ToList();
+
+
+                    bookingreversalsbydate = context.Allbookingreversals.ToList();
                 }
             }
             catch (Exception ex)
@@ -71,5 +71,30 @@ namespace LAP.Logic
 
             return bookingreversalsbydate;
         }
+
+        public static List<bookings> GetBookings()
+        {
+            List<bookings> bookings = new List<bookings>();
+
+            try
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    context.Allbookings.ToList();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Exception in GetCompanies", ex);
+                if (ex.InnerException != null)
+                    log.Error("Exception in GetCompanies (inner)", ex.InnerException);
+                throw;
+            }
+            return bookings;
+
+        }
+
     }
+
 }

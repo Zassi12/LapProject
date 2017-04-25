@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using LAP.Logic;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +60,7 @@ namespace LAP.Logic
                 {
                     try
                     {
-                        portaluser curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+                        portalusers curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
 
                         if (curUser == null)
                         {
@@ -121,7 +122,7 @@ namespace LAP.Logic
             {
                 try
                 {
-                    portaluser currentUser = context.Allportalusers.FirstOrDefault(x => x.email == username);
+                    portalusers currentUser = context.Allportalusers.FirstOrDefault(x => x.email == username);
                     if (currentUser != null)
                     {
 
@@ -154,19 +155,19 @@ namespace LAP.Logic
         /// Liefert alle Kunden aus der DB
         /// </summary>
         /// <returns>Liste aller Kunden</returns>
-        public static List<portaluser> AlleBenutzer()
+        public static List<portalusers> AlleBenutzer()
         {
-            var benutzerListe = new List<portaluser>();
+            var benutzerListe = new List<portalusers>();
             var context = new ITIN20LAPEntities();
             benutzerListe = context.Allportalusers.ToList();
             return benutzerListe;
         }
 
-        public static portaluser GetUser(string username)
+        public static portalusers GetUser(string username)
         {
             log.Info("GetUser(username)");
 
-            portaluser user = null;
+            portalusers user = null;
 
             using (var context = new ITIN20LAPEntities())
             {
@@ -206,7 +207,7 @@ namespace LAP.Logic
                 {
                     try
                     {
-                        portaluser curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+                        portalusers curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
 
                         if (curUser != null)
                         {
@@ -246,7 +247,7 @@ namespace LAP.Logic
                 {
                     try
                     {
-                        portaluser curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+                        portalusers curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
 
                         if (curUser != null)
                         {
@@ -300,7 +301,7 @@ namespace LAP.Logic
                 {
                     try
                     {
-                        portaluser user = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+                        portalusers user = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
 
                         if (user != null)
                         {

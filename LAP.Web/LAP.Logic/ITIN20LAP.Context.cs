@@ -25,18 +25,18 @@ namespace LAP.Logic
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<billdetail> billdetails { get; set; }
-        public DbSet<bill> bills { get; set; }
-        public DbSet<bookingreversal> AllBookingreversals { get; set; }
-        public DbSet<booking> bookings { get; set; }
-        public DbSet<company> AllCompanies { get; set; }
-        public DbSet<contact> contacts { get; set; }
-        public DbSet<facility> facilities { get; set; }
-        public DbSet<furnishing> furnishings { get; set; }
-        public DbSet<portalrole> Allportalroles { get; set; }
-        public DbSet<portaluser> Allportalusers { get; set; }
-        public DbSet<roomfurnishing> roomfurnishings { get; set; }
-        public DbSet<room> rooms { get; set; }
-        public DbSet<Log> Logs { get; set; }
+        public DbSet<billdetails> Allbilldetails { get; set; }
+        public DbSet<bills> Allbills { get; set; }
+        public DbSet<bookingreversals> Allbookingreversals { get; set; }
+        public DbSet<bookings> Allbookings { get; set; }
+        public DbSet<companies> Allcompanies { get; set; }
+        public DbSet<contacts> Allcontacts { get; set; }
+        public DbSet<facilities> Allfacilities { get; set; }
+        public DbSet<furnishings> furnishings { get; set; }
+        public DbSet<portalroles> Allportalroles { get; set; }
+        public DbSet<portalusers> Allportalusers { get; set; }
+        public DbSet<roomfurnishings> Allroomfurnishings { get; set; }
+        public DbSet<rooms> Allrooms { get; set; }
+        public DbSet<Log> Log { get; set; }
     }
 }

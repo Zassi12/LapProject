@@ -9,9 +9,9 @@ namespace LAP.Logic
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 
-        public portaluser GetProfileData(int id)
+        public portalusers GetProfileData(int id)
         {
-           portaluser puser = null;
+           portalusers puser = null;
            
             try
             {
@@ -31,9 +31,9 @@ namespace LAP.Logic
             return puser;
         }
 
-        public portaluser GetProfileData(string email)
+        public portalusers GetProfileData(string email)
         {
-            portaluser puser = null;
+            portalusers puser = null;
 
             try
             {

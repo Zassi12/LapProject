@@ -1,0 +1,22 @@
+﻿@model LAP.Web.Models.ChartModel
+
+
+@{
+    ViewBag.Title = "Raum übersicht";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chart</h2>
+
+@{
+    var myChart = new Chart(width: 600, height: 400)
+        .AddTitle("Statistik")
+        .AddSeries(
+            name: "Räume",
+            xValue: new[] { Model.xaxis[1], Model.xaxis[2], Model.xaxis[3] },
+            yValues: new[] { Model.yaxis[1], Model.yaxis[2], Model.yaxis[3] })
+        .Write();
+}
+
+
+

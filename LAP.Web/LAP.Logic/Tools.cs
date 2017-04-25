@@ -53,7 +53,7 @@ namespace LAP.Logic
         {
             bool mitarbeiter = false;
             ITIN20LAPEntities context = new ITIN20LAPEntities();
-            List<portaluser> user;
+            List<portalusers> user;
             try
             {
            
@@ -64,7 +64,7 @@ namespace LAP.Logic
 
             foreach (var m in user)
             {
-                if (m.Ist_Mitarbeiter)
+                if (m.ist_Mitarbeiter)
                 {
                     mitarbeiter = true;
                     break;

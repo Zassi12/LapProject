@@ -19,7 +19,7 @@ namespace LAP.Web.Controllers
             log.Info("GET - Company - Index");
 
 
-            List<company> allCompanies = FirmenVerwaltung.GetCompanies();
+            List<companies> allCompanies = FirmenVerwaltung.GetCompanies();
 
             // VARIANTE user defined MAPPING
             // mapping von List<Company> auf List<CompanyModel>
@@ -49,8 +49,9 @@ namespace LAP.Web.Controllers
             {
                 model.Add(new StornoModel{
                     Reason = b.reason,
-                    Benutzername = b.portaluser.email,
-                    Date=b.booking.date
+                    Benutzername = b.portalusers.email,
+                    Date=b.bookings.date
+
                 });
                 }
 
@@ -63,18 +64,13 @@ namespace LAP.Web.Controllers
         public ActionResult Chart(int id)
         {
 
-            var kompanie = FirmenVerwaltung.GetCompanies();
-            
-            var model = new ChartModel();
 
-            foreach (var i in kompanie)
-            {
-                model.Firma.Add(i.companyname);
-                model.Ausgaben.Add(FirmenVerwaltung.GetCompanySales().ToString());
-            }
-                
-            
-            return View(model);
+
+            var chmodel = new ChartModel();
+
+
+
+            return View(chmodel);
         }
 
     }

@@ -76,7 +76,7 @@ namespace LAP.Web.Controllers
         {
             ProfilVerwaltung pv = new ProfilVerwaltung();
 
-            var puser = pv.GetProfileData(User.Identity.Name);
+            portalusers puser = pv.GetProfileData(User.Identity.Name);
             pfdm.Benutzername = puser.email;
             pfdm.Nachname = puser.lastname;
             pfdm.Vorname = puser.firstname;

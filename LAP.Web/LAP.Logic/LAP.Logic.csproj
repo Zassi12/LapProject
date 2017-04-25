@@ -30,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Chart.Mvc, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Chart.Mvc.1.0.0.2\lib\net45\Chart.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -38,12 +46,44 @@
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,63 +92,66 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bill.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    <Compile Include="billdetails.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="billdetail.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    <Compile Include="bills.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="booking.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    <Compile Include="bookingreversals.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="bookingreversal.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    <Compile Include="bookings.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="BuchungsVerwaltung.cs" />
-    <Compile Include="company.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    <Compile Include="companies.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
+    <Compile Include="contacts.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="facilities.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="furnishings.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITIN20LAP.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITIN20LAP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITIN20LAP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITIN20LAP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="KreditkartenVerwaltung.cs" />
     <Compile Include="FirmenVerwaltung.cs" />
-    <Compile Include="contact.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
-    </Compile>
-    <Compile Include="facility.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
-    </Compile>
-    <Compile Include="furnishing.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ITIN20Lap.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ITIN20Lap.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ITIN20Lap.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ITIN20Lap.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ITIN20Lap.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Log.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="portalrole.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    <Compile Include="portalroles.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="portaluser.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    <Compile Include="portalusers.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="ProfilVerwaltung.cs" />
+    <Compile Include="FacilitiesVerwaltung.cs" />
+    <Compile Include="RaumVerwaltung.cs" />
     <Compile Include="RolenVerwaltung.cs" />
-    <Compile Include="room.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    <Compile Include="roomfurnishings.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="roomfurnishing.cs">
-      <DependentUpon>ITIN20Lap.tt</DependentUpon>
+    <Compile Include="rooms.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="Tools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,12 +159,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="ITIN20Lap.edmx">
+    <EntityDeploy Include="ITIN20LAP.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ITIN20Lap.Designer.cs</LastGenOutput>
+      <LastGenOutput>ITIN20LAP.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ITIN20Lap.edmx.diagram">
-      <DependentUpon>ITIN20Lap.edmx</DependentUpon>
+    <None Include="ITIN20LAP.edmx.diagram">
+      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -129,16 +172,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ITIN20Lap.Context.tt">
+    <Content Include="ITIN20LAP.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ITIN20Lap.edmx</DependentUpon>
-      <LastGenOutput>ITIN20Lap.Context.cs</LastGenOutput>
+      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
+      <LastGenOutput>ITIN20LAP.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ITIN20Lap.tt">
+    <Content Include="ITIN20LAP.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ITIN20Lap.edmx</DependentUpon>
-      <LastGenOutput>ITIN20Lap.cs</LastGenOutput>
+      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
+      <LastGenOutput>ITIN20LAP.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\Chart.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -12,8 +12,7 @@
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
     <title>@ViewBag.Title - Meine ASP.NET-Anwendung</title>
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/css/css")
+
 </head>
 <body>
     <!--start: Header -->
@@ -57,17 +56,20 @@
                                                 </li>*@
                                         var controller = new LAP.Web.Controllers.BenutzerController();
 
-                                        if (controller.istMitarbeiter)
+                                        if (!controller.istMitarbeiter)
                                         {
-                                            <li><a class="btn buttonAction" href="@Url.Action("Index", "Mitarbeiter")">Home</a></li>
-                                            <li><a class="btn buttonAction" href="@Url.Action("Stornierungen", "Mitarbeiter")">Home</a></li>
+                                            <li><a class="btn buttonAction" href="@Url.Action("Index", "Mitarbeiter")">Verwaltung</a></li>
+                                            <li><a class="btn buttonAction" href="@Url.Action("Stornierungen", "Mitarbeiter")">Storno</a></li>
+                                            <li><a class="btn buttonAction" href="@Url.Action("Index", "Raum")">Räume</a></li>
+                                            <li><a class="btn buttonAction" href="@Url.Action("ProfilAnsicht", "Benutzer")">Home</a></li>
                                             }
                                             else
                                             {
-                                                <li><a class="btn buttonAction" href="@Url.Action("Index", "Mitarbeiter")">Home</a></li>
-                                                <li><a class="btn buttonAction" href="@Url.Action("Stornierungen", "Mitarbeiter")">Stornierungen</a></li>
-                          
-                                                }
+                                                <li><a class="btn buttonAction" href="@Url.Action("Index", "Home")">Home</a></li>
+                                                <li><a class="btn buttonAction" href="@Url.Action("ProfilAnsicht", "Benutzer")">Stornieren</a></li>
+                                                <li><a class="btn buttonAction" href="@Url.Action("Buchen", "Benutzer")">Buchen</a></li>
+
+                                            }
 
                                         }
                                         else
@@ -165,9 +167,12 @@
         </div>
         <!-- end: Footer Menu -->
     </div>
-
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/css/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/content/css") 
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

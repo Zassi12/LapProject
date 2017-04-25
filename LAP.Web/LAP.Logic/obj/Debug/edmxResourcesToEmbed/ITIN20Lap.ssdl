@@ -7,7 +7,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="booking_id" Type="int" Nullable="false" />
     <Property Name="date" Type="datetime" Nullable="false" />
-    <Property Name="bill_id" Type="int" />
+    <Property Name="bill_id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="bills">
     <Key>
@@ -64,6 +64,8 @@
     <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="street" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="order" Type="int" Nullable="false" />
+    <Property Name="active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="furnishings">
     <Key>
@@ -97,6 +99,7 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="portalusers">
     <Key>
@@ -104,11 +107,12 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="company_id" Type="int" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="password" Type="varbinary" MaxLength="1000" Nullable="false" />
     <Property Name="firstname" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="lastname" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Ist_Mitarbeiter" Type="bit" Nullable="false" />
+    <Property Name="ist_Mitarbeiter" Type="bit" Nullable="false" />
     <Property Name="active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="roomfurnishings">
@@ -128,7 +132,7 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     <Property Name="description" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="fk_billdetails_bills">
-    <End Role="bills" Type="Self.bills" Multiplicity="0..1" />
+    <End Role="bills" Type="Self.bills" Multiplicity="1" />
     <End Role="billdetails" Type="Self.billdetails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="bills">
@@ -271,7 +275,7 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_rooms_facility">
+  <Association Name="FK_rooms_facilities">
     <End Role="facilities" Type="Self.facilities" Multiplicity="1" />
     <End Role="rooms" Type="Self.rooms" Multiplicity="*" />
     <ReferentialConstraint>
@@ -355,7 +359,7 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
       <End Role="rooms" EntitySet="rooms" />
       <End Role="roomfurnishings" EntitySet="roomfurnishings" />
     </AssociationSet>
-    <AssociationSet Name="fk_rooms_facility" Association="Self.fk_rooms_facility">
+    <AssociationSet Name="FK_rooms_facilities" Association="Self.FK_rooms_facilities">
       <End Role="facilities" EntitySet="facilities" />
       <End Role="rooms" EntitySet="rooms" />
     </AssociationSet>

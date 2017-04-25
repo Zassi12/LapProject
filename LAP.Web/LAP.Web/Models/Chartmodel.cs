@@ -9,7 +9,7 @@ namespace LAP.Web.Models
     public class ChartModel
     {
 
-        public List<string> Firma { get; set; }
-        public List<string> Ausgaben { get; set; }
+        public List<string> xaxis { get; set; }
+        public List<int> yaxis { get; set; }
     }
 }

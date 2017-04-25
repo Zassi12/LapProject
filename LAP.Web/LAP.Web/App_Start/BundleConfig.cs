@@ -26,7 +26,9 @@ namespace LAP.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/css/bootstrap-responsive.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Scripts/chart.js"
+                      ));
 
             bundles.Add(new StyleBundle("~/css/css").Include(
                       "~/css/hover.css",
