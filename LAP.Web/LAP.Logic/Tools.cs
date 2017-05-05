@@ -53,13 +53,13 @@ namespace LAP.Logic
         {
             bool mitarbeiter = false;
             ITIN20LAPEntities context = new ITIN20LAPEntities();
-            List<portalusers> user;
+            List<Benutzer> user;
             try
             {
            
             using (context)
             {
-                    user = context.Allportalusers.ToList();
+                    user = context.AlleBenutzer.ToList();
             }
 
             foreach (var m in user)

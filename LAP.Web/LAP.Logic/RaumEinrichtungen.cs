@@ -12,14 +12,13 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Log
+    public partial class RaumEinrichtungen
     {
         public int Id { get; set; }
-        public System.DateTime Datum { get; set; }
-        public string thread { get; set; }
-        public string level { get; set; }
-        public string logger { get; set; }
-        public string message { get; set; }
-        public string exception { get; set; }
+        public int Raum_Id { get; set; }
+        public int Einrichtung_Id { get; set; }
+    
+        public virtual Einrichtungen Einrichtungen { get; set; }
+        public virtual Räume Räume { get; set; }
     }
 }

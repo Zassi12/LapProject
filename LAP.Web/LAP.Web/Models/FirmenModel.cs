@@ -17,20 +17,17 @@ namespace LAP.Web.Models
         [StringLength(20)]
         public string Companyname { get; set; }
 
-       
-        [StringLength(20)]
-        public string Street { get; set; }
-
-      
         [StringLength(10)]
-        public string Number { get; set; }
+        public string Zip { get; set; }
 
-       
         [StringLength(50)]
         public string City { get; set; }
 
-       
+        [StringLength(20)]
+        public string Street { get; set; }
+     
         [StringLength(10)]
-        public string Zip { get; set; }
+        public string Number { get; set; }
+
     }
 }

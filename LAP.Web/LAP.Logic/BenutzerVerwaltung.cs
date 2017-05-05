@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
+
 namespace LAP.Logic
 {
     public enum LogonResult
@@ -60,7 +61,7 @@ namespace LAP.Logic
                 {
                     try
                     {
-                        portalusers curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+                        Benutzer curUser = context.AlleBenutzer.Where(x => x.Email == username).FirstOrDefault();
 
                         if (curUser == null)
                         {
@@ -70,15 +71,15 @@ namespace LAP.Logic
                         //{
                         //    result = PasswordChangeResult.UserInactive;
                         //}
-                        else if (!curUser.password.SequenceEqual(Tools.GetSHA2(oldPassword)))
+                        else if (!curUser.Passwort.SequenceEqual(Tools.GetSHA2(oldPassword)))
                         {
                             result = PasswordChangeResult.PasswortInvalid;
                         }
                         else
                         {
-                            log4net.LogicalThreadContext.Properties["idUser"] = curUser.id;
+                            log4net.LogicalThreadContext.Properties["idUser"] = curUser.Id;
 
-                            curUser.password = Tools.GetSHA2(newPassword);
+                            curUser.Passwort = Tools.GetSHA2(newPassword);
                             context.SaveChanges();
 
                             result = PasswordChangeResult.Success;
@@ -122,12 +123,12 @@ namespace LAP.Logic
             {
                 try
                 {
-                    portalusers currentUser = context.Allportalusers.FirstOrDefault(x => x.email == username);
+                    Benutzer currentUser = context.AlleBenutzer.FirstOrDefault(x => x.Email == username);
                     if (currentUser != null)
                     {
 
-                        currentUser.firstname = firstname;
-                        currentUser.lastname = lastname;
+                        currentUser.Vorname = firstname;
+                        currentUser.Nachname = lastname;
                         context.SaveChanges();
                         log.Info("Profile Data changed successfully!");
                         result = ProfileChangeResult.Success;
@@ -155,25 +156,25 @@ namespace LAP.Logic
         /// Liefert alle Kunden aus der DB
         /// </summary>
         /// <returns>Liste aller Kunden</returns>
-        public static List<portalusers> AlleBenutzer()
+        public static List<Benutzer> AlleBenutzer()
         {
-            var benutzerListe = new List<portalusers>();
+            var benutzerListe = new List<Benutzer>();
             var context = new ITIN20LAPEntities();
-            benutzerListe = context.Allportalusers.ToList();
+            benutzerListe = context.AlleBenutzer.ToList();
             return benutzerListe;
         }
 
-        public static portalusers GetUser(string username)
+        public static Benutzer GetUser(string username)
         {
             log.Info("GetUser(username)");
 
-            portalusers user = null;
+            Benutzer user = null;
 
             using (var context = new ITIN20LAPEntities())
             {
                 try
                 {
-                    user = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+                    user = context.AlleBenutzer.Where(x => x.Email == username).FirstOrDefault();
 
                     if (user == null)
                     {
@@ -207,7 +208,7 @@ namespace LAP.Logic
                 {
                     try
                     {
-                        portalusers curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+                        Benutzer curUser = context.AlleBenutzer.Where(x => x.Email == username).FirstOrDefault();
 
                         if (curUser != null)
                         {
@@ -247,7 +248,7 @@ namespace LAP.Logic
                 {
                     try
                     {
-                        portalusers curUser = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+                        Benutzer curUser = context.AlleBenutzer.Where(x => x.Email == username).FirstOrDefault();
 
                         if (curUser != null)
                         {
@@ -301,11 +302,11 @@ namespace LAP.Logic
                 {
                     try
                     {
-                        portalusers user = context.Allportalusers.Where(x => x.email == username).FirstOrDefault();
+                        Benutzer user = context.AlleBenutzer.Where(x => x.Email == username).FirstOrDefault();
 
                         if (user != null)
                         {
-                            if (user.password.SequenceEqual(Tools.GetSHA2(password)))
+                            if (user.Passwort.SequenceEqual(Tools.GetSHA2(password)))
                             {
                                 log.Info("Logon data valid");
                                 result = LogonResult.LogonDataValid;

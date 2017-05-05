@@ -15,16 +15,16 @@ namespace LAP.Logic
         /// </summary>
         /// <exception cref="Exception">if database access fails</exception>
         /// <returns>list of all active companies</returns>
-        public static List<companies> GetCompanies()
+        public static List<Firmen> GetCompanies()
         {
 
-            List<companies> allCompanies = null;
+            List<Firmen> allCompanies = null;
 
             try
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    allCompanies = context.Allcompanies.Include("contacts").ToList();
+                    allCompanies = context.AlleFirmen.Include("Kontakte").ToList();
                 }
             }
             catch (Exception ex)
@@ -44,7 +44,7 @@ namespace LAP.Logic
         /// <param name="id">the id to look up for</param>
         /// <returns>company with given id or null in case of an erro</returns>
         /// <exception cref="ArgumentException">in case of an invalid id</exception>
-        public static companies GetCompany(int id)
+        public static Firmen GetCompany(int id)
         {
             log.Info("GetCompany(id)");
 
@@ -52,13 +52,13 @@ namespace LAP.Logic
                 throw new ArgumentException("Invalid value for id", nameof(id));
             else
             {
-                companies company = null;
+                Firmen company = null;
 
                 try
                 {
                     using (var context = new ITIN20LAPEntities())
                     {
-                        company = context.Allcompanies.FirstOrDefault(x => x.id == id);
+                        company = context.AlleFirmen.FirstOrDefault(x => x.Id == id);
                     }
                 }
                 catch (Exception ex)

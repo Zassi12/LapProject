@@ -17,10 +17,10 @@ namespace LAP.Logic
         /// </summary>
         /// <param name="id">the ID of the room to look for</param>
         /// <returns>Returns a room with all necessary data according to given ID</returns>
-        public static rooms GetRoom(int id)
+        public static Räume GetRoom(int id)
         {
             log.Info("Get(id)");
-            rooms room = null;
+            Räume room = null;
 
             using (var context = new ITIN20LAPEntities())
             {
@@ -28,9 +28,9 @@ namespace LAP.Logic
                 {
 
                     // filter by building and type if given
-                    room = context.Allrooms
-                        .Include("facilities")
-                        .Where(x => x.id == id)
+                    room = context.AlleRäume
+                        .Include("Gebäude").Include("Buchungen").Include("RaumEinrichtungen")
+                        .Where(x => x.Id == id)
                         .FirstOrDefault();
                 }
                 catch (Exception ex)
@@ -44,17 +44,17 @@ namespace LAP.Logic
             return room;
         }
 
-        public static List<rooms> GetAllRooms()
+        public static List<Räume> GetAllRooms()
         {
             log.Info("Get all rooms");
-            List<rooms> room = null;
+            List<Räume> room = null;
 
             using (var context = new ITIN20LAPEntities())
             {
                 try
                 {
-                    room = context.Allrooms
-                        .Include("facilities")
+                    room = context.AlleRäume
+                        .Include("Gebäude").Include("Buchungen").Include("RaumEinrichtungen")
                         .ToList();
                 }
                 catch (Exception ex)

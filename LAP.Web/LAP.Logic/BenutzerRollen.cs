@@ -12,14 +12,17 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Log
+    public partial class BenutzerRollen
     {
+        public BenutzerRollen()
+        {
+            this.Benutzer = new HashSet<Benutzer>();
+        }
+    
         public int Id { get; set; }
-        public System.DateTime Datum { get; set; }
-        public string thread { get; set; }
-        public string level { get; set; }
-        public string logger { get; set; }
-        public string message { get; set; }
-        public string exception { get; set; }
+        public string Beschreibung { get; set; }
+        public bool active { get; set; }
+    
+        public virtual ICollection<Benutzer> Benutzer { get; set; }
     }
 }

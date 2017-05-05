@@ -15,7 +15,7 @@ namespace LAP.Logic
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns>list of portalusers</returns>
-        public static List<portalusers> GetRoleUsers(string roleName)
+        public static List<Benutzer> GetRoleUsers(string roleName)
         {
             log.Info("GetRoleUsers(rolenName)");
 
@@ -25,16 +25,16 @@ namespace LAP.Logic
             }
             else
             {
-                List<portalusers> roleUsers = null;
+                List<Benutzer> roleUsers = null;
 
                 using (var context = new ITIN20LAPEntities())
                 {
                     try
                     {
-                        portalroles aktRolle = context.Allportalroles.Where(x => x.description == roleName).FirstOrDefault();
+                        BenutzerRollen aktRolle = context.AlleBenutzerRollen.Where(x => x.Beschreibung == roleName).FirstOrDefault();
                         if (aktRolle != null)
                         {
-                            roleUsers = aktRolle.portalusers.ToList();
+                            roleUsers = aktRolle.Benutzer.ToList();
                         }
                     }
                     catch (Exception ex)
@@ -53,16 +53,16 @@ namespace LAP.Logic
         /// Sucht alle Rollen aus der Datenbank
         /// </summary>
         /// <returns>list of portalroles</returns>
-        public static List<portalroles> GetRoles()
+        public static List<BenutzerRollen> GetRoles()
         {
             log.Info("GetRoles()");
-            List<portalroles> rollen = null;
+            List<BenutzerRollen> rollen = null;
 
             using (var context = new ITIN20LAPEntities())
             {
                 try
                 {
-                    rollen = context.Allportalroles.ToList();
+                    rollen = context.AlleBenutzerRollen.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -80,7 +80,7 @@ namespace LAP.Logic
         /// </summary>
         /// <param name="email"></param>
         /// <returns>portalrole object</returns>
-        public static portalroles GetUserRole(string email)
+        public static BenutzerRollen GetUserRole(string email)
         {
             log.Info("GetUserRoles(username)");
 
@@ -90,16 +90,16 @@ namespace LAP.Logic
             }
             else
             {
-                portalroles userRole = null;
+                BenutzerRollen userRole = null;
 
                 using (var context = new ITIN20LAPEntities())
                 {
                     try
                     {
-                        portalusers aktBenutzer = context.Allportalusers.Where(x => x.email == email).FirstOrDefault();
+                        Benutzer aktBenutzer = context.AlleBenutzer.Where(x => x.Email == email).FirstOrDefault();
                         if (aktBenutzer != null)
                         {
-                            userRole = aktBenutzer.portalroles;
+                            userRole = aktBenutzer.BenutzerRollen;
                         }
                     }
                     catch (Exception ex)

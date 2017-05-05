@@ -9,15 +9,15 @@ namespace LAP.Logic
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 
-        public portalusers GetProfileData(int id)
+        public Benutzer GetProfileData(int id)
         {
-           portalusers puser = null;
+           Benutzer puser = null;
            
             try
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    puser = context.Allportalusers.FirstOrDefault(x => x.id == id);
+                    puser = context.AlleBenutzer.FirstOrDefault(x => x.Id == id);
                 }
             }
             catch (Exception ex)
@@ -31,15 +31,15 @@ namespace LAP.Logic
             return puser;
         }
 
-        public portalusers GetProfileData(string email)
+        public Benutzer GetProfileData(string email)
         {
-            portalusers puser = null;
+            Benutzer puser = null;
 
             try
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    puser = context.Allportalusers.Include("bills").Include("bookingreversals").Include("bookings").Include("contacts").Include("portalrole").FirstOrDefault(x => x.email == email);
+                    puser = context.AlleBenutzer.Include("Rechnungen").Include("Stornierungen").Include("Buchungen").Include("Kontakte").Include("BenutzerRollen").Include("Firmen").FirstOrDefault(x => x.Email == email);
                 }
             }
             catch (Exception ex)

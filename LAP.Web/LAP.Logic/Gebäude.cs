@@ -12,14 +12,22 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Log
+    public partial class Gebäude
     {
+        public Gebäude()
+        {
+            this.Räume = new HashSet<Räume>();
+        }
+    
         public int Id { get; set; }
-        public System.DateTime Datum { get; set; }
-        public string thread { get; set; }
-        public string level { get; set; }
-        public string logger { get; set; }
-        public string message { get; set; }
-        public string exception { get; set; }
+        public string FirmenName { get; set; }
+        public string Plz { get; set; }
+        public string Stadt { get; set; }
+        public string Straße { get; set; }
+        public string Hausnummer { get; set; }
+        public int order { get; set; }
+        public bool active { get; set; }
+    
+        public virtual ICollection<Räume> Räume { get; set; }
     }
 }

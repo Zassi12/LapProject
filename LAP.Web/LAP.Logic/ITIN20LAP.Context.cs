@@ -25,18 +25,18 @@ namespace LAP.Logic
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<billdetails> Allbilldetails { get; set; }
-        public DbSet<bills> Allbills { get; set; }
-        public DbSet<bookingreversals> Allbookingreversals { get; set; }
-        public DbSet<bookings> Allbookings { get; set; }
-        public DbSet<companies> Allcompanies { get; set; }
-        public DbSet<contacts> Allcontacts { get; set; }
-        public DbSet<facilities> Allfacilities { get; set; }
-        public DbSet<furnishings> furnishings { get; set; }
-        public DbSet<portalroles> Allportalroles { get; set; }
-        public DbSet<portalusers> Allportalusers { get; set; }
-        public DbSet<roomfurnishings> Allroomfurnishings { get; set; }
-        public DbSet<rooms> Allrooms { get; set; }
+        public DbSet<Benutzer> AlleBenutzer { get; set; }
+        public DbSet<BenutzerRollen> AlleBenutzerRollen { get; set; }
+        public DbSet<Buchungen> AlleBuchungen { get; set; }
+        public DbSet<Einrichtungen> AlleEinrichtungen { get; set; }
+        public DbSet<Firmen> AlleFirmen { get; set; }
+        public DbSet<Gebäude> AlleGebäude { get; set; }
+        public DbSet<Kontakte> AlleKontakte { get; set; }
         public DbSet<Log> Log { get; set; }
+        public DbSet<Räume> AlleRäume { get; set; }
+        public DbSet<RaumEinrichtungen> AlleRaumEinrichtungen { get; set; }
+        public DbSet<Rechnungen> AlleRechnungen { get; set; }
+        public DbSet<RechnungsDetails> AlleRechnungsDetails { get; set; }
+        public DbSet<Stornierungen> AlleStornierungen { get; set; }
     }
 }

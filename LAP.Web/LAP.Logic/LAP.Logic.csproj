@@ -92,29 +92,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="billdetails.cs">
+    <Compile Include="Benutzer.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="bills.cs">
+    <Compile Include="BenutzerRollen.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="bookingreversals.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bookings.cs">
+    <Compile Include="Buchungen.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="BuchungsVerwaltung.cs" />
-    <Compile Include="companies.cs">
+    <Compile Include="Einrichtungen.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="contacts.cs">
+    <Compile Include="Firmen.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="facilities.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="furnishings.cs">
+    <Compile Include="Gebäude.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="ITIN20LAP.Context.cs">
@@ -132,25 +126,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ITIN20LAP.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Kontakte.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
     <Compile Include="KreditkartenVerwaltung.cs" />
     <Compile Include="FirmenVerwaltung.cs" />
     <Compile Include="Log.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="portalroles.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="portalusers.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
     <Compile Include="ProfilVerwaltung.cs" />
     <Compile Include="FacilitiesVerwaltung.cs" />
-    <Compile Include="RaumVerwaltung.cs" />
-    <Compile Include="RolenVerwaltung.cs" />
-    <Compile Include="roomfurnishings.cs">
+    <Compile Include="RaumEinrichtungen.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="rooms.cs">
+    <Compile Include="RaumVerwaltung.cs" />
+    <Compile Include="Rechnungen.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RechnungsDetails.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RolenVerwaltung.cs" />
+    <Compile Include="Räume.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stornierungen.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="Tools.cs" />

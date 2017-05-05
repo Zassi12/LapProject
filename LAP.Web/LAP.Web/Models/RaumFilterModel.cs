@@ -9,6 +9,6 @@ namespace LAP.Web.Models
     {
         public List<FirmenModel> Facilities { get; set; }
 
-        public List<FacilitiesModel> Buildings { get; set; }
+        public List<GebäudeModel> Buildings { get; set; }
     }
 }

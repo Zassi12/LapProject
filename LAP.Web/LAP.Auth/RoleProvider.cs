@@ -26,10 +26,10 @@ namespace LAP.Auth
 
         public override string[] FindUsersInRole(string roleName, string usernameToMatch)
         {
-            List<portalusers> roleUsers = RolenVerwaltung.GetRoleUsers(roleName);
+            List<Benutzer> roleUsers = RolenVerwaltung.GetRoleUsers(roleName);
             if (roleUsers != null)
             {
-                return roleUsers.Where(x => x.email.Contains(usernameToMatch)).Select(x => x.email).ToArray();
+                return roleUsers.Where(x => x.Email.Contains(usernameToMatch)).Select(x => x.Email).ToArray();
             }
             else
             {
@@ -39,11 +39,11 @@ namespace LAP.Auth
 
         public override string[] GetAllRoles()
         {
-            List<portalroles> allRoles = RolenVerwaltung.GetRoles();
+            List<BenutzerRollen> allRoles = RolenVerwaltung.GetRoles();
 
             if (allRoles != null)
             {
-                return allRoles.Select(x => x.description).ToArray();
+                return allRoles.Select(x => x.Beschreibung).ToArray();
             }
             else
             {
@@ -53,11 +53,11 @@ namespace LAP.Auth
 
         public override string[] GetRolesForUser(string username)
         {
-            portalroles userRoles = RolenVerwaltung.GetUserRole(username);
+            BenutzerRollen userRoles = RolenVerwaltung.GetUserRole(username);
 
             if (userRoles != null)
             {
-                return new string[] { userRoles.description };
+                return new string[] { userRoles.Beschreibung };
             }
             else
             {
@@ -68,10 +68,10 @@ namespace LAP.Auth
         public override string[] GetUsersInRole(string roleName)
         {
 
-            List<portalusers> roleUsers = RolenVerwaltung.GetRoleUsers(roleName);
+            List<Benutzer> roleUsers = RolenVerwaltung.GetRoleUsers(roleName);
             if (roleUsers != null)
             {
-                return roleUsers.Select(x => x.email).ToArray();
+                return roleUsers.Select(x => x.Email).ToArray();
             }
             else
             {

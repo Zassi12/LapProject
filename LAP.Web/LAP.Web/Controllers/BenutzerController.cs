@@ -76,11 +76,11 @@ namespace LAP.Web.Controllers
         {
             ProfilVerwaltung pv = new ProfilVerwaltung();
 
-            portalusers puser = pv.GetProfileData(User.Identity.Name);
-            pfdm.Benutzername = puser.email;
-            pfdm.Nachname = puser.lastname;
-            pfdm.Vorname = puser.firstname;
-            pfdm.Passwort = Encoding.Default.GetString(puser.password);
+            Benutzer puser = pv.GetProfileData(User.Identity.Name);
+            pfdm.Benutzername = puser.Email;
+            pfdm.Nachname = puser.Nachname;
+            pfdm.Vorname = puser.Vorname;
+            pfdm.Passwort = Encoding.Default.GetString(puser.Passwort);
             return View(pfdm);
         }
     }

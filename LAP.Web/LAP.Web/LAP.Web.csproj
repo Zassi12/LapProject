@@ -178,7 +178,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ChartModel.cs" />
-    <Compile Include="Models\FacilitiesModel.cs" />
+    <Compile Include="Models\GebäudeModel.cs" />
     <Compile Include="Models\KreditkartenModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProfileDataModel.cs" />

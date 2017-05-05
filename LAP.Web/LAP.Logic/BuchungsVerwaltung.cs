@@ -13,17 +13,17 @@ namespace LAP.Logic
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 
-        public static List<bookingreversals> GetBookingReversals()
+        public static List<Stornierungen> GetBookingReversals()
         {
 
 
-            List<bookingreversals> allBookingreversals = null;
+            List<Stornierungen> stornos = null;
 
             try
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    allBookingreversals = context.Allbookingreversals.Include("portalusers").Include("bookings").ToList();
+                    stornos = context.AlleStornierungen.Include("Benutzer").Include("Buchungen").ToList();
                 }
             }
             catch (Exception ex)
@@ -34,7 +34,7 @@ namespace LAP.Logic
                 throw;
             }
 
-            return allBookingreversals;
+            return stornos;
         }
 
         /// <summary>
@@ -42,23 +42,17 @@ namespace LAP.Logic
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>
-        public static List<bookingreversals> GetBookingReversals(DateTime date)
+        public static List<Stornierungen> GetBookingReversals(DateTime date)
         {
 
 
-            List<bookingreversals> bookingreversalsbydate = null;
+            List< Stornierungen> Stornobydate = null;
 
             try
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    context.Allbookings.Where(t =>
-                    t.date >= t.date.AddMonths(-1)
-                    ).ToList();
-
-
-
-                    bookingreversalsbydate = context.Allbookingreversals.ToList();
+                    Stornobydate = context.AlleStornierungen.ToList();
                 }
             }
             catch (Exception ex)
@@ -69,18 +63,18 @@ namespace LAP.Logic
                 throw;
             }
 
-            return bookingreversalsbydate;
+            return Stornobydate;
         }
 
-        public static List<bookings> GetBookings()
+        public static List<Buchungen> GetBookings()
         {
-            List<bookings> bookings = new List<bookings>();
+            List<Buchungen> bookings = new List<Buchungen>();
 
             try
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    context.Allbookings.ToList();
+                    context.AlleBuchungen.ToList();
 
                 }
             }

@@ -31,8 +31,8 @@ namespace LAP.Web.App_Start
         protected void Configure()
         {
             //base.CreateMap<portaluser, ProfileDataModel>();
-            base.CreateMap<companies, FirmenModel>();
-            base.CreateMap<facilities, FacilitiesModel>();
+            base.CreateMap<Firmen, FirmenModel>();
+            base.CreateMap<Gebäude, GebäudeModel>();
             //base.CreateMap<Facility, FacilityModel>();
             //base.CreateMap<RoomFacility, RoomFacilityModel>();
             //base.CreateMap<data.Type, TypeModel>();

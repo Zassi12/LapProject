@@ -12,14 +12,22 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Log
+    public partial class Buchungen
     {
+        public Buchungen()
+        {
+            this.RechnungsDetails = new HashSet<RechnungsDetails>();
+            this.Stornierungen = new HashSet<Stornierungen>();
+        }
+    
         public int Id { get; set; }
+        public int Raum_Id { get; set; }
+        public int Benutzer_Id { get; set; }
         public System.DateTime Datum { get; set; }
-        public string thread { get; set; }
-        public string level { get; set; }
-        public string logger { get; set; }
-        public string message { get; set; }
-        public string exception { get; set; }
+    
+        public virtual Benutzer Benutzer { get; set; }
+        public virtual Räume Räume { get; set; }
+        public virtual ICollection<RechnungsDetails> RechnungsDetails { get; set; }
+        public virtual ICollection<Stornierungen> Stornierungen { get; set; }
     }
 }

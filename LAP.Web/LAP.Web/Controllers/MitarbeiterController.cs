@@ -19,7 +19,7 @@ namespace LAP.Web.Controllers
             log.Info("GET - Company - Index");
 
 
-            List<companies> allCompanies = FirmenVerwaltung.GetCompanies();
+            List<Firmen> allCompanies = FirmenVerwaltung.GetCompanies();
 
             // VARIANTE user defined MAPPING
             // mapping von List<Company> auf List<CompanyModel>
@@ -29,12 +29,12 @@ namespace LAP.Web.Controllers
             {
                 model.Add(new Models.FirmenModel()
                 {
-                    ID = company.id,
-                    Companyname = company.companyname,
-                    Number = company.number,
-                    Street = company.street,
-                    Zip = company.zip,
-                    City = company.city
+                    ID = company.Id,
+                    Companyname = company.FirmenName,
+                    Number = company.Hausnummer,
+                    Street = company.Straße,
+                    Zip = company.Plz,
+                    City = company.Stadt
                 });
             }
             return View(model);
@@ -43,14 +43,14 @@ namespace LAP.Web.Controllers
         [HttpGet]
         public ActionResult Stornierungen()
         {
-            var bookingreversals = BuchungsVerwaltung.GetBookingReversals();
+            var storno = BuchungsVerwaltung.GetBookingReversals();
             var model = new List<StornoModel>();
-            foreach (var b in bookingreversals)
+            foreach (var b in storno)
             {
                 model.Add(new StornoModel{
-                    Reason = b.reason,
-                    Benutzername = b.portalusers.email,
-                    Date=b.bookings.date
+                    Reason = b.Grund,
+                    Benutzername = b.Benutzer.Email,
+                    Date=b.Buchungen.Datum
 
                 });
                 }

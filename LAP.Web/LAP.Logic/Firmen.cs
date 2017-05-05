@@ -12,14 +12,22 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Log
+    public partial class Firmen
     {
+        public Firmen()
+        {
+            this.Benutzer = new HashSet<Benutzer>();
+            this.Kontakte = new HashSet<Kontakte>();
+        }
+    
         public int Id { get; set; }
-        public System.DateTime Datum { get; set; }
-        public string thread { get; set; }
-        public string level { get; set; }
-        public string logger { get; set; }
-        public string message { get; set; }
-        public string exception { get; set; }
+        public string FirmenName { get; set; }
+        public string Plz { get; set; }
+        public string Stadt { get; set; }
+        public string Straße { get; set; }
+        public string Hausnummer { get; set; }
+    
+        public virtual ICollection<Benutzer> Benutzer { get; set; }
+        public virtual ICollection<Kontakte> Kontakte { get; set; }
     }
 }
