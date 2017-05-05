@@ -9,7 +9,7 @@ namespace LAP.Web.Models
     public class StornoModel
     {
 
-        public portalusers User { get; set; }
+        public Benutzer User { get; set; }
         public string Firma { get; set; }
         public string Benutzername { get; set; }
         public string Building { get; set; }
