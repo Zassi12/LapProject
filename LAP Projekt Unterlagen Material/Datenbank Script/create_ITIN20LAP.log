@@ -1,0 +1,231 @@
+ECHO ist ausgeschaltet (OFF).
+. 
+"starting database creation  9:47:47,33" 
+. 
+"try dropping database" 
+Der Datenbankkontext wurde in 'master' geÑndert.
+FÅr nicht gekennzeichnete Transaktionen wird ein Rollback ausgefÅhrt. Bereits abgeschlossen (geschÑtzt): 0%.
+FÅr nicht gekennzeichnete Transaktionen wird ein Rollback ausgefÅhrt. Bereits abgeschlossen (geschÑtzt): 100%.
+ 
+ 
+"try creating database" 
+Der Datenbankkontext wurde in 'master' geÑndert.
+ 
+ 
+"try creating tables" 
+Der Datenbankkontext wurde in 'ITIN20LAP' geÑndert.
+ 
+ 
+"try creating primary keys" 
+Der Datenbankkontext wurde in 'ITIN20LAP' geÑndert.
+ 
+ 
+"try creating foreign keys" 
+Der Datenbankkontext wurde in 'ITIN20LAP' geÑndert.
+Meldung '102', Ebene '15', Status '1', Server 'PC901B0E043B17', Zeile 4
+'Falsche Syntax in der NÑhe von 'œ'.'
+Meldung '102', Ebene '15', Status '1', Server 'PC901B0E043B17', Zeile 3
+'Falsche Syntax in der NÑhe von 'œ'.'
+Meldung '102', Ebene '15', Status '1', Server 'PC901B0E043B17', Zeile 6
+'Falsche Syntax in der NÑhe von 'œ'.'
+ 
+ 
+"try inserting values" 
+Der Datenbankkontext wurde in 'ITIN20LAP' geÑndert.
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+
+(1 Zeilen betroffen)
+ 
+ 
+"create login" 
+ 
+ 
+"try inserting icons" 
+ 
+ 
+. 
+"stopping database creation  9:47:51,24" 
+. 

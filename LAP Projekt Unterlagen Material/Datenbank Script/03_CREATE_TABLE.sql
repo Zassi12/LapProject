@@ -1,0 +1,109 @@
+USE  ITIN20LAP
+GO
+
+CREATE TABLE Einrichtungen(
+Id INT IdENTITY (1,1) NOT NULL,
+Beschreibung VARCHAR(50) NULL
+)
+
+CREATE TABLE RaumEinrichtungen(
+Id INT IdENTITY (1,1) NOT NULL,
+Raum_Id INT NOT NULL,
+Einrichtung_Id INT NOT NULL,
+)
+
+
+CREATE TABLE R‰ume(
+Id INT IdENTITY (1,1) NOT NULL,
+Geb‰ude_Id INT NOT NULL,
+Beschreibung VARCHAR(50) NULL
+)
+
+CREATE TABLE Geb‰ude(
+Id INT IdENTITY (1,1) NOT NULL,
+FirmenName VARCHAR(50) NOT NULL,
+Plz VARCHAR(50) NOT NULL,
+Stadt VARCHAR(50) NOT NULL,
+Straﬂe VARCHAR(50) NOT NULL,
+Hausnummer VARCHAR(50) NOT NULL,
+[order] INT NOT NULL,
+active bit NOT NULL
+)
+
+CREATE TABLE Buchungen(
+Id INT IdENTITY(1,1) NOT NULL,
+Raum_Id INT NOT NULL,
+Benutzer_Id INT NOT NULL,
+Datum DATETIME NOT NULL
+)
+
+CREATE TABLE RechnungsDetails(
+Id INT IdENTITY(1,1) NOT NULL,
+Buchung_Id INT NOT NULL,
+Datum DATETIME NOT NULL,
+Rechnung_Id INT NOT NULL
+)
+
+CREATE TABLE Rechnungen(
+Id INT IdENTITY(1,1) NOT NULL,
+Datum DATETIME NOT NULL,
+Benutzer_Id INT NOT NULL
+)
+
+CREATE TABLE Benutzer(
+Id INT IdENTITY(1,1) NOT NULL,
+BenutzerRolle_Id INT NOT NULL,
+Firmen_Id INT NOT NULL,
+Email VARCHAR(255) NOT NULL,
+Passwort VARBINARY(1000) NOT NULL,
+Vorname VARCHAR(50) NOT NULL,
+Nachname VARCHAR(50) NOT NULL,
+ist_Mitarbeiter BIT NOT NULL,
+active BIT NOT NULL
+)
+
+CREATE TABLE BenutzerRollen(
+Id INT IdENTITY (1,1) NOT NULL,
+Beschreibung VARCHAR(50) NOT NULL,
+active BIT NOT NULL
+)
+
+CREATE TABLE Kontakte(
+Id INT IdENTITY(1,1) NOT NULL,
+Benutzer_Id INT NOT NULL,
+Firmen_Id INT NOT NULL
+)
+
+CREATE TABLE Firmen(
+Id INT IdENTITY(1,1) NOT NULL,
+FirmenName VARCHAR(50) NOT NULL,
+Plz VARCHAR(50) NOT NULL,
+Stadt VARCHAR(50) NOT NULL,
+Straﬂe VARCHAR(50) NOT NULL,
+Hausnummer VARCHAR(50) NOT NULL
+)
+
+CREATE TABLE Stornierungen(
+Id INT IdENTITY(1,1) NOT NULL,
+Buchung_Id INT NOT NULL,
+Benutzer_Id INT NOT NULL,
+Grund VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Bilder(
+Id INT IDENTITY(1,1) NOT NULL,
+
+)
+
+
+CREATE TABLE [Log] (
+    [Id] [int] IdENTITY (1, 1) NOT NULL,
+    [Datum] [DATETIME] NOT NULL,
+    [thread] [varchar] (255) NOT NULL,
+    [level] [varchar] (50) NOT NULL,
+    [logger] [varchar] (255) NOT NULL,
+    [message] [varchar] (4000) NOT NULL,
+    [exception] [varchar] (2000) NULL
+)
+
+GO
