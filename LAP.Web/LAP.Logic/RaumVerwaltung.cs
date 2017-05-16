@@ -17,10 +17,10 @@ namespace LAP.Logic
         /// </summary>
         /// <param name="id">the ID of the room to look for</param>
         /// <returns>Returns a room with all necessary data according to given ID</returns>
-        public static Räume GetRoom(int id)
+        public static Raum GetRoom(int id)
         {
             log.Info("Get(id)");
-            Räume room = null;
+            Raum room = null;
 
             using (var context = new ITIN20LAPEntities())
             {
@@ -44,10 +44,10 @@ namespace LAP.Logic
             return room;
         }
 
-        public static List<Räume> GetAllRooms()
+        public static List<Raum> GetAllRooms()
         {
             log.Info("Get all rooms");
-            List<Räume> room = null;
+            List<Raum> room = null;
 
             using (var context = new ITIN20LAPEntities())
             {

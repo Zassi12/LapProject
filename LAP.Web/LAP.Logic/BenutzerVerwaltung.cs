@@ -164,7 +164,7 @@ namespace LAP.Logic
             return benutzerListe;
         }
 
-        public static Benutzer GetUser(string username)
+        public static Benutzer getBenutzer(string benutzer)
         {
             log.Info("GetUser(username)");
 
@@ -174,7 +174,7 @@ namespace LAP.Logic
             {
                 try
                 {
-                    user = context.AlleBenutzer.Where(x => x.Email == username).FirstOrDefault();
+                    user = context.AlleBenutzer.Where(x => x.Email == benutzer).FirstOrDefault();
 
                     if (user == null)
                     {
@@ -337,6 +337,8 @@ namespace LAP.Logic
             }
             return result;
         }
+
+      
 
     }
 }

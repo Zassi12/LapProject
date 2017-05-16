@@ -4,15 +4,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="~/css/bootstrap.css" rel="stylesheet">
     <link href="~/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
-    <title>@ViewBag.Title - Meine ASP.NET-Anwendung</title>
 
+
+    <title>innovation4austria - @ViewBag.Title</title>
 </head>
 <body>
     <!--start: Header -->
@@ -56,12 +60,21 @@
                                                 </li>*@
                                         var controller = new LAP.Web.Controllers.BenutzerController();
 
-                                        if (!controller.istMitarbeiter)
+                                        if (User.IsInRole("Admin"))
                                         {
                                             <li><a class="btn buttonAction" href="@Url.Action("Index", "Mitarbeiter")">Verwaltung</a></li>
                                             <li><a class="btn buttonAction" href="@Url.Action("Stornierungen", "Mitarbeiter")">Storno</a></li>
+                                            <li><a class="btn buttonAction" href="@Url.Action("ProfilAnsicht", "Benutzer")">Übersicht</a></li>
                                             <li><a class="btn buttonAction" href="@Url.Action("Index", "Raum")">Räume</a></li>
                                             <li><a class="btn buttonAction" href="@Url.Action("ProfilAnsicht", "Benutzer")">Home</a></li>
+
+                                            }
+                                            else if (User.IsInRole("Mitarbeiter"))
+                                            {
+                                                <li><a class="btn buttonAction" href="@Url.Action("Index", "Mitarbeiter")">Verwaltung</a></li>
+                                                <li><a class="btn buttonAction" href="@Url.Action("Stornierungen", "Mitarbeiter")">Storno</a></li>
+                                                <li><a class="btn buttonAction" href="@Url.Action("Index", "Raum")">Räume</a></li>
+                                                <li><a class="btn buttonAction" href="@Url.Action("ProfilAnsicht", "Benutzer")">Home</a></li>
                                             }
                                             else
                                             {
@@ -167,12 +180,31 @@
         </div>
         <!-- end: Footer Menu -->
     </div>
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/css/css")
+
+
+
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/content/css") 
+    <script src="~/Scripts/toastr.js"></script>
 
     @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        @if (TempData["erfolg"]!=null)
+        {
+            <text>toastr["success"]("@TempData["erfolg"]")</text>;
+        }
+
+        @if (TempData["fehler"]!=null)
+        {
+            <text>toastr["error"]("@TempData["fehler"]")</text>;
+        }
+
+        @if (TempData["warnung"]!=null)
+        {
+            <text>toastr["warning"]("@TempData["warnung"]")</text>;
+        }
+    </script>
 </body>
 </html>

@@ -16,7 +16,7 @@ namespace LAP.Logic
     {
         public Gebäude()
         {
-            this.Räume = new HashSet<Räume>();
+            this.AlleRäume = new HashSet<Raum>();
         }
     
         public int Id { get; set; }
@@ -28,6 +28,6 @@ namespace LAP.Logic
         public int order { get; set; }
         public bool active { get; set; }
     
-        public virtual ICollection<Räume> Räume { get; set; }
+        public virtual ICollection<Raum> AlleRäume { get; set; }
     }
 }

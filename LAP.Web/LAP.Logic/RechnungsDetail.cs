@@ -12,14 +12,14 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Stornierungen
+    public partial class RechnungsDetail
     {
         public int Id { get; set; }
         public int Buchung_Id { get; set; }
-        public int Benutzer_Id { get; set; }
-        public string Grund { get; set; }
+        public System.DateTime Datum { get; set; }
+        public int Rechnung_Id { get; set; }
     
-        public virtual Benutzer Benutzer { get; set; }
-        public virtual Buchungen Buchungen { get; set; }
+        public virtual Buchung Buchung { get; set; }
+        public virtual Rechnung Rechnung { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace LAP.Web.Models
 {
     public class RaumStatistikModel
     {
-        public List<Buchungen> buchungen { get; set; }
+        public List<Buchung> buchungen { get; set; }
 
     }
 }

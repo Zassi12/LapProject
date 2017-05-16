@@ -6,18 +6,18 @@
     <edmx:Diagrams>
       <Diagram DiagramId="72d3b95fa1c940e6a042335f0ee7dbc1" Name="Diagram1">
         <EntityTypeShape EntityType="ITIN20LAPModel.Benutzer" Width="1.5" PointX="7.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.BenutzerRollen" Width="1.5" PointX="3.375" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.Buchungen" Width="1.5" PointX="1.125" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.Einrichtungen" Width="1.5" PointX="7.25" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.Firmen" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.BenutzerRolle" Width="1.5" PointX="3.375" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.Buchung" Width="1.5" PointX="1.125" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.Einrichtung" Width="1.5" PointX="7.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.Firma" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Gebäude" Width="1.5" PointX="0.875" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.Kontakte" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.Kontakt" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Log" Width="1.5" PointX="1.875" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.Räume" Width="1.5" PointX="3.25" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.RaumEinrichtungen" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.Rechnungen" Width="1.5" PointX="9.375" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.RechnungsDetails" Width="1.5" PointX="9.125" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.Stornierungen" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.Raum" Width="1.5" PointX="3.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.RaumEinrichtung" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.Rechnung" Width="1.5" PointX="9.375" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.RechnungsDetail" Width="1.5" PointX="9.125" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.Stornierung" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="ITIN20LAPModel.fk_Benutzer_BenutzerRollen" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_Benutzer_Firmen" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_Buchungen_Benutzer" ManuallyRouted="false" />

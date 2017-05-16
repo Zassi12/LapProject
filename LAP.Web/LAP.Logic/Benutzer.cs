@@ -16,10 +16,10 @@ namespace LAP.Logic
     {
         public Benutzer()
         {
-            this.Buchungen = new HashSet<Buchungen>();
-            this.Kontakte = new HashSet<Kontakte>();
-            this.Rechnungen = new HashSet<Rechnungen>();
-            this.Stornierungen = new HashSet<Stornierungen>();
+            this.AlleBuchungen = new HashSet<Buchung>();
+            this.AlleKontakte = new HashSet<Kontakt>();
+            this.AlleRechnungen = new HashSet<Rechnung>();
+            this.AlleStornierungen = new HashSet<Stornierung>();
         }
     
         public int Id { get; set; }
@@ -29,14 +29,13 @@ namespace LAP.Logic
         public byte[] Passwort { get; set; }
         public string Vorname { get; set; }
         public string Nachname { get; set; }
-        public bool ist_Mitarbeiter { get; set; }
         public bool active { get; set; }
     
-        public virtual BenutzerRollen BenutzerRollen { get; set; }
-        public virtual Firmen Firmen { get; set; }
-        public virtual ICollection<Buchungen> Buchungen { get; set; }
-        public virtual ICollection<Kontakte> Kontakte { get; set; }
-        public virtual ICollection<Rechnungen> Rechnungen { get; set; }
-        public virtual ICollection<Stornierungen> Stornierungen { get; set; }
+        public virtual BenutzerRolle BenutzerRolle { get; set; }
+        public virtual Firma Firma { get; set; }
+        public virtual ICollection<Buchung> AlleBuchungen { get; set; }
+        public virtual ICollection<Kontakt> AlleKontakte { get; set; }
+        public virtual ICollection<Rechnung> AlleRechnungen { get; set; }
+        public virtual ICollection<Stornierung> AlleStornierungen { get; set; }
     }
 }

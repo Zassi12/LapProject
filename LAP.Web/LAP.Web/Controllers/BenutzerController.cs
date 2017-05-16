@@ -10,13 +10,12 @@ using System.Diagnostics;
 using System.Web.Security;
 using System.Security.Cryptography;
 using System.Text;
+using LAP.Web.App_Start;
 
 namespace LAP.Web.Controllers
 {
     public class BenutzerController : Controller
     {
-        public bool istMitarbeiter;
-
         [HttpGet]
         public ActionResult Login()
         {
@@ -48,14 +47,15 @@ namespace LAP.Web.Controllers
                 //{
                 //    return Redirect(Request.UrlReferrer.AbsoluteUri);
                 //}
-                if (Tools.IstMitarbeiter(lm.Email))
+
+                BenutzerRolle userRolle = RollenVerwaltung.ErmittleBenutzerRolle(lm.Email);
+
+                if (userRolle != null && userRolle.Id == BenutzerRolle.MITARBEITER||userRolle.Id ==BenutzerRolle.ADMINISTRATOR)
                 {
-                    istMitarbeiter = true;
                     return RedirectToAction("Index", "Mitarbeiter");
                 }
                 else
                 {
-                    istMitarbeiter = false;
                     return RedirectToAction("ProfilAnsicht", "Benutzer");
                 }
             }
@@ -72,16 +72,44 @@ namespace LAP.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult ProfilAnsicht(ProfileDataModel pfdm)
+        [Authorize]
+        public ActionResult ProfilAnsicht()
         {
-            ProfilVerwaltung pv = new ProfilVerwaltung();
+            /// nimm den Benutzernamen 
+            /// gehe damit in über die Logic in die DB
+            /// hole dort alle Daten raus
+            /// und gib sie in ein ProfilModel Objekt
 
-            Benutzer puser = pv.GetProfileData(User.Identity.Name);
-            pfdm.Benutzername = puser.Email;
-            pfdm.Nachname = puser.Nachname;
-            pfdm.Vorname = puser.Vorname;
-            pfdm.Passwort = Encoding.Default.GetString(puser.Passwort);
-            return View(pfdm);
+
+            string benutzerName = User.Identity.Name;
+
+            var user = AutoMapperConfig.CommonMapper.Map<List<ProfilDatenModel>>(BenutzerVerwaltung.getBenutzer(benutzerName));
+            return View(user);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult ProfilAnsicht(ProfilDatenModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                /// nimm die werte aus dem model (von der Oberfläche)
+                /// und übergib sie der logik zum speichern der Daten in der Datenbank
+
+
+                /// wenn speichern erfolgreich 
+               
+
+                TempData["erfolg"] = "Profil erfolgreich aktualisiert!";
+
+            }
+            else
+            {
+                TempData["fehler"] = "Profil-Daten ungültig!";
+            }
+
+            return View(model);
         }
     }
 }

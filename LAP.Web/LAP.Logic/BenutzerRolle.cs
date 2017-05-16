@@ -12,20 +12,17 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Räume
+    public partial class BenutzerRolle
     {
-        public Räume()
+        public BenutzerRolle()
         {
-            this.Buchungen = new HashSet<Buchungen>();
-            this.RaumEinrichtungen = new HashSet<RaumEinrichtungen>();
+            this.AlleBenutzer = new HashSet<Benutzer>();
         }
     
         public int Id { get; set; }
-        public int Gebäude_Id { get; set; }
         public string Beschreibung { get; set; }
+        public bool active { get; set; }
     
-        public virtual ICollection<Buchungen> Buchungen { get; set; }
-        public virtual Gebäude Gebäude { get; set; }
-        public virtual ICollection<RaumEinrichtungen> RaumEinrichtungen { get; set; }
+        public virtual ICollection<Benutzer> AlleBenutzer { get; set; }
     }
 }

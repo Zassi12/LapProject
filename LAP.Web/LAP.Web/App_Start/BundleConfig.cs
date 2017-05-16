@@ -23,21 +23,21 @@ namespace LAP.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/css/bootstrap-responsive.css",
-                      "~/Content/site.css",
-                      "~/Scripts/chart.js"
-                      ));
+            //bundles.Add(new StyleBundle("~/Content/css").Include(
+            //          "~/Content/bootstrap.css",
+            //          "~/css/bootstrap-responsive.css",
+            //          "~/Content/site.css",
+            //          "~/Scripts/chart.js"
+            //          ));
 
-            bundles.Add(new StyleBundle("~/css/css").Include(
-                      "~/css/hover.css",
-                      "~/css/icons.css",
-                      "~/css/icons-color.css",
-                      "~/css/parallax-slider.css",
-                      "~/css/social-icons.css",
-                      "~/css/style.css"
-                      ));
+            //bundles.Add(new StyleBundle("~/css/css").Include(
+            //          "~/css/hover.css",
+            //          "~/css/icons.css",
+            //          "~/css/icons-color.css",
+            //          "~/css/parallax-slider.css",
+            //          "~/css/social-icons.css",
+            //          "~/css/style.css"
+            //          ));
         }
     }
 }

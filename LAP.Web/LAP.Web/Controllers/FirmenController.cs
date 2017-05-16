@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace LAP.Web.Controllers
 {
-    public class CompanyController : Controller
+    public class FirmenController : Controller
     {
         // GET: Company
         public ActionResult Index()

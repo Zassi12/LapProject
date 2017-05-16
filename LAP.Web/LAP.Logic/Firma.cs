@@ -12,12 +12,12 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Firmen
+    public partial class Firma
     {
-        public Firmen()
+        public Firma()
         {
-            this.Benutzer = new HashSet<Benutzer>();
-            this.Kontakte = new HashSet<Kontakte>();
+            this.AlleBenutzer = new HashSet<Benutzer>();
+            this.AlleKontakte = new HashSet<Kontakt>();
         }
     
         public int Id { get; set; }
@@ -27,7 +27,7 @@ namespace LAP.Logic
         public string Straße { get; set; }
         public string Hausnummer { get; set; }
     
-        public virtual ICollection<Benutzer> Benutzer { get; set; }
-        public virtual ICollection<Kontakte> Kontakte { get; set; }
+        public virtual ICollection<Benutzer> AlleBenutzer { get; set; }
+        public virtual ICollection<Kontakt> AlleKontakte { get; set; }
     }
 }

@@ -170,7 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BenutzerController.cs" />
     <Compile Include="Controllers\BuchungenController.cs" />
-    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\FirmenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MitarbeiterController.cs" />
     <Compile Include="Controllers\RaumController.cs" />
@@ -181,7 +181,7 @@
     <Compile Include="Models\GebäudeModel.cs" />
     <Compile Include="Models\KreditkartenModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\ProfileDataModel.cs" />
+    <Compile Include="Models\ProfilDatenModel.cs" />
     <Compile Include="Models\FirmenModel.cs" />
     <Compile Include="Models\RaumFilterModel.cs" />
     <Compile Include="Models\RaumFirmaModel.cs" />
@@ -192,6 +192,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="css\bootstrap-responsive.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\fonts\BebasNeue-webfont.svg" />
@@ -437,6 +439,8 @@
     <Content Include="css\fonts\BebasNeue-webfont.eot" />
     <Content Include="css\fonts\BebasNeue-webfont.ttf" />
     <Content Include="css\fonts\BebasNeue-webfont.woff" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -449,6 +453,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -477,11 +483,11 @@
     <Content Include="Views\Mitarbeiter\_Employees.cshtml" />
     <Content Include="Views\Mitarbeiter\Stornierungen.cshtml" />
     <Content Include="Views\Mitarbeiter\Chart.cshtml" />
-    <Content Include="Views\Benutzer\ProfilAnsicht.cshtml" />
     <Content Include="Views\Raum\Index.cshtml" />
     <Content Include="Views\Raum\Chart.cshtml" />
     <Content Include="Views\Buchungen\Index.cshtml" />
     <Content Include="Views\Buchungen\KreditKartenBuchung.cshtml" />
+    <Content Include="Views\Benutzer\ProfilAnsicht.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

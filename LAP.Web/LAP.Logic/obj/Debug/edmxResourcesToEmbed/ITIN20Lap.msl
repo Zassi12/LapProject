@@ -11,13 +11,12 @@
           <ScalarProperty Name="Passwort" ColumnName="Passwort" />
           <ScalarProperty Name="Vorname" ColumnName="Vorname" />
           <ScalarProperty Name="Nachname" ColumnName="Nachname" />
-          <ScalarProperty Name="ist_Mitarbeiter" ColumnName="ist_Mitarbeiter" />
           <ScalarProperty Name="active" ColumnName="active" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AlleBenutzerRollen">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.BenutzerRollen">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.BenutzerRolle">
         <MappingFragment StoreEntitySet="BenutzerRollen">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
@@ -26,7 +25,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AlleBuchungen">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.Buchungen">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.Buchung">
         <MappingFragment StoreEntitySet="Buchungen">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Raum_Id" ColumnName="Raum_Id" />
@@ -36,7 +35,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AlleEinrichtungen">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.Einrichtungen">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.Einrichtung">
         <MappingFragment StoreEntitySet="Einrichtungen">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
@@ -44,7 +43,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AlleFirmen">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.Firmen">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.Firma">
         <MappingFragment StoreEntitySet="Firmen">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FirmenName" ColumnName="FirmenName" />
@@ -70,7 +69,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AlleKontakte">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.Kontakte">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.Kontakt">
         <MappingFragment StoreEntitySet="Kontakte">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Benutzer_Id" ColumnName="Benutzer_Id" />
@@ -92,7 +91,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AlleRäume">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.Räume">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.Raum">
         <MappingFragment StoreEntitySet="Räume">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Gebäude_Id" ColumnName="Gebäude_Id" />
@@ -101,7 +100,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AlleRaumEinrichtungen">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.RaumEinrichtungen">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.RaumEinrichtung">
         <MappingFragment StoreEntitySet="RaumEinrichtungen">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Raum_Id" ColumnName="Raum_Id" />
@@ -110,7 +109,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AlleRechnungen">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.Rechnungen">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.Rechnung">
         <MappingFragment StoreEntitySet="Rechnungen">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Datum" ColumnName="Datum" />
@@ -119,7 +118,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AlleRechnungsDetails">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.RechnungsDetails">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.RechnungsDetail">
         <MappingFragment StoreEntitySet="RechnungsDetails">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Buchung_Id" ColumnName="Buchung_Id" />
@@ -129,7 +128,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AlleStornierungen">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.Stornierungen">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.Stornierung">
         <MappingFragment StoreEntitySet="Stornierungen">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Buchung_Id" ColumnName="Buchung_Id" />

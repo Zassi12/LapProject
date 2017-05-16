@@ -7,21 +7,21 @@ using log4net;
 
 namespace LAP.Logic
 {
-    public class RolenVerwaltung
+    public class RollenVerwaltung
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>
         /// Sucht Benutzer anhand der Rollen Namen
         /// </summary>
-        /// <param name="roleName"></param>
+        /// <param name="rollenName"></param>
         /// <returns>list of portalusers</returns>
-        public static List<Benutzer> GetRoleUsers(string roleName)
+        public static List<Benutzer> ErmittleRollenBenutzer(string rollenName)
         {
-            log.Info("GetRoleUsers(rolenName)");
+            log.Info("ErmittleRollenBenutzer(rolenName)");
 
-            if (string.IsNullOrEmpty(roleName))
+            if (string.IsNullOrEmpty(rollenName))
             {
-                throw new ArgumentNullException(nameof(roleName));
+                throw new ArgumentNullException(nameof(rollenName));
             }
             else
             {
@@ -31,10 +31,10 @@ namespace LAP.Logic
                 {
                     try
                     {
-                        BenutzerRollen aktRolle = context.AlleBenutzerRollen.Where(x => x.Beschreibung == roleName).FirstOrDefault();
+                        BenutzerRolle aktRolle = context.AlleBenutzerRollen.Where(x => x.Beschreibung == rollenName).FirstOrDefault();
                         if (aktRolle != null)
                         {
-                            roleUsers = aktRolle.Benutzer.ToList();
+                            roleUsers = aktRolle.AlleBenutzer.ToList();
                         }
                     }
                     catch (Exception ex)
@@ -53,10 +53,10 @@ namespace LAP.Logic
         /// Sucht alle Rollen aus der Datenbank
         /// </summary>
         /// <returns>list of portalroles</returns>
-        public static List<BenutzerRollen> GetRoles()
+        public static List<BenutzerRolle> ErmittleRollen()
         {
             log.Info("GetRoles()");
-            List<BenutzerRollen> rollen = null;
+            List<BenutzerRolle> rollen = null;
 
             using (var context = new ITIN20LAPEntities())
             {
@@ -75,12 +75,13 @@ namespace LAP.Logic
 
             return rollen;
         }
+
         /// <summary>
         /// Sucht User anhand deren BenutzerName(Email)
         /// </summary>
         /// <param name="email"></param>
         /// <returns>portalrole object</returns>
-        public static BenutzerRollen GetUserRole(string email)
+        public static BenutzerRolle ErmittleBenutzerRolle(string email)
         {
             log.Info("GetUserRoles(username)");
 
@@ -90,7 +91,7 @@ namespace LAP.Logic
             }
             else
             {
-                BenutzerRollen userRole = null;
+                BenutzerRolle userRole = null;
 
                 using (var context = new ITIN20LAPEntities())
                 {
@@ -99,7 +100,7 @@ namespace LAP.Logic
                         Benutzer aktBenutzer = context.AlleBenutzer.Where(x => x.Email == email).FirstOrDefault();
                         if (aktBenutzer != null)
                         {
-                            userRole = aktBenutzer.BenutzerRollen;
+                            userRole = aktBenutzer.BenutzerRolle;
                         }
                     }
                     catch (Exception ex)

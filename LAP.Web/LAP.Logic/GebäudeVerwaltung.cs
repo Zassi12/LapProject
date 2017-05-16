@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LAP.Logic
 {
-    public class FacilitiesVerwaltung
+    public class GebäudeVerwaltung
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public static List<Gebäude> GetBuildings()

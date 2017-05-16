@@ -12,11 +12,11 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Rechnungen
+    public partial class Rechnung
     {
-        public Rechnungen()
+        public Rechnung()
         {
-            this.RechnungsDetails = new HashSet<RechnungsDetails>();
+            this.AlleRechnungsDetails = new HashSet<RechnungsDetail>();
         }
     
         public int Id { get; set; }
@@ -24,6 +24,6 @@ namespace LAP.Logic
         public int Benutzer_Id { get; set; }
     
         public virtual Benutzer Benutzer { get; set; }
-        public virtual ICollection<RechnungsDetails> RechnungsDetails { get; set; }
+        public virtual ICollection<RechnungsDetail> AlleRechnungsDetails { get; set; }
     }
 }

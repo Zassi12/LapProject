@@ -8,7 +8,7 @@ using System.Web.Helpers;
 
 namespace LAP.Web.Models
 {
-    public class ProfileDataModel
+    public class ProfilDatenModel
     {
 
         //[Display(ResourceType = typeof(DisplayNames), Name = nameof(DisplayNames.Username))]

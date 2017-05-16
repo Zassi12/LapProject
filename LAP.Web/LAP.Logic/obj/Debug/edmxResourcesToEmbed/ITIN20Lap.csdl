@@ -11,25 +11,24 @@
     <Property Name="Passwort" Type="Binary" MaxLength="1000" FixedLength="false" Nullable="false" />
     <Property Name="Vorname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Nachname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ist_Mitarbeiter" Type="Boolean" Nullable="false" />
     <Property Name="active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="BenutzerRollen" Relationship="Self.fk_Benutzer_BenutzerRollen" FromRole="Benutzer" ToRole="BenutzerRollen" />
-    <NavigationProperty Name="Firmen" Relationship="Self.fk_Benutzer_Firmen" FromRole="Benutzer" ToRole="Firmen" />
-    <NavigationProperty Name="Buchungen" Relationship="Self.fk_Buchungen_Benutzer" FromRole="Benutzer" ToRole="Buchungen" />
-    <NavigationProperty Name="Kontakte" Relationship="Self.fk_Kontakte_Benutzer" FromRole="Benutzer" ToRole="Kontakte" />
-    <NavigationProperty Name="Rechnungen" Relationship="Self.fk_Rechnungen_Benutzer" FromRole="Benutzer" ToRole="Rechnungen" />
-    <NavigationProperty Name="Stornierungen" Relationship="Self.fk_Stornierungen_Benutzer" FromRole="Benutzer" ToRole="Stornierungen" />
+    <NavigationProperty Name="BenutzerRolle" Relationship="Self.fk_Benutzer_BenutzerRollen" FromRole="Benutzer" ToRole="BenutzerRollen" />
+    <NavigationProperty Name="Firma" Relationship="Self.fk_Benutzer_Firmen" FromRole="Benutzer" ToRole="Firmen" />
+    <NavigationProperty Name="AlleBuchungen" Relationship="Self.fk_Buchungen_Benutzer" FromRole="Benutzer" ToRole="Buchungen" />
+    <NavigationProperty Name="AlleKontakte" Relationship="Self.fk_Kontakte_Benutzer" FromRole="Benutzer" ToRole="Kontakte" />
+    <NavigationProperty Name="AlleRechnungen" Relationship="Self.fk_Rechnungen_Benutzer" FromRole="Benutzer" ToRole="Rechnungen" />
+    <NavigationProperty Name="AlleStornierungen" Relationship="Self.fk_Stornierungen_Benutzer" FromRole="Benutzer" ToRole="Stornierungen" />
   </EntityType>
-  <EntityType Name="BenutzerRollen">
+  <EntityType Name="BenutzerRolle">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Beschreibung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Benutzer" Relationship="Self.fk_Benutzer_BenutzerRollen" FromRole="BenutzerRollen" ToRole="Benutzer" />
+    <NavigationProperty Name="AlleBenutzer" Relationship="Self.fk_Benutzer_BenutzerRollen" FromRole="BenutzerRollen" ToRole="Benutzer" />
   </EntityType>
-  <EntityType Name="Buchungen">
+  <EntityType Name="Buchung">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -39,18 +38,18 @@
     <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Benutzer" Relationship="Self.fk_Buchungen_Benutzer" FromRole="Buchungen" ToRole="Benutzer" />
     <NavigationProperty Name="Räume" Relationship="Self.fk_Buchungen_Räume" FromRole="Buchungen" ToRole="Räume" />
-    <NavigationProperty Name="RechnungsDetails" Relationship="Self.fk_RechnungsDetails_Buchungen" FromRole="Buchungen" ToRole="RechnungsDetails" />
-    <NavigationProperty Name="Stornierungen" Relationship="Self.fk_Stornierungen_Buchungen" FromRole="Buchungen" ToRole="Stornierungen" />
+    <NavigationProperty Name="AlleRechnungsDetails" Relationship="Self.fk_RechnungsDetails_Buchungen" FromRole="Buchungen" ToRole="RechnungsDetails" />
+    <NavigationProperty Name="AlleStornierungen" Relationship="Self.fk_Stornierungen_Buchungen" FromRole="Buchungen" ToRole="Stornierungen" />
   </EntityType>
-  <EntityType Name="Einrichtungen">
+  <EntityType Name="Einrichtung">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Beschreibung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="RaumEinrichtungen" Relationship="Self.fk_RaumEinrichtungen_Einrichtungen" FromRole="Einrichtungen" ToRole="RaumEinrichtungen" />
+    <NavigationProperty Name="AlleRaumEinrichtungen" Relationship="Self.fk_RaumEinrichtungen_Einrichtungen" FromRole="Einrichtungen" ToRole="RaumEinrichtungen" />
   </EntityType>
-  <EntityType Name="Firmen">
+  <EntityType Name="Firma">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -60,8 +59,8 @@
     <Property Name="Stadt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Straße" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Hausnummer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Benutzer" Relationship="Self.fk_Benutzer_Firmen" FromRole="Firmen" ToRole="Benutzer" />
-    <NavigationProperty Name="Kontakte" Relationship="Self.fk_Kontakte_Firmen" FromRole="Firmen" ToRole="Kontakte" />
+    <NavigationProperty Name="AlleBenutzer" Relationship="Self.fk_Benutzer_Firmen" FromRole="Firmen" ToRole="Benutzer" />
+    <NavigationProperty Name="AlleKontakte" Relationship="Self.fk_Kontakte_Firmen" FromRole="Firmen" ToRole="Kontakte" />
   </EntityType>
   <EntityType Name="Gebäude">
     <Key>
@@ -75,9 +74,9 @@
     <Property Name="Hausnummer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="order" Type="Int32" Nullable="false" />
     <Property Name="active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Räume" Relationship="Self.fk_Räume_Gebäude" FromRole="Gebäude" ToRole="Räume" />
+    <NavigationProperty Name="AlleRäume" Relationship="Self.fk_Räume_Gebäude" FromRole="Gebäude" ToRole="Räume" />
   </EntityType>
-  <EntityType Name="Kontakte">
+  <EntityType Name="Kontakt">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -85,7 +84,7 @@
     <Property Name="Benutzer_Id" Type="Int32" Nullable="false" />
     <Property Name="Firmen_Id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Benutzer" Relationship="Self.fk_Kontakte_Benutzer" FromRole="Kontakte" ToRole="Benutzer" />
-    <NavigationProperty Name="Firmen" Relationship="Self.fk_Kontakte_Firmen" FromRole="Kontakte" ToRole="Firmen" />
+    <NavigationProperty Name="Firma" Relationship="Self.fk_Kontakte_Firmen" FromRole="Kontakte" ToRole="Firmen" />
   </EntityType>
   <EntityType Name="Log">
     <Key>
@@ -99,28 +98,28 @@
     <Property Name="message" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="exception" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="Räume">
+  <EntityType Name="Raum">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Gebäude_Id" Type="Int32" Nullable="false" />
     <Property Name="Beschreibung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Buchungen" Relationship="Self.fk_Buchungen_Räume" FromRole="Räume" ToRole="Buchungen" />
+    <NavigationProperty Name="AlleBuchungen" Relationship="Self.fk_Buchungen_Räume" FromRole="Räume" ToRole="Buchungen" />
     <NavigationProperty Name="Gebäude" Relationship="Self.fk_Räume_Gebäude" FromRole="Räume" ToRole="Gebäude" />
-    <NavigationProperty Name="RaumEinrichtungen" Relationship="Self.fk_RaumEinrichtungen_Räume" FromRole="Räume" ToRole="RaumEinrichtungen" />
+    <NavigationProperty Name="AlleRaumEinrichtungen" Relationship="Self.fk_RaumEinrichtungen_Räume" FromRole="Räume" ToRole="RaumEinrichtungen" />
   </EntityType>
-  <EntityType Name="RaumEinrichtungen">
+  <EntityType Name="RaumEinrichtung">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Raum_Id" Type="Int32" Nullable="false" />
     <Property Name="Einrichtung_Id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Einrichtungen" Relationship="Self.fk_RaumEinrichtungen_Einrichtungen" FromRole="RaumEinrichtungen" ToRole="Einrichtungen" />
-    <NavigationProperty Name="Räume" Relationship="Self.fk_RaumEinrichtungen_Räume" FromRole="RaumEinrichtungen" ToRole="Räume" />
+    <NavigationProperty Name="Einrichtung" Relationship="Self.fk_RaumEinrichtungen_Einrichtungen" FromRole="RaumEinrichtungen" ToRole="Einrichtungen" />
+    <NavigationProperty Name="Raum" Relationship="Self.fk_RaumEinrichtungen_Räume" FromRole="RaumEinrichtungen" ToRole="Räume" />
   </EntityType>
-  <EntityType Name="Rechnungen">
+  <EntityType Name="Rechnung">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -128,9 +127,9 @@
     <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Benutzer_Id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Benutzer" Relationship="Self.fk_Rechnungen_Benutzer" FromRole="Rechnungen" ToRole="Benutzer" />
-    <NavigationProperty Name="RechnungsDetails" Relationship="Self.fk_RechnungsDetails_Rechnungen" FromRole="Rechnungen" ToRole="RechnungsDetails" />
+    <NavigationProperty Name="AlleRechnungsDetails" Relationship="Self.fk_RechnungsDetails_Rechnungen" FromRole="Rechnungen" ToRole="RechnungsDetails" />
   </EntityType>
-  <EntityType Name="RechnungsDetails">
+  <EntityType Name="RechnungsDetail">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -138,10 +137,10 @@
     <Property Name="Buchung_Id" Type="Int32" Nullable="false" />
     <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Rechnung_Id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Buchungen" Relationship="Self.fk_RechnungsDetails_Buchungen" FromRole="RechnungsDetails" ToRole="Buchungen" />
-    <NavigationProperty Name="Rechnungen" Relationship="Self.fk_RechnungsDetails_Rechnungen" FromRole="RechnungsDetails" ToRole="Rechnungen" />
+    <NavigationProperty Name="Buchung" Relationship="Self.fk_RechnungsDetails_Buchungen" FromRole="RechnungsDetails" ToRole="Buchungen" />
+    <NavigationProperty Name="Rechnung" Relationship="Self.fk_RechnungsDetails_Rechnungen" FromRole="RechnungsDetails" ToRole="Rechnungen" />
   </EntityType>
-  <EntityType Name="Stornierungen">
+  <EntityType Name="Stornierung">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -150,10 +149,10 @@
     <Property Name="Benutzer_Id" Type="Int32" Nullable="false" />
     <Property Name="Grund" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Benutzer" Relationship="Self.fk_Stornierungen_Benutzer" FromRole="Stornierungen" ToRole="Benutzer" />
-    <NavigationProperty Name="Buchungen" Relationship="Self.fk_Stornierungen_Buchungen" FromRole="Stornierungen" ToRole="Buchungen" />
+    <NavigationProperty Name="Buchung" Relationship="Self.fk_Stornierungen_Buchungen" FromRole="Stornierungen" ToRole="Buchungen" />
   </EntityType>
   <Association Name="fk_Benutzer_BenutzerRollen">
-    <End Role="BenutzerRollen" Type="Self.BenutzerRollen" Multiplicity="1" />
+    <End Role="BenutzerRollen" Type="ITIN20LAPModel.BenutzerRolle" Multiplicity="1" />
     <End Role="Benutzer" Type="Self.Benutzer" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BenutzerRollen">
@@ -165,7 +164,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_Benutzer_Firmen">
-    <End Role="Firmen" Type="Self.Firmen" Multiplicity="1" />
+    <End Role="Firmen" Type="ITIN20LAPModel.Firma" Multiplicity="1" />
     <End Role="Benutzer" Type="Self.Benutzer" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Firmen">
@@ -178,7 +177,7 @@
   </Association>
   <Association Name="fk_Buchungen_Benutzer">
     <End Role="Benutzer" Type="Self.Benutzer" Multiplicity="1" />
-    <End Role="Buchungen" Type="Self.Buchungen" Multiplicity="*" />
+    <End Role="Buchungen" Type="ITIN20LAPModel.Buchung" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Benutzer">
         <PropertyRef Name="Id" />
@@ -190,7 +189,7 @@
   </Association>
   <Association Name="fk_Kontakte_Benutzer">
     <End Role="Benutzer" Type="Self.Benutzer" Multiplicity="1" />
-    <End Role="Kontakte" Type="Self.Kontakte" Multiplicity="*" />
+    <End Role="Kontakte" Type="ITIN20LAPModel.Kontakt" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Benutzer">
         <PropertyRef Name="Id" />
@@ -202,7 +201,7 @@
   </Association>
   <Association Name="fk_Rechnungen_Benutzer">
     <End Role="Benutzer" Type="Self.Benutzer" Multiplicity="1" />
-    <End Role="Rechnungen" Type="Self.Rechnungen" Multiplicity="*" />
+    <End Role="Rechnungen" Type="ITIN20LAPModel.Rechnung" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Benutzer">
         <PropertyRef Name="Id" />
@@ -214,7 +213,7 @@
   </Association>
   <Association Name="fk_Stornierungen_Benutzer">
     <End Role="Benutzer" Type="Self.Benutzer" Multiplicity="1" />
-    <End Role="Stornierungen" Type="Self.Stornierungen" Multiplicity="*" />
+    <End Role="Stornierungen" Type="ITIN20LAPModel.Stornierung" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Benutzer">
         <PropertyRef Name="Id" />
@@ -225,8 +224,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_Buchungen_Räume">
-    <End Role="Räume" Type="Self.Räume" Multiplicity="1" />
-    <End Role="Buchungen" Type="Self.Buchungen" Multiplicity="*" />
+    <End Role="Räume" Type="ITIN20LAPModel.Raum" Multiplicity="1" />
+    <End Role="Buchungen" Type="ITIN20LAPModel.Buchung" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Räume">
         <PropertyRef Name="Id" />
@@ -237,8 +236,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_RechnungsDetails_Buchungen">
-    <End Role="Buchungen" Type="Self.Buchungen" Multiplicity="1" />
-    <End Role="RechnungsDetails" Type="Self.RechnungsDetails" Multiplicity="*" />
+    <End Role="Buchungen" Type="ITIN20LAPModel.Buchung" Multiplicity="1" />
+    <End Role="RechnungsDetails" Type="ITIN20LAPModel.RechnungsDetail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Buchungen">
         <PropertyRef Name="Id" />
@@ -249,8 +248,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_Stornierungen_Buchungen">
-    <End Role="Buchungen" Type="Self.Buchungen" Multiplicity="1" />
-    <End Role="Stornierungen" Type="Self.Stornierungen" Multiplicity="*" />
+    <End Role="Buchungen" Type="ITIN20LAPModel.Buchung" Multiplicity="1" />
+    <End Role="Stornierungen" Type="ITIN20LAPModel.Stornierung" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Buchungen">
         <PropertyRef Name="Id" />
@@ -261,8 +260,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_RaumEinrichtungen_Einrichtungen">
-    <End Role="Einrichtungen" Type="Self.Einrichtungen" Multiplicity="1" />
-    <End Role="RaumEinrichtungen" Type="Self.RaumEinrichtungen" Multiplicity="*" />
+    <End Role="Einrichtungen" Type="ITIN20LAPModel.Einrichtung" Multiplicity="1" />
+    <End Role="RaumEinrichtungen" Type="ITIN20LAPModel.RaumEinrichtung" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Einrichtungen">
         <PropertyRef Name="Id" />
@@ -273,8 +272,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_Kontakte_Firmen">
-    <End Role="Firmen" Type="Self.Firmen" Multiplicity="1" />
-    <End Role="Kontakte" Type="Self.Kontakte" Multiplicity="*" />
+    <End Role="Firmen" Type="ITIN20LAPModel.Firma" Multiplicity="1" />
+    <End Role="Kontakte" Type="ITIN20LAPModel.Kontakt" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Firmen">
         <PropertyRef Name="Id" />
@@ -286,7 +285,7 @@
   </Association>
   <Association Name="fk_Räume_Gebäude">
     <End Role="Gebäude" Type="Self.Gebäude" Multiplicity="1" />
-    <End Role="Räume" Type="Self.Räume" Multiplicity="*" />
+    <End Role="Räume" Type="ITIN20LAPModel.Raum" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Gebäude">
         <PropertyRef Name="Id" />
@@ -297,8 +296,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_RaumEinrichtungen_Räume">
-    <End Role="Räume" Type="Self.Räume" Multiplicity="1" />
-    <End Role="RaumEinrichtungen" Type="Self.RaumEinrichtungen" Multiplicity="*" />
+    <End Role="Räume" Type="ITIN20LAPModel.Raum" Multiplicity="1" />
+    <End Role="RaumEinrichtungen" Type="ITIN20LAPModel.RaumEinrichtung" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Räume">
         <PropertyRef Name="Id" />
@@ -309,8 +308,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_RechnungsDetails_Rechnungen">
-    <End Role="Rechnungen" Type="Self.Rechnungen" Multiplicity="1" />
-    <End Role="RechnungsDetails" Type="Self.RechnungsDetails" Multiplicity="*" />
+    <End Role="Rechnungen" Type="ITIN20LAPModel.Rechnung" Multiplicity="1" />
+    <End Role="RechnungsDetails" Type="ITIN20LAPModel.RechnungsDetail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Rechnungen">
         <PropertyRef Name="Id" />
@@ -322,18 +321,18 @@
   </Association>
   <EntityContainer Name="ITIN20LAPEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AlleBenutzer" EntityType="Self.Benutzer" />
-    <EntitySet Name="AlleBenutzerRollen" EntityType="Self.BenutzerRollen" />
-    <EntitySet Name="AlleBuchungen" EntityType="Self.Buchungen" />
-    <EntitySet Name="AlleEinrichtungen" EntityType="Self.Einrichtungen" />
-    <EntitySet Name="AlleFirmen" EntityType="Self.Firmen" />
+    <EntitySet Name="AlleBenutzerRollen" EntityType="ITIN20LAPModel.BenutzerRolle" />
+    <EntitySet Name="AlleBuchungen" EntityType="ITIN20LAPModel.Buchung" />
+    <EntitySet Name="AlleEinrichtungen" EntityType="ITIN20LAPModel.Einrichtung" />
+    <EntitySet Name="AlleFirmen" EntityType="ITIN20LAPModel.Firma" />
     <EntitySet Name="AlleGebäude" EntityType="Self.Gebäude" />
-    <EntitySet Name="AlleKontakte" EntityType="Self.Kontakte" />
+    <EntitySet Name="AlleKontakte" EntityType="ITIN20LAPModel.Kontakt" />
     <EntitySet Name="Log" EntityType="Self.Log" />
-    <EntitySet Name="AlleRäume" EntityType="Self.Räume" />
-    <EntitySet Name="AlleRaumEinrichtungen" EntityType="Self.RaumEinrichtungen" />
-    <EntitySet Name="AlleRechnungen" EntityType="Self.Rechnungen" />
-    <EntitySet Name="AlleRechnungsDetails" EntityType="Self.RechnungsDetails" />
-    <EntitySet Name="AlleStornierungen" EntityType="Self.Stornierungen" />
+    <EntitySet Name="AlleRäume" EntityType="ITIN20LAPModel.Raum" />
+    <EntitySet Name="AlleRaumEinrichtungen" EntityType="ITIN20LAPModel.RaumEinrichtung" />
+    <EntitySet Name="AlleRechnungen" EntityType="ITIN20LAPModel.Rechnung" />
+    <EntitySet Name="AlleRechnungsDetails" EntityType="ITIN20LAPModel.RechnungsDetail" />
+    <EntitySet Name="AlleStornierungen" EntityType="ITIN20LAPModel.Stornierung" />
     <AssociationSet Name="fk_Benutzer_BenutzerRollen" Association="Self.fk_Benutzer_BenutzerRollen">
       <End Role="BenutzerRollen" EntitySet="AlleBenutzerRollen" />
       <End Role="Benutzer" EntitySet="AlleBenutzer" />

@@ -44,46 +44,7 @@ namespace LAP.Logic
 
             return hash;
         }
-        /// <summary>
-        /// Prüft ob user mitarbeiter ist oder nicht
-        /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
-        public static bool IstMitarbeiter(string email)
-        {
-            bool mitarbeiter = false;
-            ITIN20LAPEntities context = new ITIN20LAPEntities();
-            List<Benutzer> user;
-            try
-            {
-           
-            using (context)
-            {
-                    user = context.AlleBenutzer.ToList();
-            }
-
-            foreach (var m in user)
-            {
-                if (m.ist_Mitarbeiter)
-                {
-                    mitarbeiter = true;
-                    break;
-                }
-            }
-
-            }
-            catch (Exception ex)
-            {
-                log.Error("Exception in istMitarbeiter", ex);
-                if (ex.InnerException != null)
-                    log.Error("Exception in istMitarbeiter (inner)", ex.InnerException);
-                throw;
-            }
-
-            return mitarbeiter;
-
-
-        }
+      
 
 
     }

@@ -12,13 +12,13 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Kontakte
+    public partial class RaumEinrichtung
     {
         public int Id { get; set; }
-        public int Benutzer_Id { get; set; }
-        public int Firmen_Id { get; set; }
+        public int Raum_Id { get; set; }
+        public int Einrichtung_Id { get; set; }
     
-        public virtual Benutzer Benutzer { get; set; }
-        public virtual Firmen Firmen { get; set; }
+        public virtual Einrichtung Einrichtung { get; set; }
+        public virtual Raum Raum { get; set; }
     }
 }

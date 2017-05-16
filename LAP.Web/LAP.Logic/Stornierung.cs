@@ -12,17 +12,14 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class BenutzerRollen
+    public partial class Stornierung
     {
-        public BenutzerRollen()
-        {
-            this.Benutzer = new HashSet<Benutzer>();
-        }
-    
         public int Id { get; set; }
-        public string Beschreibung { get; set; }
-        public bool active { get; set; }
+        public int Buchung_Id { get; set; }
+        public int Benutzer_Id { get; set; }
+        public string Grund { get; set; }
     
-        public virtual ICollection<Benutzer> Benutzer { get; set; }
+        public virtual Benutzer Benutzer { get; set; }
+        public virtual Buchung Buchung { get; set; }
     }
 }
