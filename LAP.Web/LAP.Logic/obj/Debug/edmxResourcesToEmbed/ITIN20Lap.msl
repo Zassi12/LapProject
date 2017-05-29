@@ -4,6 +4,7 @@
     <EntitySetMapping Name="AlleBenutzer">
       <EntityTypeMapping TypeName="ITIN20LAPModel.Benutzer">
         <MappingFragment StoreEntitySet="Benutzer">
+          <ScalarProperty Name="ist_Mitarbeiter" ColumnName="ist_Mitarbeiter" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="BenutzerRolle_Id" ColumnName="BenutzerRolle_Id" />
           <ScalarProperty Name="Firmen_Id" ColumnName="Firmen_Id" />
@@ -51,20 +52,6 @@
           <ScalarProperty Name="Stadt" ColumnName="Stadt" />
           <ScalarProperty Name="Straße" ColumnName="Straße" />
           <ScalarProperty Name="Hausnummer" ColumnName="Hausnummer" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AlleGebäude">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.Gebäude">
-        <MappingFragment StoreEntitySet="Gebäude">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="FirmenName" ColumnName="FirmenName" />
-          <ScalarProperty Name="Plz" ColumnName="Plz" />
-          <ScalarProperty Name="Stadt" ColumnName="Stadt" />
-          <ScalarProperty Name="Straße" ColumnName="Straße" />
-          <ScalarProperty Name="Hausnummer" ColumnName="Hausnummer" />
-          <ScalarProperty Name="order" ColumnName="order" />
-          <ScalarProperty Name="active" ColumnName="active" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -134,6 +121,20 @@
           <ScalarProperty Name="Buchung_Id" ColumnName="Buchung_Id" />
           <ScalarProperty Name="Benutzer_Id" ColumnName="Benutzer_Id" />
           <ScalarProperty Name="Grund" ColumnName="Grund" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlleGebäude">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.Gebäude">
+        <MappingFragment StoreEntitySet="Gebäude">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="Hausnummer" ColumnName="Hausnummer" />
+          <ScalarProperty Name="Straße" ColumnName="Straße" />
+          <ScalarProperty Name="Stadt" ColumnName="Stadt" />
+          <ScalarProperty Name="Plz" ColumnName="Plz" />
+          <ScalarProperty Name="GebäudeBez" ColumnName="GebäudeBez" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

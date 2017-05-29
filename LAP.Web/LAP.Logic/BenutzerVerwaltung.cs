@@ -67,11 +67,11 @@ namespace LAP.Logic
                         {
                             result = PasswordChangeResult.UsernameInvalid;
                         }
-                        //else if (!curUser.Active)
-                        //{
-                        //    result = PasswordChangeResult.UserInactive;
-                        //}
-                        else if (!curUser.Passwort.SequenceEqual(Tools.GetSHA2(oldPassword)))
+                        else if (!curUser.active)
+                        {
+                            result = PasswordChangeResult.UserInactive;
+                        }
+                        else if (!curUser.Passwort.SequenceEqual(Tools.GetSHA512(oldPassword)))
                         {
                             result = PasswordChangeResult.PasswortInvalid;
                         }
@@ -79,7 +79,7 @@ namespace LAP.Logic
                         {
                             log4net.LogicalThreadContext.Properties["idUser"] = curUser.Id;
 
-                            curUser.Passwort = Tools.GetSHA2(newPassword);
+                            curUser.Passwort = Tools.GetSHA512(newPassword);
                             context.SaveChanges();
 
                             result = PasswordChangeResult.Success;
@@ -178,7 +178,7 @@ namespace LAP.Logic
 
                     if (user == null)
                     {
-                        log.Info("Unknown username!");
+                        log.Info("Unbekanter Benutzer!");
                     }
                 }
                 catch (Exception ex)
@@ -193,9 +193,9 @@ namespace LAP.Logic
             return user;
         }
 
-        public static bool DeactivateUser(string username)
+        public static bool BenutzerDeaktivieren(string username)
         {
-            log.Info("DeactivateUser(username)");
+            log.Info("BenutzerDeaktivieren(username)");
             bool success = false;
 
             if (string.IsNullOrEmpty(username))
@@ -215,27 +215,27 @@ namespace LAP.Logic
                             curUser.active = false;
                             context.SaveChanges();
                             success = true;
-                            log.Info("User has been deactivated!");
+                            log.Info("Benutzer wurde Deaktiviert!");
                         }
                         else
                         {
-                            log.Info("Unknown username");
+                            log.Info("Unbekannter Benutzer");
                         }
                     }
                     catch (Exception ex)
                     {
-                        log.Error("Exception in DeactivateUser", ex);
+                        log.Error("Exception in BenutzerDeaktivieren", ex);
                         if (ex.InnerException != null)
-                            log.Error("Exception in DeactivateUser (inner)", ex.InnerException);
+                            log.Error("Exception in BenutzerDeaktivieren (inner)", ex.InnerException);
                         throw;
                     }
                 }
             }
             return success;
         }
-        public static bool ActivateUser(string username)
+        public static bool BenutzerAktivieren(string username)
         {
-            log.Info("ActivateUser(username)");
+            log.Info("BenutzerAktivieren(username)");
             bool success = false;
 
             if (string.IsNullOrEmpty(username))
@@ -255,18 +255,18 @@ namespace LAP.Logic
                             curUser.active = true;
                             context.SaveChanges();
                             success = true;
-                            log.Info("User has been deactivated!");
+                            log.Info("Benutzer wurde Aktiviert!");
                         }
                         else
                         {
-                            log.Info("Unknown username");
+                            log.Info("Unbekanter Benutzer");
                         }
                     }
                     catch (Exception ex)
                     {
-                        log.Error("Exception in DeactivateUser", ex);
+                        log.Error("Exception in BenutzerAktivieren", ex);
                         if (ex.InnerException != null)
-                            log.Error("Exception in DeactivateUser (inner)", ex.InnerException);
+                            log.Error("Exception in BenutzerAktivieren (inner)", ex.InnerException);
                         throw;
                     }
                 }
@@ -306,7 +306,7 @@ namespace LAP.Logic
 
                         if (user != null)
                         {
-                            if (user.Passwort.SequenceEqual(Tools.GetSHA2(password)))
+                            if (user.Passwort.SequenceEqual(Tools.GetSHA512(password)))
                             {
                                 log.Info("Logon data valid");
                                 result = LogonResult.LogonDataValid;

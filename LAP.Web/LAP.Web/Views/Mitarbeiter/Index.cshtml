@@ -20,17 +20,17 @@
         @foreach (var company in Model)
         {
             <tr>
-                <td>@company.Companyname</td>
+                <td>@company.FirmenName</td>
 
-                <td>@company.Street</td>
+                <td>@company.Straße</td>
 
-                <td>@company.Number</td>
+                <td>@company.HausNummer</td>
 
-                <td>@company.City</td>
+                <td>@company.Stadt</td>
 
-                <td>@company.Zip</td>
+                <td>@company.Plz</td>
 
-                <td><a href="@Url.Action("Detail", "Company", new { id = company.ID })">Bearbeiten</a></td>
+                <td><a href="@Url.Action("Detail", "Firmen", new { id = company.ID })">Bearbeiten</a></td>
                 <td><a href="@Url.Action("Chart", "Mitarbeiter", new { id = company.ID })">Umsatz</a></td>
 
             </tr>

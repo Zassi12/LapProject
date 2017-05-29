@@ -1,0 +1,59 @@
+﻿@model LAP.Web.Models.FirmenModel
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>FirmenModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirmenName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirmenName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stadt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stadt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Straße)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Straße)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HausNummer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HausNummer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Zurück", "Index")
+</p>

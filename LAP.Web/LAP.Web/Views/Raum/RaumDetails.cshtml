@@ -1,0 +1,82 @@
+﻿@model LAP.Web.Models.RaumModel
+
+@{
+    ViewBag.Title = "RaumDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RaumDetails</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Raum_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Raum_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GebäudeBez)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GebäudeBez)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stadt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stadt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Straße)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Straße)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hausnummer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hausnummer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RaumBeschreibung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RaumBeschreibung)
+        </dd>
+
+
+
+        @Html.HiddenFor(model => model.active)
+
+
+        @Html.HiddenFor(model => model.order)
+
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Zurück", "Index")
+</p>

@@ -16,22 +16,46 @@ namespace LAP.Web.Controllers
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        [HttpGet]
+        
         public ActionResult Index()
         {
-            //log.Info("GET - Room - Index");
-            //RaumFilterModel model = new Models.RaumFilterModel();
-            //model.Buildings = FacilitiesVerwaltung.GetFacilities();
+            log.Info("GET - Room - Index");
 
-            //// get all buildings
-            //List<facilities> facilities = FacilitiesVerwaltung.GetFacilities();
-            //model.Buildings = AutoMapperConfig.CommonMapper.Map<List<FacilitiesModel>>(facilities);
-            //List<companies> Firmen = FirmenVerwaltung.GetCompanies();
-            //model.Facilities = AutoMapperConfig.CommonMapper.Map<List<FirmenModel>>(Firmen);
+            var räume = RaumVerwaltung.GetRäume();
+            List<RaumModel> glist = new List<RaumModel>();
 
-            return View();
+            foreach (var i in räume)
+            {
+                RaumModel model = new RaumModel();
+                model.Id = i.Id;
+                model.GebäudeBez = i.Gebäude.GebäudeBez;
+                model.Hausnummer = i.Gebäude.Hausnummer;
+                model.Plz = i.Gebäude.Plz;
+                model.Stadt = i.Gebäude.Stadt;
+                model.Straße = i.Gebäude.Straße;
+                model.RaumBeschreibung = i.Beschreibung;
+                glist.Add(model);
+            }
+                        
+            return View(glist);
         }
 
+        public ActionResult RaumDetails(int id)
+        {
+
+            RaumModel model = new RaumModel();
+            var raum = RaumVerwaltung.GetRaumId(id);
+            model.GebäudeBez = raum.Gebäude.GebäudeBez;
+            model.Hausnummer = raum.Gebäude.Hausnummer;
+            model.Plz = raum.Gebäude.Plz;
+            model.Stadt = raum.Gebäude.Stadt;
+            model.Straße = raum.Gebäude.Straße;
+            model.RaumBeschreibung = raum.Beschreibung;
+            //model.RaumEinrichtungen = raum.AlleRaumEinrichtungen;
+
+
+            return View(model);
+        }
         public ActionResult Chart(int id)
         {
             //var räume = RaumVerwaltung.GetAllRooms();

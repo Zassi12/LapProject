@@ -185,6 +185,7 @@
     <Compile Include="Models\FirmenModel.cs" />
     <Compile Include="Models\RaumFilterModel.cs" />
     <Compile Include="Models\RaumFirmaModel.cs" />
+    <Compile Include="Models\RaumModel.cs" />
     <Compile Include="Models\RaumStatistikModel.cs" />
     <Compile Include="Models\StornoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -474,25 +475,17 @@
     <Content Include="Views\Home\AGB.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Mitarbeiter\Index.cshtml" />
-    <Content Include="Views\Mitarbeiter\CreateEmployee.cshtml" />
-    <Content Include="Views\Mitarbeiter\Detail.cshtml" />
-    <Content Include="Views\Mitarbeiter\Employee.cshtml" />
-    <Content Include="Views\Mitarbeiter\_Detail.cshtml" />
-    <Content Include="Views\Mitarbeiter\_EmployeeData.cshtml" />
-    <Content Include="Views\Mitarbeiter\_EmployeePassword.cshtml" />
-    <Content Include="Views\Mitarbeiter\_Employees.cshtml" />
     <Content Include="Views\Mitarbeiter\Stornierungen.cshtml" />
-    <Content Include="Views\Mitarbeiter\Chart.cshtml" />
-    <Content Include="Views\Raum\Index.cshtml" />
     <Content Include="Views\Raum\Chart.cshtml" />
     <Content Include="Views\Buchungen\Index.cshtml" />
     <Content Include="Views\Buchungen\KreditKartenBuchung.cshtml" />
     <Content Include="Views\Benutzer\ProfilAnsicht.cshtml" />
+    <Content Include="Views\Raum\Index.cshtml" />
+    <Content Include="Views\Raum\RaumDetails.cshtml" />
+    <Content Include="Views\Firmen\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Buchung\" />
-    <Folder Include="Views\Company\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>

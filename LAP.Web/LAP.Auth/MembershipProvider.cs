@@ -120,12 +120,12 @@ namespace LAP.Auth
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData)
         {
-            return BenutzerVerwaltung.DeactivateUser(username);
+            return BenutzerVerwaltung.BenutzerDeaktivieren(username);
         }
 
         public override bool UnlockUser(string userName)
         {
-            return BenutzerVerwaltung.ActivateUser(userName);
+            return BenutzerVerwaltung.BenutzerAktivieren(userName);
         }
 
         public override bool ValidateUser(string username, string password)

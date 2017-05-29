@@ -12,9 +12,9 @@ namespace LAP.Web.Models
         public Benutzer User { get; set; }
         public string Firma { get; set; }
         public string Benutzername { get; set; }
-        public string Building { get; set; }
-        public string Room { get; set; }
-        public DateTime Date { get; set; }
-        public string Reason { get; set; }
+        public string Gebäude { get; set; }
+        public string Raum { get; set; }
+        public DateTime Datum { get; set; }
+        public string Grund { get; set; }
     }
 }

@@ -14,12 +14,14 @@ C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Logic\bin\Debug\de\Entit
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.dll
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.pdb
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.dll.config
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.pdb
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\AutoMapper.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\Chart.Mvc.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\EntityFramework.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\log4net.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\Newtonsoft.Json.dll
@@ -33,6 +35,7 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\AutoMapper.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\Chart.Mvc.pdb
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\Chart.Mvc.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\EntityFramework.xml
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\log4net.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\Newtonsoft.Json.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\System.Web.Helpers.xml
@@ -42,12 +45,12 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\System.Web.WebPag
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\de\EntityFramework.resources.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\de\EntityFramework.SqlServer.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\de\System.Web.Helpers.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\de\System.Web.Mvc.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\de\System.Web.Razor.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\de\System.Web.WebPages.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\de\System.Web.WebPages.Deployment.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\de\System.Web.WebPages.Razor.resources.dll
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.pdb

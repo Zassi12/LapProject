@@ -1,4 +1,4 @@
-﻿@model LAP.Web.Models.RaumFilterModel
+﻿@model IEnumerable<LAP.Web.Models.RaumModel>
 
 @{
     ViewBag.Title = "Index";
@@ -6,19 +6,71 @@
 }
 
 <h2>Index</h2>
-<table>
-    @foreach (var item in Model.Buildings)
-    {
-        <tr>
-            <td>
-                @Html.DisplayNameFor(Model => item.City)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.DisplayNameFor(Model => item.City)
-            </td>
-        </tr>
-    }
-</table>
+<table></table>
 
+<h4>RaumModel</h4>
+<hr />
+@foreach (var raum in Model)
+{
+    @Html.HiddenFor(x => raum.order)
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(x => x.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(x => raum.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(x => x.GebäudeBez)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(x => raum.GebäudeBez)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(x => x.Plz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(x => raum.Plz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(x => x.Stadt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(x => raum.Stadt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(x => x.Straße)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(x => raum.Straße)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(x => x.Hausnummer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(x => raum.Hausnummer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(x => x.RaumBeschreibung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(x => raum.RaumBeschreibung)
+        </dd>
+
+        <dd>@Html.ActionLink("Details", "RaumDetails", new { id = raum.Id })</dd>
+    </dl>
+}

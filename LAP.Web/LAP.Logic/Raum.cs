@@ -25,7 +25,7 @@ namespace LAP.Logic
         public string Beschreibung { get; set; }
     
         public virtual ICollection<Buchung> AlleBuchungen { get; set; }
-        public virtual Gebäude Gebäude { get; set; }
         public virtual ICollection<RaumEinrichtung> AlleRaumEinrichtungen { get; set; }
+        public virtual Gebäude Gebäude { get; set; }
     }
 }

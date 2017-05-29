@@ -127,6 +127,7 @@ C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Web\bin\de\EntityFramewo
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Web\obj\Debug\LAP.Web.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Web\obj\Debug\LAP.Web.dll
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Web\obj\Debug\LAP.Web.pdb
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\ApplicationInsights.config
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\roslyn\csc.exe
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -192,6 +193,8 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\System.Web.WebPages.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\System.Web.WebPages.Deployment.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\System.Web.WebPages.Razor.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\Antlr3.Runtime.pdb
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\EntityFramework.resources.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\EntityFramework.SqlServer.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.Helpers.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.Mvc.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.Optimization.resources.dll
@@ -199,6 +202,5 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.Razor.resou
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.WebPages.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.WebPages.Deployment.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\bin\de\System.Web.WebPages.Razor.resources.dll
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Web\obj\Debug\LAP.Web.pdb

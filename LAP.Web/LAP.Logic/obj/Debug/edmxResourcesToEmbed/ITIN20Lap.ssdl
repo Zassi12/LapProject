@@ -11,6 +11,7 @@
     <Property Name="Passwort" Type="varbinary" MaxLength="1000" Nullable="false" />
     <Property Name="Vorname" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Nachname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ist_Mitarbeiter" Type="bit" Nullable="false" />
     <Property Name="active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="BenutzerRollen">
@@ -53,7 +54,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirmenName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GebäudeBez" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Plz" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Stadt" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Straße" Type="varchar" MaxLength="50" Nullable="false" />
@@ -159,6 +160,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_Buchungen_Räume">
+    <End Role="Räume" Type="Self.Räume" Multiplicity="1" />
+    <End Role="Buchungen" Type="Self.Buchungen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Räume">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buchungen">
+        <PropertyRef Name="Raum_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_Kontakte_Benutzer">
     <End Role="Benutzer" Type="Self.Benutzer" Multiplicity="1" />
     <End Role="Kontakte" Type="Self.Kontakte" Multiplicity="*" />
@@ -183,6 +196,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_Räume_Gebäude">
+    <End Role="Gebäude" Type="Self.Gebäude" Multiplicity="1" />
+    <End Role="Räume" Type="Self.Räume" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gebäude">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Räume">
+        <PropertyRef Name="Gebäude_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_RaumEinrichtungen_Einrichtungen">
     <End Role="Einrichtungen" Type="Self.Einrichtungen" Multiplicity="1" />
     <End Role="RaumEinrichtungen" Type="Self.RaumEinrichtungen" Multiplicity="*" />
@@ -192,6 +217,18 @@
       </Principal>
       <Dependent Role="RaumEinrichtungen">
         <PropertyRef Name="Einrichtung_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RaumEinrichtungen_Räume">
+    <End Role="Räume" Type="Self.Räume" Multiplicity="1" />
+    <End Role="RaumEinrichtungen" Type="Self.RaumEinrichtungen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Räume">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RaumEinrichtungen">
+        <PropertyRef Name="Raum_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -281,6 +318,10 @@
       <End Role="Benutzer" EntitySet="Benutzer" />
       <End Role="Buchungen" EntitySet="Buchungen" />
     </AssociationSet>
+    <AssociationSet Name="fk_Buchungen_Räume" Association="Self.fk_Buchungen_Räume">
+      <End Role="Räume" EntitySet="Räume" />
+      <End Role="Buchungen" EntitySet="Buchungen" />
+    </AssociationSet>
     <AssociationSet Name="fk_Kontakte_Benutzer" Association="Self.fk_Kontakte_Benutzer">
       <End Role="Benutzer" EntitySet="Benutzer" />
       <End Role="Kontakte" EntitySet="Kontakte" />
@@ -289,8 +330,16 @@
       <End Role="Firmen" EntitySet="Firmen" />
       <End Role="Kontakte" EntitySet="Kontakte" />
     </AssociationSet>
+    <AssociationSet Name="fk_Räume_Gebäude" Association="Self.fk_Räume_Gebäude">
+      <End Role="Gebäude" EntitySet="Gebäude" />
+      <End Role="Räume" EntitySet="Räume" />
+    </AssociationSet>
     <AssociationSet Name="fk_RaumEinrichtungen_Einrichtungen" Association="Self.fk_RaumEinrichtungen_Einrichtungen">
       <End Role="Einrichtungen" EntitySet="Einrichtungen" />
+      <End Role="RaumEinrichtungen" EntitySet="RaumEinrichtungen" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RaumEinrichtungen_Räume" Association="Self.fk_RaumEinrichtungen_Räume">
+      <End Role="Räume" EntitySet="Räume" />
       <End Role="RaumEinrichtungen" EntitySet="RaumEinrichtungen" />
     </AssociationSet>
     <AssociationSet Name="fk_Rechnungen_Benutzer" Association="Self.fk_Rechnungen_Benutzer">

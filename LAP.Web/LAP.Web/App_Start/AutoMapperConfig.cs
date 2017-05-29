@@ -33,6 +33,7 @@ namespace LAP.Web.App_Start
             base.CreateMap<Benutzer, ProfilDatenModel>();
             base.CreateMap<Firma, FirmenModel>();
             base.CreateMap<Gebäude, GebäudeModel>();
+            base.CreateMap<Stornierung, StornoModel>();
             //base.CreateMap<Facility, FacilityModel>();
             //base.CreateMap<RoomFacility, RoomFacilityModel>();
             //base.CreateMap<data.Type, TypeModel>();

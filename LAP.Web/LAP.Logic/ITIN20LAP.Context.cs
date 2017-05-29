@@ -30,7 +30,6 @@ namespace LAP.Logic
         public DbSet<Buchung> AlleBuchungen { get; set; }
         public DbSet<Einrichtung> AlleEinrichtungen { get; set; }
         public DbSet<Firma> AlleFirmen { get; set; }
-        public DbSet<Gebäude> AlleGebäude { get; set; }
         public DbSet<Kontakt> AlleKontakte { get; set; }
         public DbSet<Log> Log { get; set; }
         public DbSet<Raum> AlleRäume { get; set; }
@@ -38,5 +37,10 @@ namespace LAP.Logic
         public DbSet<Rechnung> AlleRechnungen { get; set; }
         public DbSet<RechnungsDetail> AlleRechnungsDetails { get; set; }
         public DbSet<Stornierung> AlleStornierungen { get; set; }
+        public DbSet<Gebäude> AlleGebäude { get; set; }
+
+        //public System.Data.Entity.DbSet<LAP.Web.Models.FirmenModel> FirmenModels { get; set; }
+
+        //public System.Data.Entity.DbSet<LAP.Web.Models.RaumModel> RaumModels { get; set; }
     }
 }

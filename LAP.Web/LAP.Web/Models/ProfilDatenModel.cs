@@ -14,7 +14,7 @@ namespace LAP.Web.Models
         //[Display(ResourceType = typeof(DisplayNames), Name = nameof(DisplayNames.Username))]
         [StringLength(20)]
         [Editable(false)]
-        public string Benutzername { get; set; }
+        public string Email { get; set; }
 
         [StringLength(16, ErrorMessage = "8-16 Zeichen", MinimumLength = 8)]
         [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]

@@ -50,14 +50,20 @@ namespace LAP.Web.Controllers
 
                 BenutzerRolle userRolle = RollenVerwaltung.ErmittleBenutzerRolle(lm.Email);
 
-                if (userRolle != null && userRolle.Id == BenutzerRolle.MITARBEITER||userRolle.Id ==BenutzerRolle.ADMINISTRATOR)
+                if (userRolle != null && userRolle.Id == BenutzerRolle.MITARBEITER || userRolle.Id == BenutzerRolle.ADMINISTRATOR)
                 {
+                    TempData["erfolg"] = "Erfolgreich als Admin angemeldet!";
                     return RedirectToAction("Index", "Mitarbeiter");
                 }
                 else
                 {
+                    TempData["erfolg"] = "Erfolgreich angemeldet!";
                     return RedirectToAction("ProfilAnsicht", "Benutzer");
                 }
+            }
+            else
+            {
+                TempData["fehler"] = "Konnte nicht Anmelden!";
             }
 
             return RedirectToAction("Login", "Benutzer");
@@ -68,6 +74,7 @@ namespace LAP.Web.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            TempData["erfolg"] = "Erfolgreich abgemeldet!";
             return RedirectToAction("Index", "Home");
         }
 
@@ -83,8 +90,18 @@ namespace LAP.Web.Controllers
 
             string benutzerName = User.Identity.Name;
 
-            var user = AutoMapperConfig.CommonMapper.Map<List<ProfilDatenModel>>(BenutzerVerwaltung.getBenutzer(benutzerName));
-            return View(user);
+            var benutzer = BenutzerVerwaltung.getBenutzer(benutzerName);
+
+            //var user = AutoMapperConfig.CommonMapper.Map<ProfilDatenModel>(BenutzerVerwaltung.getBenutzer(benutzerName));
+
+            var b = new ProfilDatenModel();
+            b.ID = benutzer.Id;
+            b.Active = benutzer.active;
+            b.Email = benutzer.Email;
+            b.Nachname = benutzer.Nachname;
+            b.Vorname = benutzer.Vorname;
+            //b.Passwort = benutzer.Passwort;
+            return View(b);
         }
 
         [HttpPost]
@@ -92,22 +109,45 @@ namespace LAP.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ProfilAnsicht(ProfilDatenModel model)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
+
+
+
+                try
+                {
+                    var profilsave = BenutzerVerwaltung.SaveProfileData(model.Email, model.Vorname, model.Nachname);
+                    if (profilsave == ProfileChangeResult.Success)
+                    {
+                        TempData["erfolg"] = "Profil erfolgreich aktualisiert!";
+                    }
+                    else
+                    {
+                        TempData["fehler"] = "Profil-Daten ungültig!";
+
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
                 /// nimm die werte aus dem model (von der Oberfläche)
                 /// und übergib sie der logik zum speichern der Daten in der Datenbank
 
 
                 /// wenn speichern erfolgreich 
-               
 
-                TempData["erfolg"] = "Profil erfolgreich aktualisiert!";
 
-            }
-            else
-            {
-                TempData["fehler"] = "Profil-Daten ungültig!";
-            }
+
+
+            //}
+            //else
+            //{
+            //    TempData["fehler"] = "Profil-Daten ungültig!";
+
+            //}
+
 
             return View(model);
         }

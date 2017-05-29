@@ -16,6 +16,7 @@
           <Property Name="Passwort" Type="varbinary" MaxLength="1000" Nullable="false" />
           <Property Name="Vorname" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Nachname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ist_Mitarbeiter" Type="bit" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="BenutzerRollen">
@@ -58,7 +59,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirmenName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GebäudeBez" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Plz" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Stadt" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Straße" Type="varchar" MaxLength="50" Nullable="false" />
@@ -164,6 +165,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_Buchungen_Räume">
+          <End Role="Räume" Type="Self.Räume" Multiplicity="1" />
+          <End Role="Buchungen" Type="Self.Buchungen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Räume">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buchungen">
+              <PropertyRef Name="Raum_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_Kontakte_Benutzer">
           <End Role="Benutzer" Type="Self.Benutzer" Multiplicity="1" />
           <End Role="Kontakte" Type="Self.Kontakte" Multiplicity="*" />
@@ -188,6 +201,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_Räume_Gebäude">
+          <End Role="Gebäude" Type="Self.Gebäude" Multiplicity="1" />
+          <End Role="Räume" Type="Self.Räume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebäude">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Räume">
+              <PropertyRef Name="Gebäude_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_RaumEinrichtungen_Einrichtungen">
           <End Role="Einrichtungen" Type="Self.Einrichtungen" Multiplicity="1" />
           <End Role="RaumEinrichtungen" Type="Self.RaumEinrichtungen" Multiplicity="*" />
@@ -197,6 +222,18 @@
             </Principal>
             <Dependent Role="RaumEinrichtungen">
               <PropertyRef Name="Einrichtung_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RaumEinrichtungen_Räume">
+          <End Role="Räume" Type="Self.Räume" Multiplicity="1" />
+          <End Role="RaumEinrichtungen" Type="Self.RaumEinrichtungen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Räume">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RaumEinrichtungen">
+              <PropertyRef Name="Raum_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -286,6 +323,10 @@
             <End Role="Benutzer" EntitySet="Benutzer" />
             <End Role="Buchungen" EntitySet="Buchungen" />
           </AssociationSet>
+          <AssociationSet Name="fk_Buchungen_Räume" Association="Self.fk_Buchungen_Räume">
+            <End Role="Räume" EntitySet="Räume" />
+            <End Role="Buchungen" EntitySet="Buchungen" />
+          </AssociationSet>
           <AssociationSet Name="fk_Kontakte_Benutzer" Association="Self.fk_Kontakte_Benutzer">
             <End Role="Benutzer" EntitySet="Benutzer" />
             <End Role="Kontakte" EntitySet="Kontakte" />
@@ -294,8 +335,16 @@
             <End Role="Firmen" EntitySet="Firmen" />
             <End Role="Kontakte" EntitySet="Kontakte" />
           </AssociationSet>
+          <AssociationSet Name="fk_Räume_Gebäude" Association="Self.fk_Räume_Gebäude">
+            <End Role="Gebäude" EntitySet="Gebäude" />
+            <End Role="Räume" EntitySet="Räume" />
+          </AssociationSet>
           <AssociationSet Name="fk_RaumEinrichtungen_Einrichtungen" Association="Self.fk_RaumEinrichtungen_Einrichtungen">
             <End Role="Einrichtungen" EntitySet="Einrichtungen" />
+            <End Role="RaumEinrichtungen" EntitySet="RaumEinrichtungen" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RaumEinrichtungen_Räume" Association="Self.fk_RaumEinrichtungen_Räume">
+            <End Role="Räume" EntitySet="Räume" />
             <End Role="RaumEinrichtungen" EntitySet="RaumEinrichtungen" />
           </AssociationSet>
           <AssociationSet Name="fk_Rechnungen_Benutzer" Association="Self.fk_Rechnungen_Benutzer">
@@ -341,6 +390,7 @@
           <NavigationProperty Name="AlleKontakte" Relationship="Self.fk_Kontakte_Benutzer" FromRole="Benutzer" ToRole="Kontakte" />
           <NavigationProperty Name="AlleRechnungen" Relationship="Self.fk_Rechnungen_Benutzer" FromRole="Benutzer" ToRole="Rechnungen" />
           <NavigationProperty Name="AlleStornierungen" Relationship="Self.fk_Stornierungen_Benutzer" FromRole="Benutzer" ToRole="Stornierungen" />
+          <Property Name="ist_Mitarbeiter" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="BenutzerRolle">
           <Key>
@@ -385,20 +435,6 @@
           <NavigationProperty Name="AlleBenutzer" Relationship="Self.fk_Benutzer_Firmen" FromRole="Firmen" ToRole="Benutzer" />
           <NavigationProperty Name="AlleKontakte" Relationship="Self.fk_Kontakte_Firmen" FromRole="Firmen" ToRole="Kontakte" />
         </EntityType>
-        <EntityType Name="Gebäude">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirmenName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Plz" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Stadt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Straße" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Hausnummer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="order" Type="Int32" Nullable="false" />
-          <Property Name="active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="AlleRäume" Relationship="Self.fk_Räume_Gebäude" FromRole="Gebäude" ToRole="Räume" />
-        </EntityType>
         <EntityType Name="Kontakt">
           <Key>
             <PropertyRef Name="Id" />
@@ -429,8 +465,8 @@
           <Property Name="Gebäude_Id" Type="Int32" Nullable="false" />
           <Property Name="Beschreibung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="AlleBuchungen" Relationship="Self.fk_Buchungen_Räume" FromRole="Räume" ToRole="Buchungen" />
-          <NavigationProperty Name="Gebäude" Relationship="Self.fk_Räume_Gebäude" FromRole="Räume" ToRole="Gebäude" />
           <NavigationProperty Name="AlleRaumEinrichtungen" Relationship="Self.fk_RaumEinrichtungen_Räume" FromRole="Räume" ToRole="RaumEinrichtungen" />
+          <NavigationProperty Name="Gebäude" Relationship="ITIN20LAPModel.fk_Räume_Gebäude" FromRole="Raum" ToRole="Gebäude" />
         </EntityType>
         <EntityType Name="RaumEinrichtung">
           <Key>
@@ -606,18 +642,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Räume_Gebäude">
-          <End Role="Gebäude" Type="Self.Gebäude" Multiplicity="1" />
-          <End Role="Räume" Type="ITIN20LAPModel.Raum" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Gebäude">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Räume">
-              <PropertyRef Name="Gebäude_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_RaumEinrichtungen_Räume">
           <End Role="Räume" Type="ITIN20LAPModel.Raum" Multiplicity="1" />
           <End Role="RaumEinrichtungen" Type="ITIN20LAPModel.RaumEinrichtung" Multiplicity="*" />
@@ -648,7 +672,6 @@
           <EntitySet Name="AlleBuchungen" EntityType="ITIN20LAPModel.Buchung" />
           <EntitySet Name="AlleEinrichtungen" EntityType="ITIN20LAPModel.Einrichtung" />
           <EntitySet Name="AlleFirmen" EntityType="ITIN20LAPModel.Firma" />
-          <EntitySet Name="AlleGebäude" EntityType="Self.Gebäude" />
           <EntitySet Name="AlleKontakte" EntityType="ITIN20LAPModel.Kontakt" />
           <EntitySet Name="Log" EntityType="Self.Log" />
           <EntitySet Name="AlleRäume" EntityType="ITIN20LAPModel.Raum" />
@@ -700,10 +723,6 @@
             <End Role="Firmen" EntitySet="AlleFirmen" />
             <End Role="Kontakte" EntitySet="AlleKontakte" />
           </AssociationSet>
-          <AssociationSet Name="fk_Räume_Gebäude" Association="Self.fk_Räume_Gebäude">
-            <End Role="Gebäude" EntitySet="AlleGebäude" />
-            <End Role="Räume" EntitySet="AlleRäume" />
-          </AssociationSet>
           <AssociationSet Name="fk_RaumEinrichtungen_Räume" Association="Self.fk_RaumEinrichtungen_Räume">
             <End Role="Räume" EntitySet="AlleRäume" />
             <End Role="RaumEinrichtungen" EntitySet="AlleRaumEinrichtungen" />
@@ -712,7 +731,38 @@
             <End Role="Rechnungen" EntitySet="AlleRechnungen" />
             <End Role="RechnungsDetails" EntitySet="AlleRechnungsDetails" />
           </AssociationSet>
+          <EntitySet Name="AlleGebäude" EntityType="ITIN20LAPModel.Gebäude" />
+          <AssociationSet Name="fk_Räume_Gebäude" Association="ITIN20LAPModel.fk_Räume_Gebäude">
+            <End Role="Gebäude" EntitySet="AlleGebäude" />
+            <End Role="Raum" EntitySet="AlleRäume" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Gebäude">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GebäudeBez" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Plz" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Stadt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Straße" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hausnummer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="order" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Räume" Relationship="ITIN20LAPModel.fk_Räume_Gebäude" FromRole="Gebäude" ToRole="Raum" />
+        </EntityType>
+        <Association Name="fk_Räume_Gebäude">
+          <End Type="ITIN20LAPModel.Gebäude" Role="Gebäude" Multiplicity="1" />
+          <End Type="ITIN20LAPModel.Raum" Role="Raum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebäude">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Raum">
+              <PropertyRef Name="Gebäude_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -722,6 +772,7 @@
           <EntitySetMapping Name="AlleBenutzer">
             <EntityTypeMapping TypeName="ITIN20LAPModel.Benutzer">
               <MappingFragment StoreEntitySet="Benutzer">
+                <ScalarProperty Name="ist_Mitarbeiter" ColumnName="ist_Mitarbeiter" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="BenutzerRolle_Id" ColumnName="BenutzerRolle_Id" />
                 <ScalarProperty Name="Firmen_Id" ColumnName="Firmen_Id" />
@@ -769,20 +820,6 @@
                 <ScalarProperty Name="Stadt" ColumnName="Stadt" />
                 <ScalarProperty Name="Straße" ColumnName="Straße" />
                 <ScalarProperty Name="Hausnummer" ColumnName="Hausnummer" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AlleGebäude">
-            <EntityTypeMapping TypeName="ITIN20LAPModel.Gebäude">
-              <MappingFragment StoreEntitySet="Gebäude">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FirmenName" ColumnName="FirmenName" />
-                <ScalarProperty Name="Plz" ColumnName="Plz" />
-                <ScalarProperty Name="Stadt" ColumnName="Stadt" />
-                <ScalarProperty Name="Straße" ColumnName="Straße" />
-                <ScalarProperty Name="Hausnummer" ColumnName="Hausnummer" />
-                <ScalarProperty Name="order" ColumnName="order" />
-                <ScalarProperty Name="active" ColumnName="active" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -852,6 +889,20 @@
                 <ScalarProperty Name="Buchung_Id" ColumnName="Buchung_Id" />
                 <ScalarProperty Name="Benutzer_Id" ColumnName="Benutzer_Id" />
                 <ScalarProperty Name="Grund" ColumnName="Grund" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlleGebäude">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.Gebäude">
+              <MappingFragment StoreEntitySet="Gebäude">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="Hausnummer" ColumnName="Hausnummer" />
+                <ScalarProperty Name="Straße" ColumnName="Straße" />
+                <ScalarProperty Name="Stadt" ColumnName="Stadt" />
+                <ScalarProperty Name="Plz" ColumnName="Plz" />
+                <ScalarProperty Name="GebäudeBez" ColumnName="GebäudeBez" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

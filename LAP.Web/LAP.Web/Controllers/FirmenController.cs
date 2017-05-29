@@ -1,4 +1,5 @@
 ﻿using LAP.Web.Models;
+using LAP.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +13,22 @@ namespace LAP.Web.Controllers
         // GET: Company
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Home"); ;
         }
         [HttpGet]
-        public ActionResult Firmen(FirmenModel fm)
+        public ActionResult Detail(int id)
         {
+            FirmenModel model = new FirmenModel();
+            var firma = FirmenVerwaltung.GetFirma(id);
 
+            model.Stadt = firma.Stadt;
+            model.FirmenName = firma.FirmenName;
+            model.HausNummer = firma.Hausnummer;
+            model.Straße = firma.Straße;
+            model.Plz = firma.Plz;
+            
 
-            return View();
+            return View(model);
         }
 
 

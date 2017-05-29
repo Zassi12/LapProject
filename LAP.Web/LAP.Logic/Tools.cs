@@ -16,9 +16,14 @@ namespace LAP.Logic
     {
         private static readonly log4net.ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public static byte[] GetSHA2(string plainText)
+        /// <summary>
+        /// SHA512 Algorythmus Hash
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <returns></returns>
+        public static byte[] GetSHA512(string plainText)
         {
-            log.Info("GetSHA2(plainText)");
+            log.Info("GetSHA512(plainText)");
             byte[] hash = null;
             try
             {
@@ -36,9 +41,9 @@ namespace LAP.Logic
             }
             catch (Exception ex)
             {
-                log.Error("Exception in GetSHA2", ex);
+                log.Error("Exception in GetSHA512", ex);
                 if (ex.InnerException != null)
-                    log.Error("Exception in GetSHA2 (inner)", ex.InnerException);
+                    log.Error("Exception in GetSHA512 (inner)", ex.InnerException);
                 throw;
             }
 

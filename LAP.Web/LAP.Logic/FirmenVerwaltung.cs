@@ -3,6 +3,7 @@ using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+//using System.Data.Entity;
 
 
 namespace LAP.Logic
@@ -17,21 +18,21 @@ namespace LAP.Logic
         /// <returns>list of all active companies</returns>
         public static List<Firma> GetAlleFirmen()
         {
-
+            log.Info("HoleFirma(id)");
             List<Firma> allCompanies = null;
 
             try
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    allCompanies = context.AlleFirmen.Include("Kontakt").ToList();
+                    allCompanies = context.AlleFirmen.Include("AlleKontakte").ToList();
                 }
             }
             catch (Exception ex)
             {
-                log.Error("Exception in GetCompanies", ex);
+                log.Error("Exception in GetAlleFirmen", ex);
                 if (ex.InnerException != null)
-                    log.Error("Exception in GetCompanies (inner)", ex.InnerException);
+                    log.Error("Exception in GetAlleFirmen (inner)", ex.InnerException);
                 throw;
             }
 
@@ -44,9 +45,9 @@ namespace LAP.Logic
         /// <param name="id">the id to look up for</param>
         /// <returns>company with given id or null in case of an erro</returns>
         /// <exception cref="ArgumentException">in case of an invalid id</exception>
-        public static Firma GetCompany(int id)
+        public static Firma GetFirma(int id)
         {
-            log.Info("GetCompany(id)");
+            log.Info("GetFirma(id)");
 
             if (id <= 0)
                 throw new ArgumentException("Invalid value for id", nameof(id));
@@ -63,9 +64,9 @@ namespace LAP.Logic
                 }
                 catch (Exception ex)
                 {
-                    log.Error("Exception in GetCompany", ex);
+                    log.Error("Exception in GetFirma", ex);
                     if (ex.InnerException != null)
-                        log.Error("Exception in GetCompany (inner)", ex.InnerException);
+                        log.Error("Exception in GetFirma (inner)", ex.InnerException);
                     throw;
                 }
 
@@ -73,6 +74,10 @@ namespace LAP.Logic
             }
         }
 
+        /// <summary>
+        /// Alle Firmen Käufe
+        /// </summary>
+        /// <returns></returns>
         public static int GetCompanySales()
         {
             int sales = 0;

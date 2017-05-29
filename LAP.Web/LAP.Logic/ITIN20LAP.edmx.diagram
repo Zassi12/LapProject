@@ -9,8 +9,7 @@
         <EntityTypeShape EntityType="ITIN20LAPModel.BenutzerRolle" Width="1.5" PointX="3.375" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Buchung" Width="1.5" PointX="1.125" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Einrichtung" Width="1.5" PointX="7.25" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.Firma" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.Gebäude" Width="1.5" PointX="0.875" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.Firma" Width="1.5" PointX="9.25" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Kontakt" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Log" Width="1.5" PointX="1.875" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Raum" Width="1.5" PointX="3.25" PointY="8.625" IsExpanded="true" />
@@ -29,9 +28,10 @@
         <AssociationConnector Association="ITIN20LAPModel.fk_Stornierungen_Buchungen" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_RaumEinrichtungen_Einrichtungen" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_Kontakte_Firmen" ManuallyRouted="false" />
-        <AssociationConnector Association="ITIN20LAPModel.fk_Räume_Gebäude" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_RaumEinrichtungen_Räume" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_RechnungsDetails_Rechnungen" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.Gebäude" Width="1.5" PointX="1.25" PointY="10" />
+        <AssociationConnector Association="ITIN20LAPModel.fk_Räume_Gebäude" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

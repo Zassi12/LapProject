@@ -27,6 +27,7 @@ namespace LAP.Logic
                         .Include(x => x.Benutzer.Firma)
                         .Include(x => x.Buchung)
                         .Include(x => x.Buchung.Räume)
+                        .Include(x => x.Buchung.Räume.Gebäude)
                         .ToList();
                 }                
             }
@@ -42,9 +43,9 @@ namespace LAP.Logic
         }
 
         /// <summary>
-        /// all booking reverslas by this date and younger
+        /// Alle Stornierungen nach Datum
         /// </summary>
-        /// <param name="date"></param>
+        /// <param name="date">datetime datum</param>
         /// <returns></returns>
         public static List<Stornierung> AlleStornierungenDatum(DateTime datum)
         {
@@ -56,7 +57,14 @@ namespace LAP.Logic
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    Stornobydate = context.AlleStornierungen.Include("Benutzer").Include("Buchungen").Where(x=>(x.Buchung.Datum==datum)).ToList();
+                    Stornobydate = context.AlleStornierungen
+                        .Include(x => x.Benutzer)
+                        .Include(x => x.Benutzer.Firma)
+                        .Include(x => x.Buchung)
+                        .Include(x => x.Buchung.Räume)
+                        .Include(x => x.Buchung.Räume.Gebäude)
+                        .Where(x=>(x.Buchung.Datum==datum))
+                        .ToList();
                 }
             }
             catch (Exception ex)
@@ -70,6 +78,10 @@ namespace LAP.Logic
             return Stornobydate;
         }
 
+        /// <summary>
+        /// Alle Buchungen in der Db
+        /// </summary>
+        /// <returns></returns>
         public static List<Buchung> AlleBuchungen()
         {
             List<Buchung> bookings = new List<Buchung>();

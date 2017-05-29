@@ -29,11 +29,11 @@ namespace LAP.Web.Controllers
                 model.Add(new Models.FirmenModel()
                 {
                     ID = company.Id,
-                    Companyname = company.FirmenName,
-                    Number = company.Hausnummer,
-                    Street = company.Straße,
-                    Zip = company.Plz,
-                    City = company.Stadt
+                    FirmenName = company.FirmenName,
+                    HausNummer = company.Hausnummer,
+                    Straße = company.Straße,
+                    Plz = company.Plz,
+                    Stadt = company.Stadt
                 });
             }
             return View(model);
@@ -47,13 +47,13 @@ namespace LAP.Web.Controllers
             foreach (var b in storno)
             {
                 model.Add(new StornoModel{
-                    Reason = b.Grund,
+                    Grund = b.Grund,
                     Benutzername = b.Benutzer.Email,
-                    Date=b.Buchung.Datum,
-                     Building = b.Buchung.Räume.Gebäude.Hausnummer,
-                     //Room = b.Buchungen.Räume.Beschreibung,
-                     //Firma = b.Buchungen.Benutzer.Firmen.FirmenName,
-                     //User = b.Benutzer
+                    Datum=b.Buchung.Datum,
+                     Gebäude = b.Buchung.Räume.Gebäude.Hausnummer,
+                     Firma = b.Benutzer.Firma.FirmenName,
+                     Raum = b.Buchung.Räume.Beschreibung,
+                     User = b.Benutzer
 
                     
                 });

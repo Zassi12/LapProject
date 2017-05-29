@@ -16,11 +16,11 @@ namespace LAP.Logic
     {
         public Gebäude()
         {
-            this.AlleRäume = new HashSet<Raum>();
+            this.Räume = new HashSet<Raum>();
         }
     
         public int Id { get; set; }
-        public string FirmenName { get; set; }
+        public string GebäudeBez { get; set; }
         public string Plz { get; set; }
         public string Stadt { get; set; }
         public string Straße { get; set; }
@@ -28,6 +28,6 @@ namespace LAP.Logic
         public int order { get; set; }
         public bool active { get; set; }
     
-        public virtual ICollection<Raum> AlleRäume { get; set; }
+        public virtual ICollection<Raum> Räume { get; set; }
     }
 }

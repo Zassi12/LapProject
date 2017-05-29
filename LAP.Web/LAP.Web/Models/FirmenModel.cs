@@ -15,19 +15,19 @@ namespace LAP.Web.Models
 
         [Required]
         [StringLength(20)]
-        public string Companyname { get; set; }
+        public string FirmenName { get; set; }
 
         [StringLength(10)]
-        public string Zip { get; set; }
+        public string Plz { get; set; }
 
         [StringLength(50)]
-        public string City { get; set; }
+        public string Stadt { get; set; }
 
         [StringLength(20)]
-        public string Street { get; set; }
+        public string Straße { get; set; }
      
         [StringLength(10)]
-        public string Number { get; set; }
+        public string HausNummer { get; set; }
 
     }
 }

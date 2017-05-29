@@ -30,6 +30,7 @@ namespace LAP.Logic
         public string Vorname { get; set; }
         public string Nachname { get; set; }
         public bool active { get; set; }
+        public bool ist_Mitarbeiter { get; set; }
     
         public virtual BenutzerRolle BenutzerRolle { get; set; }
         public virtual Firma Firma { get; set; }
