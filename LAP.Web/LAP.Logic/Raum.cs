@@ -22,7 +22,7 @@ namespace LAP.Logic
     
         public int Id { get; set; }
         public int Gebäude_Id { get; set; }
-        public string Beschreibung { get; set; }
+        public string Bez { get; set; }
     
         public virtual ICollection<Buchung> AlleBuchungen { get; set; }
         public virtual ICollection<RaumEinrichtung> AlleRaumEinrichtungen { get; set; }
