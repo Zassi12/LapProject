@@ -91,9 +91,9 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Gebäude_Id" Type="Int32" Nullable="false" />
-    <Property Name="Beschreibung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="AlleBuchungen" Relationship="Self.fk_Buchungen_Räume" FromRole="Räume" ToRole="Buchungen" />
     <NavigationProperty Name="AlleRaumEinrichtungen" Relationship="Self.fk_RaumEinrichtungen_Räume" FromRole="Räume" ToRole="RaumEinrichtungen" />
+    <Property Name="Bez" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Gebäude" Relationship="ITIN20LAPModel.fk_Räume_Gebäude" FromRole="Raum" ToRole="Gebäude" />
   </EntityType>
   <EntityType Name="RaumEinrichtung">
@@ -370,7 +370,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="GebäudeBez" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirmenName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Plz" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Stadt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Straße" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />

@@ -154,13 +154,56 @@ namespace LAP.Web.Controllers
 
         [HttpGet]
         [Authorize]
-        public ActionResult Buchungen()
+        public ActionResult Buchen()
         {
-            List<Buchung> Buchungen = new List<Buchung>();
+            List<Buchung> Buchungen = BuchungsVerwaltung.AlleBuchungenUser(BenutzerVerwaltung.getBenutzer( User.Identity.Name));
+            List<RaumBuchungsModel> model = new List<RaumBuchungsModel>();
+            
+            foreach (var i in Buchungen)
+            {
+                RaumBuchungsModel raum = new RaumBuchungsModel();
+                raum.Id = i.Raum_Id;
+                raum.Vorname = i.Benutzer.Vorname;
+                raum.Nachname = i.Benutzer.Nachname;
+                raum.StartDatum = i.Datum;
+                raum.RaumBezeichung = i.Räume.Bez;
+                raum.GebäudeBezeichnung = i.Räume.Gebäude.FirmenName;
+                raum.Plz = i.Räume.Gebäude.Plz;
+                model.Add(raum);
+            }
 
 
+            return View(model);
+        }
 
-            return View();
+        [HttpGet]
+        [Authorize]
+        public ActionResult RechnungAnzeigen()
+        {
+           
+            Rechnung rechnung = RechnungsVerwaltung.RechnungErstellen(User.Identity.Name);
+            RechnungModel model = new RechnungModel();
+            model.Absender = new Benutzer();
+            model.Absender.Vorname = rechnung.Benutzer.Vorname;
+            model.Absender.Nachname = rechnung.Benutzer.Nachname;
+            model.Absender.Email = rechnung.Benutzer.Email;
+            model.Empfänger = new Benutzer();
+            model.Empfänger.Vorname = rechnung.Benutzer.Vorname;
+            model.Empfänger.Nachname = rechnung.Benutzer.Nachname;
+            model.Empfänger.Email = rechnung.Benutzer.Email;
+            model.LieferDatum = rechnung.Datum;
+            model.AustellungsDatum = rechnung.Datum.AddDays(7);
+            model.Bezeichnung = "Mieten Von Raum";
+            model.Betrag = 1;
+            model.Ust = 20;
+            int betrag = 300;
+            model.ZuZahlenderBetrag = string.Format("{0}{1}",betrag,"€");
+            model.UidLiefernder = "ATU99999999";
+            model.UidEmpfänger = "ATU11111111";
+            model.RechnungsNummer = 1;
+
+
+            return View(model);
         }
     }
 }

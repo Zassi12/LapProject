@@ -15,9 +15,10 @@ namespace LAP.Logic
         /// <returns>True wenn Kartennummer in Ordnung</returns>
         public static bool CheckLUHN(string KKNumber)
         {
+            KKNumber = "4412270318887547";
             int intWert = 0, intX = 0;
 
-            if (KKNumber.Length > 0)
+            if (KKNumber.Length > 0 || KKNumber != null)
             {
                 for (int intPos = KKNumber.Length - 1; intPos >= 0; intPos--)
                 {
@@ -31,7 +32,7 @@ namespace LAP.Logic
                 return false;
         }
 
-       
+
         /// <summary>
         /// Berechnet Quersumme anhand eines Zahlenstrings
         /// </summary>

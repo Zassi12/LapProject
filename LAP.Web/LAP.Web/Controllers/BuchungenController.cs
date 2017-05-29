@@ -17,15 +17,30 @@ namespace LAP.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Kreditkartenbuchung()
+        public ActionResult Kreditkartenbuchung(int id)
         {
-            return View();
+            Benutzer user = BenutzerVerwaltung.getBenutzer(User.Identity.Name);
+            KreditkartenModel kkmodel = new KreditkartenModel();
+            kkmodel.Id_Buchung = 1;
+            kkmodel.Vorname = user.Vorname;
+            kkmodel.Nachname = user.Nachname;
+            return View(kkmodel);
         }
         [HttpPost]
         public ActionResult KreditKartenBuchung(string kknummer)
         {
             
             KreditkartenModel kkmodel = new KreditkartenModel();
+            if (KreditkartenVerwaltung.CheckLUHN(kknummer))
+            {
+                kkmodel.IsValid = KreditkartenVerwaltung.CheckLUHN(kknummer);
+                TempData["erfolg"] = "Erfolgreich Gebucht!";
+            }
+            else
+            {
+
+                TempData["fehler"] = "KreditKarten-Nummer ist falsch!";
+            }
             kkmodel.IsValid = KreditkartenVerwaltung.CheckLUHN(kknummer);
             return View(kkmodel);
         }

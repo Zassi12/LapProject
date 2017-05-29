@@ -80,9 +80,9 @@
     <EntitySetMapping Name="AlleRäume">
       <EntityTypeMapping TypeName="ITIN20LAPModel.Raum">
         <MappingFragment StoreEntitySet="Räume">
+          <ScalarProperty Name="Bez" ColumnName="Bez" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Gebäude_Id" ColumnName="Gebäude_Id" />
-          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -133,7 +133,7 @@
           <ScalarProperty Name="Straße" ColumnName="Straße" />
           <ScalarProperty Name="Stadt" ColumnName="Stadt" />
           <ScalarProperty Name="Plz" ColumnName="Plz" />
-          <ScalarProperty Name="GebäudeBez" ColumnName="GebäudeBez" />
+          <ScalarProperty Name="FirmenName" ColumnName="FirmenName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

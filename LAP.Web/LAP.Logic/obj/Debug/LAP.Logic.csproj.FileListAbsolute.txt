@@ -14,7 +14,6 @@ C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Logic\bin\Debug\de\Entit
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.dll
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.pdb
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.dll.config
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.pdb
@@ -54,3 +53,6 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\de\System.Web.Web
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\de\System.Web.WebPages.Razor.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.pdb
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\obj\Debug\LAP.Logic.csprojResolveAssemblyReference.cache
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\itextsharp.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\itextsharp.xml

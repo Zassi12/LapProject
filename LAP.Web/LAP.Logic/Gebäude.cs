@@ -20,7 +20,7 @@ namespace LAP.Logic
         }
     
         public int Id { get; set; }
-        public string GebäudeBez { get; set; }
+        public string FirmenName { get; set; }
         public string Plz { get; set; }
         public string Stadt { get; set; }
         public string Straße { get; set; }

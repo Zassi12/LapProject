@@ -54,7 +54,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="GebäudeBez" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirmenName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Plz" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Stadt" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Straße" Type="varchar" MaxLength="50" Nullable="false" />
@@ -88,7 +88,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Gebäude_Id" Type="int" Nullable="false" />
-    <Property Name="Beschreibung" Type="varchar" MaxLength="50" />
+    <Property Name="Bez" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="RaumEinrichtungen">
     <Key>

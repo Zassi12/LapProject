@@ -16,8 +16,8 @@ namespace MailSendenDemo
             try
             {
                 // erstelle die Mail-Nachricht
-                string from = "onkelz-2000@hotmail.de";
-                string to = "onkelz-2000@hotmail.de";
+                string from = "dzallinger@gmx.at";
+                string to = "dzallinger@gmx.at";
                 MailMessage mail = new MailMessage(from, to);
                 mail.Subject = "Stornierungen Februar";
                 mail.Body = "Booking_ID	Portaluser_ID	PortaluserName	Reason\n1   1   Zallinger Fehlbuchung\n2   2   Bichler Fehlbuchung\n3   2   Bichler Fehlbuchung\n4   2   Bichler Fehlbuchung\n5   3   Druckner Fehlbuchung";
@@ -28,9 +28,9 @@ namespace MailSendenDemo
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.Host = "srv08.itccn.loc";
                 // username üblicherweise VORNAME.NACHNAME@qualifizierung.or.at
-                string username = "maximilian.bichler@qualifizierung.or.at";
+                string username = "Daniel.Zallinger@qualifizierung.at";
                 // bitte IHR PASSWORT eintragen
-                string password = "123user!";
+                string password = "0771264485";
                 client.Credentials = new NetworkCredential(username, password);
 
                 // sende alles ab

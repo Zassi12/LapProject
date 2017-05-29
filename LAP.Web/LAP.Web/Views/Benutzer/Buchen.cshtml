@@ -1,0 +1,96 @@
+﻿@model IEnumerable < LAP.Web.Models.RaumBuchungsModel>
+
+@{
+    ViewBag.Title = "Buchen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Buchen</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>RaumBuchungsModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @foreach (var raum in Model)
+        {
+
+            <dl class="dl-horizontal">
+                @Html.HiddenFor(model => raum.Id)
+
+
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.GebäudeBezeichnung )
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(x => raum.GebäudeBezeichnung )
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.Vorname)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(x => raum.Vorname)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.Nachname)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(x => raum.Nachname)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.RaumBezeichung)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(x => raum.RaumBezeichung)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.StartDatum)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(x => raum.StartDatum)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.Plz)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(x => raum.Plz)
+                </dd>
+
+
+                <dd>@Html.ActionLink("Details", "RaumDetails", new { id = raum.Id })</dd>
+                <dd>@Html.ActionLink("Rechnung", "RaumDetails", new { id = raum.Id })</dd>
+                <dd>@Html.ActionLink("Stornieren", "RaumDetails", new { id = raum.Id })</dd>
+            </dl>
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

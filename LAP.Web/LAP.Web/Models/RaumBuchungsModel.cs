@@ -7,12 +7,13 @@ namespace LAP.Web.Models
 {
     public class RaumBuchungsModel
     {
+        public int Id { get; set; }
         public string Vorname { get; set; }
         public string Nachname { get; set; }
         public DateTime StartDatum { get; set; }
-        public DateTime Enddatum { get; set; }
+        //public DateTime Enddatum { get; set; }
         public string GebäudeBezeichnung { get; set; }
         public string Plz { get; set; }
-        public string MyProperty { get; set; }
+        public string RaumBezeichung { get; set; }
     }
 }

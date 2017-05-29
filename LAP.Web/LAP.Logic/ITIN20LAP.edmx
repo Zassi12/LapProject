@@ -59,7 +59,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GebäudeBez" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirmenName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Plz" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Stadt" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Straße" Type="varchar" MaxLength="50" Nullable="false" />
@@ -93,7 +93,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Gebäude_Id" Type="int" Nullable="false" />
-          <Property Name="Beschreibung" Type="varchar" MaxLength="50" />
+          <Property Name="Bez" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="RaumEinrichtungen">
           <Key>
@@ -463,9 +463,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Gebäude_Id" Type="Int32" Nullable="false" />
-          <Property Name="Bez" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="AlleBuchungen" Relationship="Self.fk_Buchungen_Räume" FromRole="Räume" ToRole="Buchungen" />
           <NavigationProperty Name="AlleRaumEinrichtungen" Relationship="Self.fk_RaumEinrichtungen_Räume" FromRole="Räume" ToRole="RaumEinrichtungen" />
+          <Property Name="Bez" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Gebäude" Relationship="ITIN20LAPModel.fk_Räume_Gebäude" FromRole="Raum" ToRole="Gebäude" />
         </EntityType>
         <EntityType Name="RaumEinrichtung">
@@ -742,7 +742,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GebäudeBez" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirmenName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Plz" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Stadt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Straße" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -848,9 +848,9 @@
           <EntitySetMapping Name="AlleRäume">
             <EntityTypeMapping TypeName="ITIN20LAPModel.Raum">
               <MappingFragment StoreEntitySet="Räume">
+                <ScalarProperty Name="Bez" ColumnName="Bez" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Gebäude_Id" ColumnName="Gebäude_Id" />
-                <ScalarProperty Name="Bez" ColumnName="Beschreibung" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -901,7 +901,7 @@
                 <ScalarProperty Name="Straße" ColumnName="Straße" />
                 <ScalarProperty Name="Stadt" ColumnName="Stadt" />
                 <ScalarProperty Name="Plz" ColumnName="Plz" />
-                <ScalarProperty Name="GebäudeBez" ColumnName="GebäudeBez" />
+                <ScalarProperty Name="FirmenName" ColumnName="FirmenName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

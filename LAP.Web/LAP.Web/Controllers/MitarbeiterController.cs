@@ -52,7 +52,7 @@ namespace LAP.Web.Controllers
                     Datum=b.Buchung.Datum,
                      Gebäude = b.Buchung.Räume.Gebäude.Hausnummer,
                      Firma = b.Benutzer.Firma.FirmenName,
-                     Raum = b.Buchung.Räume.Beschreibung,
+                     Raum = b.Buchung.Räume.Bez,
                      User = b.Benutzer
 
                     

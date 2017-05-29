@@ -60,6 +60,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.11\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -188,6 +192,7 @@
     <Compile Include="Models\RaumFirmaModel.cs" />
     <Compile Include="Models\RaumModel.cs" />
     <Compile Include="Models\RaumStatistikModel.cs" />
+    <Compile Include="Models\RechnungModel.cs" />
     <Compile Include="Models\StornoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -479,15 +484,18 @@
     <Content Include="Views\Mitarbeiter\Stornierungen.cshtml" />
     <Content Include="Views\Raum\Chart.cshtml" />
     <Content Include="Views\Buchungen\Index.cshtml" />
-    <Content Include="Views\Buchungen\KreditKartenBuchung.cshtml" />
     <Content Include="Views\Benutzer\ProfilAnsicht.cshtml" />
     <Content Include="Views\Raum\Index.cshtml" />
     <Content Include="Views\Raum\RaumDetails.cshtml" />
     <Content Include="Views\Firmen\Detail.cshtml" />
+    <Content Include="Views\Buchungen\KreditKartenBuchung.cshtml" />
+    <Content Include="Views\Benutzer\Buchen.cshtml" />
+    <Content Include="Views\Benutzer\RechnungAnzeigen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\rechnung\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

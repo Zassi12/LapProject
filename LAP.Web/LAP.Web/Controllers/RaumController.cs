@@ -28,12 +28,12 @@ namespace LAP.Web.Controllers
             {
                 RaumModel model = new RaumModel();
                 model.Id = i.Id;
-                model.GebäudeBez = i.Gebäude.GebäudeBez;
+                model.GebäudeBez = i.Gebäude.FirmenName;
                 model.Hausnummer = i.Gebäude.Hausnummer;
                 model.Plz = i.Gebäude.Plz;
                 model.Stadt = i.Gebäude.Stadt;
                 model.Straße = i.Gebäude.Straße;
-                model.RaumBeschreibung = i.Beschreibung;
+                model.RaumBeschreibung = i.Bez;
                 glist.Add(model);
             }
                         
@@ -45,12 +45,12 @@ namespace LAP.Web.Controllers
 
             RaumModel model = new RaumModel();
             var raum = RaumVerwaltung.GetRaumId(id);
-            model.GebäudeBez = raum.Gebäude.GebäudeBez;
+            model.GebäudeBez = raum.Gebäude.FirmenName;
             model.Hausnummer = raum.Gebäude.Hausnummer;
             model.Plz = raum.Gebäude.Plz;
             model.Stadt = raum.Gebäude.Stadt;
             model.Straße = raum.Gebäude.Straße;
-            model.RaumBeschreibung = raum.Beschreibung;
+            model.RaumBeschreibung = raum.Bez;
             //model.RaumEinrichtungen = raum.AlleRaumEinrichtungen;
 
 

@@ -92,14 +92,15 @@ namespace LAP.Logic
                         .Include(x => x.AlleRechnungsDetails)
                         .Include(x => x.AlleStornierungen)
                         .Include(x => x.Räume)
+                        .Include(x => x.Räume.Gebäude)
                         .ToList();
                 }
             }
             catch (Exception ex)
             {
-                log.Error("Exception in AlleStornierungen", ex);
+                log.Error("Exception in AlleStornierungenDatum", ex);
                 if (ex.InnerException != null)
-                    log.Error("Exception in AlleStornierungen (inner)", ex.InnerException);
+                    log.Error("Exception in AlleStornierungenDatum (inner)", ex.InnerException);
                 throw;
             }
 
@@ -126,6 +127,7 @@ namespace LAP.Logic
                         .Include(x => x.AlleRechnungsDetails)
                         .Include(x => x.AlleStornierungen)
                         .Include(x => x.Räume)
+                        .Include(x => x.Räume.Gebäude)
                         .Where(x => x.Datum == datum)
                         .ToList();
                 }
@@ -135,6 +137,77 @@ namespace LAP.Logic
                 log.Error("Exception in AlleBuchungen", ex);
                 if (ex.InnerException != null)
                     log.Error("Exception in AlleBuchungen (inner)", ex.InnerException);
+                throw;
+            }
+            return bookings;
+
+        }
+
+        /// <summary>
+        /// Alle Buchungen in der Db
+        /// </summary>
+        /// <returns></returns>
+        public static List<Buchung> AlleBuchungenId(int id)
+        {
+            List<Buchung> bookings = new List<Buchung>();
+
+            try
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    context.AlleBuchungen
+                        .Include(x => x.Benutzer)
+                        .Include(x => x.Benutzer.Firma)
+                        .Include(x => x.AlleRechnungsDetails)
+                        .Include(x => x.AlleStornierungen)
+                        .Include(x => x.Räume)
+                        .Include(x => x.Räume.Gebäude)
+                        .Where(x => x.Raum_Id == id)
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Exception in AlleBuchungenId", ex);
+                if (ex.InnerException != null)
+                    log.Error("Exception in AlleBuchungenId (inner)", ex.InnerException);
+                throw;
+            }
+            return bookings;
+
+        }
+
+        /// <summary>
+        /// Alle Buchungen in der Db
+        /// </summary>
+        /// <returns></returns>
+        public static List<Buchung> AlleBuchungenUser(Benutzer user)
+        {
+            List<Buchung> bookings = new List<Buchung>();
+           
+            try
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    context.AlleBuchungen
+                        .Include(x => x.Benutzer)
+                        .Include(x => x.Benutzer.Firma)
+                        .Include(x => x.AlleRechnungsDetails)
+                        .Include(x => x.AlleStornierungen)
+                        .Include(x => x.Räume)
+                        .Include(x => x.Räume.Gebäude)
+                        .Where(x => x.Benutzer.Email == user.Email)
+                        //.Where(x => x.Benutzer.Id == user.Id)
+                        
+                        .ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                log.Error("Exception in AlleBuchungenId", ex);
+                if (ex.InnerException != null)
+                    log.Error("Exception in AlleBuchungenId (inner)", ex.InnerException);
                 throw;
             }
             return bookings;

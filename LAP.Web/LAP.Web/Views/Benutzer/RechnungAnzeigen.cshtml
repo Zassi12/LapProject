@@ -1,0 +1,90 @@
+﻿@model LAP.Web.Models.RechnungModel
+
+@{
+    ViewBag.Title = "RechnungAnzeigen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RechnungAnzeigen</h2>
+
+<div>
+    <h4>RechnungModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LieferDatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LieferDatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AustellungsDatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AustellungsDatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bezeichnung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bezeichnung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Betrag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Betrag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ust)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ust)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZuZahlenderBetrag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZuZahlenderBetrag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UidLiefernder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UidLiefernder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UidEmpfänger)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UidEmpfänger)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RechnungsNummer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RechnungsNummer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back", "ProfilAnsicht")
+</p>

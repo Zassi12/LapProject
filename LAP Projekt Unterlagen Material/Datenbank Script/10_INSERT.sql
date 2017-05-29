@@ -15,11 +15,11 @@ INSERT INTO Gebäude(FirmenName,Plz,Stadt,Straße,Hausnummer,[order],active) VAL
 INSERT INTO Gebäude(FirmenName,Plz,Stadt,Straße,Hausnummer,[order],active) VALUES('bbrz-Schärding','4975','Schärding','Linzerstrasse','1',5,'True');
 Go
 
-INSERT INTO Räume(Gebäude_Id,Beschreibung) VALUES(1,'EntwicklerBüro');
-INSERT INTO Räume(Gebäude_Id,Beschreibung) VALUES(2,'ServerRaum');
-INSERT INTO Räume(Gebäude_Id,Beschreibung) VALUES(3,'TechnikerBüro');
-INSERT INTO Räume(Gebäude_Id,Beschreibung) VALUES(4,'LagerRaum');
-INSERT INTO Räume(Gebäude_Id,Beschreibung) VALUES(5,'Büro');
+INSERT INTO Räume(Gebäude_Id,Bez) VALUES(1,'EntwicklerBüro');
+INSERT INTO Räume(Gebäude_Id,Bez) VALUES(2,'ServerRaum');
+INSERT INTO Räume(Gebäude_Id,Bez) VALUES(3,'TechnikerBüro');
+INSERT INTO Räume(Gebäude_Id,Bez) VALUES(4,'LagerRaum');
+INSERT INTO Räume(Gebäude_Id,Bez) VALUES(5,'Büro');
 GO
 
 --1 RaumEinrichtungen id 1-5 per 5 Räume

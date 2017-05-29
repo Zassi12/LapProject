@@ -10,3 +10,9 @@ K:\Informatik\IT-IN20\PR\MailSendenDemo\MailSendenDemo\obj\Debug\MailSendenDemo.
 K:\Informatik\IT-IN20\PR\MailSendenDemo\MailSendenDemo\bin\Debug\MailSendenDemo.exe
 K:\Informatik\IT-IN20\PR\MailSendenDemo\MailSendenDemo\bin\Debug\MailSendenDemo.pdb
 K:\Informatik\IT-IN20\PR\MailSendenDemo\MailSendenDemo\obj\Debug\MailSendenDemo.csprojResolveAssemblyReference.cache
+C:\Users\zalldani\Source\Repos\Lap\LAP Projekt Unterlagen Material\MailSendenDemo\MailSendenDemo\bin\Debug\MailSendenDemo.exe.config
+C:\Users\zalldani\Source\Repos\Lap\LAP Projekt Unterlagen Material\MailSendenDemo\MailSendenDemo\obj\Debug\MailSendenDemo.exe
+C:\Users\zalldani\Source\Repos\Lap\LAP Projekt Unterlagen Material\MailSendenDemo\MailSendenDemo\obj\Debug\MailSendenDemo.pdb
+C:\Users\zalldani\Source\Repos\Lap\LAP Projekt Unterlagen Material\MailSendenDemo\MailSendenDemo\bin\Debug\MailSendenDemo.exe
+C:\Users\zalldani\Source\Repos\Lap\LAP Projekt Unterlagen Material\MailSendenDemo\MailSendenDemo\bin\Debug\MailSendenDemo.pdb
+C:\Users\zalldani\Source\Repos\Lap\LAP Projekt Unterlagen Material\MailSendenDemo\MailSendenDemo\obj\Debug\MailSendenDemo.csprojResolveAssemblyReference.cache

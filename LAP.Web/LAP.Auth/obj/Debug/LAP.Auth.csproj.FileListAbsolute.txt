@@ -11,7 +11,6 @@ C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Auth\bin\Debug\de\Entity
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Auth\obj\Debug\LAP.Auth.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Auth\obj\Debug\LAP.Auth.dll
 C:\Users\zalldani\Desktop\LapProject-master\LAP.Web\LAP.Auth\obj\Debug\LAP.Auth.pdb
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\obj\Debug\LAP.Auth.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\LAP.Auth.dll.config
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\LAP.Auth.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\LAP.Auth.pdb
@@ -48,5 +47,8 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\de\System.Web.WebP
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\de\System.Web.WebPages.Deployment.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\de\System.Web.WebPages.Razor.resources.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\de\EntityFramework.resources.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\obj\Debug\LAP.Auth.csprojResolveAssemblyReference.cache
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\obj\Debug\LAP.Auth.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\obj\Debug\LAP.Auth.pdb
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\itextsharp.dll
+C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\itextsharp.xml

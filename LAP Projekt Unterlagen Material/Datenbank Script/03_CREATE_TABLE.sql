@@ -3,21 +3,25 @@ GO
 
 CREATE TABLE Einrichtungen(
 Id INT IdENTITY (1,1) NOT NULL,
-Beschreibung VARCHAR(50) NULL
+Beschreibung VARCHAR(50) NULL,
+Betrag INT NOT NULL
 )
+GO
 
 CREATE TABLE RaumEinrichtungen(
 Id INT IdENTITY (1,1) NOT NULL,
 Raum_Id INT NOT NULL,
 Einrichtung_Id INT NOT NULL,
 )
-
+GO
 
 CREATE TABLE R‰ume(
 Id INT IdENTITY (1,1) NOT NULL,
 Geb‰ude_Id INT NOT NULL,
-Bez VARCHAR(50) NULL
+Bez VARCHAR(50) NULL,
+Betrag INT NOT NULL
 )
+GO
 
 CREATE TABLE Geb‰ude(
 Id INT IdENTITY (1,1) NOT NULL,
@@ -29,6 +33,7 @@ Hausnummer VARCHAR(50) NOT NULL,
 [order] INT NOT NULL,
 active bit NOT NULL
 )
+GO
 
 CREATE TABLE Buchungen(
 Id INT IdENTITY(1,1) NOT NULL,
@@ -36,20 +41,23 @@ Raum_Id INT NOT NULL,
 Benutzer_Id INT NOT NULL,
 Datum DATETIME NOT NULL
 )
+GO
 
 CREATE TABLE RechnungsDetails(
 Id INT IdENTITY(1,1) NOT NULL,
 Buchung_Id INT NOT NULL,
 Datum DATETIME NOT NULL,
-Rechnung_Id INT NOT NULL
+Rechnung_Id INT NOT NULL,
+Betrag INT NOT NULL
 )
+GO
 
 CREATE TABLE Rechnungen(
 Id INT IdENTITY(1,1) NOT NULL,
 Datum DATETIME NOT NULL,
 Benutzer_Id INT NOT NULL
 )
-
+GO
 CREATE TABLE Benutzer(
 Id INT IdENTITY(1,1) NOT NULL,
 BenutzerRolle_Id INT NOT NULL,
@@ -61,13 +69,14 @@ Nachname VARCHAR(50) NOT NULL,
 ist_Mitarbeiter BIT NOT NULL,
 active BIT NOT NULL
 )
+GO
 
 CREATE TABLE BenutzerRollen(
 Id INT IdENTITY (1,1) NOT NULL,
 Beschreibung VARCHAR(50) NOT NULL,
 active BIT NOT NULL
 )
-
+GO
 CREATE TABLE Kontakte(
 Id INT IdENTITY(1,1) NOT NULL,
 Benutzer_Id INT NOT NULL,
@@ -82,6 +91,7 @@ Stadt VARCHAR(50) NOT NULL,
 Straﬂe VARCHAR(50) NOT NULL,
 Hausnummer VARCHAR(50) NOT NULL
 )
+GO
 
 CREATE TABLE Stornierungen(
 Id INT IdENTITY(1,1) NOT NULL,
@@ -89,12 +99,7 @@ Buchung_Id INT NOT NULL,
 Benutzer_Id INT NOT NULL,
 Grund VARCHAR(50) NOT NULL
 );
-
-CREATE TABLE Bilder(
-Id INT IDENTITY(1,1) NOT NULL,
-
-)
-
+GO
 
 CREATE TABLE [Log] (
     [Id] [int] IdENTITY (1, 1) NOT NULL,
@@ -105,5 +110,4 @@ CREATE TABLE [Log] (
     [message] [varchar] (4000) NOT NULL,
     [exception] [varchar] (2000) NULL
 )
-
 GO

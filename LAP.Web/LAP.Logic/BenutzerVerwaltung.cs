@@ -193,6 +193,8 @@ namespace LAP.Logic
             return user;
         }
 
+
+
         public static bool BenutzerDeaktivieren(string username)
         {
             log.Info("BenutzerDeaktivieren(username)");

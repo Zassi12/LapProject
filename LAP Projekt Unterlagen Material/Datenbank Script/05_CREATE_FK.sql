@@ -105,3 +105,4 @@ ADD
 CONSTRAINT fk_Rechnungen_Benutzer
 FOREIGN KEY (Benutzer_Id)
 REFERENCES Benutzer(Id)
+Go

@@ -1,9 +1,11 @@
 ECHO ist ausgeschaltet (OFF).
 . 
-"starting database creation  9:01:38,06" 
+"starting database creation 10:39:03,25" 
 . 
 "try dropping database" 
 Der Datenbankkontext wurde in 'master' ge„ndert.
+Fr nicht gekennzeichnete Transaktionen wird ein Rollback ausgefhrt. Bereits abgeschlossen (gesch„tzt): 0%.
+Fr nicht gekennzeichnete Transaktionen wird ein Rollback ausgefhrt. Bereits abgeschlossen (gesch„tzt): 100%.
  
  
 "try creating database" 
@@ -217,5 +219,5 @@ Meldung '207', Ebene '16', Status '1', Server 'PC901B0E043B17', Zeile 2
  
  
 . 
-"stopping database creation  9:01:39,11" 
+"stopping database creation 10:39:07,15" 
 . 

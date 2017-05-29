@@ -30,7 +30,7 @@
         <AssociationConnector Association="ITIN20LAPModel.fk_Kontakte_Firmen" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_RaumEinrichtungen_Räume" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_RechnungsDetails_Rechnungen" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.Gebäude" Width="1.5" PointX="1.25" PointY="10" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.Gebäude" Width="1.5" PointX="1.125" PointY="10.375" />
         <AssociationConnector Association="ITIN20LAPModel.fk_Räume_Gebäude" />
       </Diagram>
     </edmx:Diagrams>
