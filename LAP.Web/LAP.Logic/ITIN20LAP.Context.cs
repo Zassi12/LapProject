@@ -38,9 +38,5 @@ namespace LAP.Logic
         public DbSet<RechnungsDetail> AlleRechnungsDetails { get; set; }
         public DbSet<Stornierung> AlleStornierungen { get; set; }
         public DbSet<Gebäude> AlleGebäude { get; set; }
-
-        //public System.Data.Entity.DbSet<LAP.Web.Models.FirmenModel> FirmenModels { get; set; }
-
-        //public System.Data.Entity.DbSet<LAP.Web.Models.RaumModel> RaumModels { get; set; }
     }
 }

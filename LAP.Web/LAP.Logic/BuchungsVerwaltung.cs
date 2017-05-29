@@ -29,7 +29,7 @@ namespace LAP.Logic
                         .Include(x => x.Buchung.Räume)
                         .Include(x => x.Buchung.Räume.Gebäude)
                         .ToList();
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -51,7 +51,7 @@ namespace LAP.Logic
         {
 
 
-            List< Stornierung> Stornobydate = null;
+            List<Stornierung> Stornobydate = null;
 
             try
             {
@@ -63,7 +63,7 @@ namespace LAP.Logic
                         .Include(x => x.Buchung)
                         .Include(x => x.Buchung.Räume)
                         .Include(x => x.Buchung.Räume.Gebäude)
-                        .Where(x=>(x.Buchung.Datum==datum))
+                        .Where(x => (x.Buchung.Datum == datum))
                         .ToList();
                 }
             }
@@ -78,11 +78,41 @@ namespace LAP.Logic
             return Stornobydate;
         }
 
+        public static List<Buchung> AlleBuchungen()
+        {
+            List<Buchung> bookings = null;
+            try
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+
+                    bookings = context.AlleBuchungen
+                        .Include(x => x.Benutzer)
+                        .Include(x => x.Benutzer.Firma)
+                        .Include(x => x.AlleRechnungsDetails)
+                        .Include(x => x.AlleStornierungen)
+                        .Include(x => x.Räume)
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Exception in AlleStornierungen", ex);
+                if (ex.InnerException != null)
+                    log.Error("Exception in AlleStornierungen (inner)", ex.InnerException);
+                throw;
+            }
+
+            return bookings;
+        }
+
+
+
         /// <summary>
         /// Alle Buchungen in der Db
         /// </summary>
         /// <returns></returns>
-        public static List<Buchung> AlleBuchungen()
+        public static List<Buchung> AlleBuchungenDatum(DateTime datum)
         {
             List<Buchung> bookings = new List<Buchung>();
 
@@ -90,8 +120,14 @@ namespace LAP.Logic
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    context.AlleBuchungen.ToList();
-
+                    context.AlleBuchungen
+                        .Include(x => x.Benutzer)
+                        .Include(x => x.Benutzer.Firma)
+                        .Include(x => x.AlleRechnungsDetails)
+                        .Include(x => x.AlleStornierungen)
+                        .Include(x => x.Räume)
+                        .Where(x => x.Datum == datum)
+                        .ToList();
                 }
             }
             catch (Exception ex)

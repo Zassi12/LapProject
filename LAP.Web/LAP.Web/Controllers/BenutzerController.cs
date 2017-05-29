@@ -151,5 +151,16 @@ namespace LAP.Web.Controllers
 
             return View(model);
         }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Buchungen()
+        {
+            List<Buchung> Buchungen = new List<Buchung>();
+
+
+
+            return View();
+        }
     }
 }

@@ -16,7 +16,7 @@ Einrichtung_Id INT NOT NULL,
 CREATE TABLE Räume(
 Id INT IdENTITY (1,1) NOT NULL,
 Gebäude_Id INT NOT NULL,
-Beschreibung VARCHAR(50) NULL
+Bez VARCHAR(50) NULL
 )
 
 CREATE TABLE Gebäude(

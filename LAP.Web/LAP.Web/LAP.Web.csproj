@@ -183,6 +183,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProfilDatenModel.cs" />
     <Compile Include="Models\FirmenModel.cs" />
+    <Compile Include="Models\RaumBuchungsModel.cs" />
     <Compile Include="Models\RaumFilterModel.cs" />
     <Compile Include="Models\RaumFirmaModel.cs" />
     <Compile Include="Models\RaumModel.cs" />
