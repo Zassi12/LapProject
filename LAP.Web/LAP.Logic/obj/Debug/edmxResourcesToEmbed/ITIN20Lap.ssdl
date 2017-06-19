@@ -54,12 +54,20 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirmenName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GebäudeBez" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Plz" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Stadt" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Straße" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Hausnummer" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="order" Type="int" Nullable="false" />
+    <Property Name="active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kategorien">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bezeichnung" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Kontakte">
@@ -88,6 +96,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Gebäude_Id" Type="int" Nullable="false" />
+    <Property Name="Kategorie_Id" Type="int" Nullable="false" />
     <Property Name="Bez" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="RaumEinrichtungen">
@@ -208,6 +217,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_Räume_Kategorien">
+    <End Role="Kategorien" Type="Self.Kategorien" Multiplicity="1" />
+    <End Role="Räume" Type="Self.Räume" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategorien">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Räume">
+        <PropertyRef Name="Kategorie_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_RaumEinrichtungen_Einrichtungen">
     <End Role="Einrichtungen" Type="Self.Einrichtungen" Multiplicity="1" />
     <End Role="RaumEinrichtungen" Type="Self.RaumEinrichtungen" Multiplicity="*" />
@@ -299,6 +320,7 @@
     <EntitySet Name="Einrichtungen" EntityType="Self.Einrichtungen" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Firmen" EntityType="Self.Firmen" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Gebäude" EntityType="Self.Gebäude" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kategorien" EntityType="Self.Kategorien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kontakte" EntityType="Self.Kontakte" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Räume" EntityType="Self.Räume" Schema="dbo" store:Type="Tables" />
@@ -332,6 +354,10 @@
     </AssociationSet>
     <AssociationSet Name="fk_Räume_Gebäude" Association="Self.fk_Räume_Gebäude">
       <End Role="Gebäude" EntitySet="Gebäude" />
+      <End Role="Räume" EntitySet="Räume" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Räume_Kategorien" Association="Self.fk_Räume_Kategorien">
+      <End Role="Kategorien" EntitySet="Kategorien" />
       <End Role="Räume" EntitySet="Räume" />
     </AssociationSet>
     <AssociationSet Name="fk_RaumEinrichtungen_Einrichtungen" Association="Self.fk_RaumEinrichtungen_Einrichtungen">

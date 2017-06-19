@@ -12,22 +12,17 @@ namespace LAP.Logic
     using System;
     using System.Collections.Generic;
     
-    public partial class Raum
+    public partial class Kategorien
     {
-        public Raum()
+        public Kategorien()
         {
-            this.AlleBuchungen = new HashSet<Buchung>();
-            this.AlleRaumEinrichtungen = new HashSet<RaumEinrichtung>();
+            this.AlleRäume = new HashSet<Raum>();
         }
     
         public int Id { get; set; }
-        public int Gebäude_Id { get; set; }
-        public string Bez { get; set; }
-        public int Kategorie_Id { get; set; }
+        public string Bezeichnung { get; set; }
+        public bool active { get; set; }
     
-        public virtual ICollection<Buchung> AlleBuchungen { get; set; }
-        public virtual ICollection<RaumEinrichtung> AlleRaumEinrichtungen { get; set; }
-        public virtual Gebäude Gebäude { get; set; }
-        public virtual Kategorien Kategorie { get; set; }
+        public virtual ICollection<Raum> AlleRäume { get; set; }
     }
 }

@@ -24,6 +24,18 @@ namespace LAP.Web.Controllers
             kkmodel.Id_Buchung = 1;
             kkmodel.Vorname = user.Vorname;
             kkmodel.Nachname = user.Nachname;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult KreditkartenBuchung(int id)
+        {
+
+            Benutzer user = BenutzerVerwaltung.getBenutzer(User.Identity.Name);
+            KreditkartenModel kkmodel = new KreditkartenModel();
+            kkmodel.Id_Buchung = 1;
+            kkmodel.Vorname = user.Vorname;
+            kkmodel.Nachname = user.Nachname;
             return View(kkmodel);
         }
         [HttpPost]

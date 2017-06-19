@@ -115,6 +115,9 @@
     <Compile Include="Firma.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
+    <Compile Include="Kategorien.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
     <Compile Include="Kontakt.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>

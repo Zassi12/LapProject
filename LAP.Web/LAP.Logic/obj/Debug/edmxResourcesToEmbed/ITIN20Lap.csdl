@@ -95,6 +95,8 @@
     <NavigationProperty Name="AlleRaumEinrichtungen" Relationship="Self.fk_RaumEinrichtungen_Räume" FromRole="Räume" ToRole="RaumEinrichtungen" />
     <Property Name="Bez" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Gebäude" Relationship="ITIN20LAPModel.fk_Räume_Gebäude" FromRole="Raum" ToRole="Gebäude" />
+    <Property Name="Kategorie_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kategorie" Relationship="ITIN20LAPModel.fk_Räume_Kategorien" FromRole="Raum" ToRole="Kategorien" />
   </EntityType>
   <EntityType Name="RaumEinrichtung">
     <Key>
@@ -364,13 +366,17 @@
       <End Role="Gebäude" EntitySet="AlleGebäude" />
       <End Role="Raum" EntitySet="AlleRäume" />
     </AssociationSet>
+    <EntitySet Name="Kategorien" EntityType="ITIN20LAPModel.Kategorien" />
+    <AssociationSet Name="fk_Räume_Kategorien" Association="ITIN20LAPModel.fk_Räume_Kategorien">
+      <End Role="Kategorien" EntitySet="Kategorien" />
+      <End Role="Raum" EntitySet="AlleRäume" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Gebäude">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FirmenName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Plz" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Stadt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Straße" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -378,6 +384,7 @@
     <Property Name="order" Type="Int32" Nullable="false" />
     <Property Name="active" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Räume" Relationship="ITIN20LAPModel.fk_Räume_Gebäude" FromRole="Gebäude" ToRole="Raum" />
+    <Property Name="GebäudeBez" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="fk_Räume_Gebäude">
     <End Type="ITIN20LAPModel.Gebäude" Role="Gebäude" Multiplicity="1" />
@@ -388,6 +395,27 @@
       </Principal>
       <Dependent Role="Raum">
         <PropertyRef Name="Gebäude_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Kategorien">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bezeichnung" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AlleRäume" Relationship="ITIN20LAPModel.fk_Räume_Kategorien" FromRole="Kategorien" ToRole="Raum" />
+  </EntityType>
+  <Association Name="fk_Räume_Kategorien">
+    <End Type="ITIN20LAPModel.Kategorien" Role="Kategorien" Multiplicity="1" />
+    <End Type="ITIN20LAPModel.Raum" Role="Raum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategorien">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Raum">
+        <PropertyRef Name="Kategorie_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

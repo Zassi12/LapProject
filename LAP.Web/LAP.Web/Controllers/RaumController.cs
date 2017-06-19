@@ -28,7 +28,7 @@ namespace LAP.Web.Controllers
             {
                 RaumModel model = new RaumModel();
                 model.Id = i.Id;
-                model.GebäudeBez = i.Gebäude.FirmenName;
+                model.GebäudeBez = i.Gebäude.GebäudeBez;
                 model.Hausnummer = i.Gebäude.Hausnummer;
                 model.Plz = i.Gebäude.Plz;
                 model.Stadt = i.Gebäude.Stadt;
@@ -45,7 +45,7 @@ namespace LAP.Web.Controllers
 
             RaumModel model = new RaumModel();
             var raum = RaumVerwaltung.GetRaumId(id);
-            model.GebäudeBez = raum.Gebäude.FirmenName;
+            model.GebäudeBez = raum.Gebäude.GebäudeBez;
             model.Hausnummer = raum.Gebäude.Hausnummer;
             model.Plz = raum.Gebäude.Plz;
             model.Stadt = raum.Gebäude.Stadt;

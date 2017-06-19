@@ -55,20 +55,17 @@
                                             <li>
                                                 @Html.ActionLink("Abmelden", "Logout", "Benutzer", null, new { @class = "btn buttonAction" })
                                             </li>
-                                            @*<li>
-                                                    @Html.ActionLink("Ihr Profil", "Aktualisieren", "Benutzer", null, new { @class = "btn buttonAction" })
-                                                </li>*@
-                                        var controller = new LAP.Web.Controllers.BenutzerController();
 
-                                        if (User.IsInRole("Admin"))
-                                        {
-                                            <li><a class="btn buttonAction" href="@Url.Action("Index", "Mitarbeiter")">Verwaltung</a></li>
-                                            <li><a class="btn buttonAction" href="@Url.Action("Stornierungen", "Mitarbeiter")">Storno</a></li>
-                                            <li><a class="btn buttonAction" href="@Url.Action("ProfilAnsicht", "Benutzer")">Profil</a></li>
-                                            <li><a class="btn buttonAction" href="@Url.Action("Index", "Raum")">Räume</a></li>
-                                            <li><a class="btn buttonAction" href="@Url.Action("Buchen", "Benutzer")">Buchungen</a></li>
-                                            <li><a class="btn buttonAction" href="@Url.Action("Index", "Home")">Home</a></li>
+                                            var controller = new LAP.Web.Controllers.BenutzerController();
 
+                                            if (User.IsInRole("Admin"))
+                                            {
+                                                <li><a class="btn buttonAction" href="@Url.Action("Index", "Mitarbeiter")">Verwaltung</a></li>
+                                                <li><a class="btn buttonAction" href="@Url.Action("Stornierungen", "Mitarbeiter")">Storno</a></li>
+                                                <li><a class="btn buttonAction" href="@Url.Action("ProfilAnsicht", "Benutzer")">Profil</a></li>
+                                                <li><a class="btn buttonAction" href="@Url.Action("Index", "Raum")">Räume</a></li>
+                                                <li><a class="btn buttonAction" href="@Url.Action("Buchen", "Benutzer")">Buchungen</a></li>
+                                                <li><a class="btn buttonAction" href="@Url.Action("Index", "Home")">Home</a></li>
                                             }
                                             else if (User.IsInRole("Mitarbeiter"))
                                             {
@@ -83,10 +80,8 @@
                                                 <li><a class="btn buttonAction" href="@Url.Action("Index", "Home")">Home</a></li>
                                                 <li><a class="btn buttonAction" href="@Url.Action("ProfilAnsicht", "Benutzer")">Profil</a></li>
                                                 <li><a class="btn buttonAction" href="@Url.Action("Buchen", "Benutzer")">MeineBuchungen</a></li>
-                                                <li><a class="btn buttonAction" href="@Url.Action("Buchen", "Benutzer")">Räume</a></li>
-
+                                                <li><a class="btn buttonAction" href="@Url.Action("Index", "Raum")">Räume</a></li>
                                             }
-
                                         }
                                         else
                                         {

@@ -38,5 +38,6 @@ namespace LAP.Logic
         public DbSet<RechnungsDetail> AlleRechnungsDetails { get; set; }
         public DbSet<Stornierung> AlleStornierungen { get; set; }
         public DbSet<Gebäude> AlleGebäude { get; set; }
+        public DbSet<Kategorien> Kategorien { get; set; }
     }
 }

@@ -183,13 +183,13 @@ namespace LAP.Logic
         /// <returns></returns>
         public static List<Buchung> AlleBuchungenUser(Benutzer user)
         {
-            List<Buchung> bookings = new List<Buchung>();
+            List<Buchung> bookings = null;
            
             try
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    context.AlleBuchungen
+                    bookings = context.AlleBuchungen
                         .Include(x => x.Benutzer)
                         .Include(x => x.Benutzer.Firma)
                         .Include(x => x.AlleRechnungsDetails)

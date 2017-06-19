@@ -12,62 +12,47 @@
     <hr />
     @foreach (var item in Model)
     {
-        <table>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Benutzername)
-                </td>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Benutzername)
+            </dt>
 
-                <td>
-                    @Html.DisplayFor(Model => item.Benutzername)
-                </td>
-            <tr>
-<tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Gebäude)
-                </td>
+            <dd>
+                @Html.DisplayFor(Model => item.Benutzername)
+            </dd>
 
-                <td>
-                    @Html.DisplayFor(Model => item.Gebäude)
-                </td>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Firma)
-                </td>
+            <dt>
+                @Html.DisplayNameFor(model => model.Gebäude)
+            </dt>
+            <dd>
+                @Html.DisplayFor(Model => item.Gebäude)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Firma)
+            </dt>
+            <dd>
+                @Html.DisplayFor(Model => item.Firma)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Grund)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => item.Grund)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Raum)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => item.Raum)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Datum)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => item.Datum)
+            </dd>
 
-                <td>
-                    @Html.DisplayFor(Model => item.Firma)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Grund)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => item.Grund)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Raum)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => item.Raum)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Datum)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => item.Datum)
-                </td>
-            </tr>
-
-        </table>
+        </dl>
     }
 
 </div>

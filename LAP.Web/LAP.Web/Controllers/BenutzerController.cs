@@ -167,7 +167,7 @@ namespace LAP.Web.Controllers
                 raum.Nachname = i.Benutzer.Nachname;
                 raum.StartDatum = i.Datum;
                 raum.RaumBezeichung = i.Räume.Bez;
-                raum.GebäudeBezeichnung = i.Räume.Gebäude.FirmenName;
+                raum.GebäudeBezeichnung = i.Räume.Gebäude.GebäudeBez;
                 raum.Plz = i.Räume.Gebäude.Plz;
                 model.Add(raum);
             }
