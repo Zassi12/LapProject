@@ -174,6 +174,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BenutzerController.cs" />
     <Compile Include="Controllers\BuchungenController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\FirmenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MitarbeiterController.cs" />
@@ -183,8 +184,11 @@
     </Compile>
     <Compile Include="Models\ChartModel.cs" />
     <Compile Include="Models\GebäudeModel.cs" />
+    <Compile Include="Models\GoogleVisualizationDataTable.cs" />
     <Compile Include="Models\KreditkartenModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MarketSales.cs" />
+    <Compile Include="Models\PdfModel.cs" />
     <Compile Include="Models\ProfilDatenModel.cs" />
     <Compile Include="Models\FirmenModel.cs" />
     <Compile Include="Models\RaumBuchungsModel.cs" />
@@ -193,6 +197,7 @@
     <Compile Include="Models\RaumModel.cs" />
     <Compile Include="Models\RaumStatistikModel.cs" />
     <Compile Include="Models\RechnungModel.cs" />
+    <Compile Include="Models\SalesChartModel.cs" />
     <Compile Include="Models\StornoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -430,6 +435,7 @@
     <Content Include="img\testimonials-right-02.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\carousel.js" />
+    <Content Include="js\chart.js" />
     <Content Include="js\custom.js" />
     <Content Include="js\flexslider.js" />
     <Content Include="js\jquery-1.8.2.js" />
@@ -491,6 +497,8 @@
     <Content Include="Views\Buchungen\KreditKartenBuchung.cshtml" />
     <Content Include="Views\Benutzer\Buchen.cshtml" />
     <Content Include="Views\Benutzer\RechnungAnzeigen.cshtml" />
+    <Content Include="Views\Benutzer\RechnungPdfAnzeigen.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

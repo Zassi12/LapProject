@@ -33,6 +33,7 @@ namespace LAP.Logic
                             .Include(x => x.Benutzer)
                             .Include(x => x.AlleRechnungsDetails)
                             .Include(x => x.Benutzer.AlleStornierungen)
+                            .Include(x => x.Benutzer.Firma)
                             /*.Where(x => x.Benutzer.Email == user)*/.FirstOrDefault();
 
                     }

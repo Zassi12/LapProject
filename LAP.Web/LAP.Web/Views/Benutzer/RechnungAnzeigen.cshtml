@@ -5,12 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>RechnungAnzeigen</h2>
+<h2>Rechnung</h2>
 
 <div>
-    <h4>RechnungModel</h4>
+    
     <hr />
     <dl class="dl-horizontal">
+        @Html.HiddenFor(model => model.Id)
+
         <dt>
             @Html.DisplayNameFor(model => model.LieferDatum)
         </dt>
@@ -36,7 +38,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Betrag)
+            @Html.DisplayName("Anzahl")
         </dt>
 
         <dd>
@@ -84,6 +86,9 @@
         </dd>
 
     </dl>
+    <p>
+        @Html.ActionLink("Download", "RechnungPdfAnzeigen", new { id = Model.Id })
+    </p>
 </div>
 <p>
     @Html.ActionLink("Back", "ProfilAnsicht")

@@ -21,14 +21,14 @@ namespace LAP.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/js/chart.js"));
 
-            //bundles.Add(new StyleBundle("~/Content/css").Include(
-            //          "~/Content/bootstrap.css",
-            //          "~/css/bootstrap-responsive.css",
-            //          "~/Content/site.css",
-            //          "~/Scripts/chart.js"
-            //          ));
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/bootstrap.css",
+                      "~/css/bootstrap-responsive.css",
+                      "~/Content/site.css"
+                      ));
 
             //bundles.Add(new StyleBundle("~/css/css").Include(
             //          "~/css/hover.css",

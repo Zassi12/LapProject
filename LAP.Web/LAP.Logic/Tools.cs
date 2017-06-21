@@ -59,6 +59,19 @@ namespace LAP.Logic
             return hash;
         }
 
+        public string Uid()
+        {
+            Random rng = new Random();
+           string rnd =  "ATU"+rng.Next(14153222, 19341321);
+            return rnd;
+        }
+        public string FNumber()
+        {
+            Random rng = new Random();
+            string rnd = ""+ rng.Next(14153, 19341);
+            return rnd;
+        }
+
         private void SendEmail(MemoryStream ms)
         {
             MailAddress _From = new MailAddress("dzallinger@gmx.at");
@@ -68,25 +81,54 @@ namespace LAP.Logic
             email.Attachments.Add(attach);
             SmtpClient mailSender = new SmtpClient("srv08.itccn.loc");
             mailSender.Send(email);
-            
+
         }
 
-        //private void DownloadAsPDF(MemoryStream ms)
-        //{
-        //    Response.Clear();
-        //    Response.ClearContent();
-        //    Response.ClearHeaders();
-        //    Response.ContentType = "application/pdf";
-        //    Response.AppendHeader("Content-Disposition", "attachment;filename=abc.pdf");
-        //    Response.OutputStream.Write(ms.GetBuffer(), 0, ms.GetBuffer().Length);
-        //    Response.OutputStream.Flush();
-        //    Response.OutputStream.Close();
-        //    Response.End();
-        //    ms.Close();
-        //}
-        //Helper functions
+
+        public string GetCsv()
+        {
 
 
+
+            return null;
+        }
+        public Pdf Pdftemplate(int id, string email)
+        {
+            Benutzer benutzer = BenutzerVerwaltung.getBenutzer(email);
+            Rechnung r = RechnungsVerwaltung.RechnungErstellen(email);
+            Benutzer b = BenutzerVerwaltung.getBenutzer("edruckner@gmx.at");
+
+            Pdf pdf = new Logic.Pdf();
+            pdf.Zeile = "                                                                  ";
+            pdf.Absender = string.Format("AbsenderAddresse:\nVorname:{0}\nNachname:{1}\nOrt:{2}\nPlz:{3}\nUidAbsender:{4}", b.Vorname, b.Nachname, b.Firma.Stadt, b.Firma.Plz, "ATU99999999");
+            pdf.Empfänger = string.Format("EmpfängerAddresse:\nVorname:{0}\nNachname:{1}\nOrt:{2}\nPlz:{3}\nUidEmpfänger:{4}", r.Benutzer.Vorname, r.Benutzer.Nachname, r.Benutzer.Firma.Stadt, r.Benutzer.Firma.Plz, "ATU11111111");
+            pdf.Artikel = string.Format("ArtikelBeschreibung:\nBezeichung:{0}\nMenge:{1}","Mietung eines Raumes", 1);
+            pdf.Zeitraum = string.Format("Zeit der Buchung:{0}", r.Datum);
+            pdf.ZuZahlenderBetrag = string.Format("€:{0}", 300);
+            pdf.AustellungsDatum = string.Format("LieferDatum:{0}", r.Datum.AddDays(1));
+            pdf.FortlaufendeNummer = string.Format("FortlaufendeNummer:{0}", FNumber());
+            pdf.UID = string.Format("UID:{0}", Uid());
+
+
+            return pdf;
+        }
+
+
+
+
+
+    }
+    public class Pdf
+    {
+        public string Absender { get; set; }
+        public string Empfänger { get; set; }
+        public string Artikel { get; set; }
+        public string Zeitraum { get; set; }
+        public string ZuZahlenderBetrag { get; set; }
+        public string AustellungsDatum { get; set; }
+        public string FortlaufendeNummer { get; set; }
+        public string UID { get; set; }
+        public string Zeile { get; set; }
 
     }
 }

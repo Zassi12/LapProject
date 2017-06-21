@@ -18,7 +18,6 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.dll.con
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\LAP.Logic.pdb
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\AutoMapper.dll
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\Chart.Mvc.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\EntityFramework.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\log4net.dll
@@ -31,8 +30,6 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\System.Web.WebPag
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\System.Web.WebPages.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\AutoMapper.xml
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\Chart.Mvc.pdb
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\Chart.Mvc.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\EntityFramework.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Logic\bin\Debug\log4net.xml

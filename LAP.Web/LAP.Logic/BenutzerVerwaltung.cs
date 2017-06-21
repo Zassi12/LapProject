@@ -3,6 +3,7 @@ using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 
 
 
@@ -174,7 +175,10 @@ namespace LAP.Logic
             {
                 try
                 {
-                    user = context.AlleBenutzer.Where(x => x.Email == benutzer).FirstOrDefault();
+                    user = context.AlleBenutzer
+                        .Include(x => x.Firma)
+                        .Where(x => x.Email == benutzer)
+                        .FirstOrDefault();
 
                     if (user == null)
                     {

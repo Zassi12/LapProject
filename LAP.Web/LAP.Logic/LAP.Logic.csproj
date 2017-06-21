@@ -34,10 +34,6 @@
       <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Chart.Mvc, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Chart.Mvc.1.0.0.2\lib\net45\Chart.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -109,6 +105,7 @@
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="BuchungsVerwaltung.cs" />
+    <Compile Include="ChartVerwaltung.cs" />
     <Compile Include="Einrichtung.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
@@ -194,7 +191,6 @@
       <DependentUpon>ITIN20LAP.edmx</DependentUpon>
       <LastGenOutput>ITIN20LAP.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\Chart.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

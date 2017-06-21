@@ -15,7 +15,6 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\LAP.Auth.dll.confi
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\LAP.Auth.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\LAP.Auth.pdb
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\AutoMapper.dll
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\Chart.Mvc.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\LAP.Logic.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\log4net.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\Microsoft.Web.Infrastructure.dll
@@ -29,8 +28,6 @@ C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\System.Web.WebPage
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\EntityFramework.dll
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\LAP.Logic.pdb
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\AutoMapper.xml
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\Chart.Mvc.pdb
-C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\Chart.Mvc.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\log4net.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\Newtonsoft.Json.xml
 C:\Users\zalldani\Source\Repos\Lap\LAP.Web\LAP.Auth\bin\Debug\System.Web.Helpers.xml

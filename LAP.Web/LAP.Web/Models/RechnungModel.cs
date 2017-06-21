@@ -8,6 +8,7 @@ namespace LAP.Web.Models
 {
     public class RechnungModel
     {
+        public int Id { get; set; }
         public Benutzer Absender  { get; set; }
         public Benutzer Empfänger { get; set; }
         public DateTime LieferDatum { get; set; }

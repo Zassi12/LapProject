@@ -11,6 +11,9 @@ using System.Web.Security;
 using System.Security.Cryptography;
 using System.Text;
 using LAP.Web.App_Start;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace LAP.Web.Controllers
 {
@@ -114,29 +117,29 @@ namespace LAP.Web.Controllers
 
 
 
-                try
+            try
+            {
+                var profilsave = BenutzerVerwaltung.SaveProfileData(model.Email, model.Vorname, model.Nachname);
+                if (profilsave == ProfileChangeResult.Success)
                 {
-                    var profilsave = BenutzerVerwaltung.SaveProfileData(model.Email, model.Vorname, model.Nachname);
-                    if (profilsave == ProfileChangeResult.Success)
-                    {
-                        TempData["erfolg"] = "Profil erfolgreich aktualisiert!";
-                    }
-                    else
-                    {
-                        TempData["fehler"] = "Profil-Daten ungültig!";
-
-                    }
+                    TempData["erfolg"] = "Profil erfolgreich aktualisiert!";
                 }
-                catch (Exception ex)
+                else
                 {
+                    TempData["fehler"] = "Profil-Daten ungültig!";
 
-                    throw ex;
                 }
-                /// nimm die werte aus dem model (von der Oberfläche)
-                /// und übergib sie der logik zum speichern der Daten in der Datenbank
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            /// nimm die werte aus dem model (von der Oberfläche)
+            /// und übergib sie der logik zum speichern der Daten in der Datenbank
 
 
-                /// wenn speichern erfolgreich 
+            /// wenn speichern erfolgreich 
 
 
 
@@ -156,9 +159,9 @@ namespace LAP.Web.Controllers
         [Authorize]
         public ActionResult Buchen()
         {
-            List<Buchung> Buchungen = BuchungsVerwaltung.AlleBuchungenUser(BenutzerVerwaltung.getBenutzer( User.Identity.Name));
+            List<Buchung> Buchungen = BuchungsVerwaltung.AlleBuchungenUser(BenutzerVerwaltung.getBenutzer(User.Identity.Name));
             List<RaumBuchungsModel> model = new List<RaumBuchungsModel>();
-            
+
             foreach (var i in Buchungen)
             {
                 RaumBuchungsModel raum = new RaumBuchungsModel();
@@ -180,10 +183,11 @@ namespace LAP.Web.Controllers
         [Authorize]
         public ActionResult RechnungAnzeigen()
         {
-           
+
             Rechnung rechnung = RechnungsVerwaltung.RechnungErstellen(User.Identity.Name);
             RechnungModel model = new RechnungModel();
             model.Absender = new Benutzer();
+            model.Id = rechnung.Id;
             model.Absender.Vorname = rechnung.Benutzer.Vorname;
             model.Absender.Nachname = rechnung.Benutzer.Nachname;
             model.Absender.Email = rechnung.Benutzer.Email;
@@ -197,7 +201,7 @@ namespace LAP.Web.Controllers
             model.Betrag = 1;
             model.Ust = 20;
             int betrag = 300;
-            model.ZuZahlenderBetrag = string.Format("{0}{1}",betrag,"€");
+            model.ZuZahlenderBetrag = string.Format("{0}{1}", betrag, "€");
             model.UidLiefernder = "ATU99999999";
             model.UidEmpfänger = "ATU11111111";
             model.RechnungsNummer = 1;
@@ -205,5 +209,56 @@ namespace LAP.Web.Controllers
 
             return View(model);
         }
+
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult RechnungPdfAnzeigen()
+        {
+            string path = @"C:\Users\zalldani\Documents\Rechnung.pdf";
+            Tools tools = new Tools();
+            var benutzer = BenutzerVerwaltung.getBenutzer(User.Identity.Name);
+            var pdf = tools.Pdftemplate(benutzer.Id,User.Identity.Name);
+
+
+            Rechnung rechnung = RechnungsVerwaltung.RechnungErstellen(User.Identity.Name);
+            RechnungModel model = new RechnungModel();
+            FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
+            Document doc = new Document();
+            PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+            //Formatieren des PDf
+            doc.Open();
+            doc.AddTitle("Rechnung");
+            doc.Add(new Paragraph("Rechnung\n\n\n"));
+            doc.Add(new Paragraph(pdf.Zeile + pdf.Absender + "\n\n"));
+            doc.Add(new Paragraph(pdf.Zeile + pdf.Empfänger + "\n\n"));
+            doc.Add(new Paragraph(pdf.AustellungsDatum + "\n\n"));
+            doc.Add(new Paragraph(pdf.Zeile + pdf.Zeitraum + "\n\n"));
+            doc.Add(new Paragraph(pdf.Zeile + pdf.Artikel));
+            doc.Add(new Paragraph(pdf.ZuZahlenderBetrag + "\n\n"));
+            doc.Add(new Paragraph(pdf.FortlaufendeNummer + "\n\n"));
+            doc.Add(new Paragraph(pdf.UID));
+            doc.Close();
+            //Download Prompt
+            String FileName = "Rechnung.pdf";
+            String FilePath = @"C:\Users\zalldani\Documents"; //Replace this
+            System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
+            response.ClearContent();
+            response.Clear();
+            response.ContentType = "text/plain";
+            response.AddHeader("Content-Disposition", "attachment; filename=" + FileName + ";");
+            response.TransmitFile(FilePath+@"\"+FileName);
+            response.Flush();
+            response.End();
+
+            return View();
+        }
+
+        //public ActionResult GetCSV()
+        //{
+        //    string filename = "example";
+        //    string csv = MyHelper.GetCSVString();
+        //    return File(Encoding.UTF8.GetBytes(csv.ToString()), "text/csv", string.Format("{0}.csv", filename));
+        //}
     }
 }
